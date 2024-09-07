@@ -115,7 +115,6 @@
     brand: 'Toyota',
     model: 'Corolla',
     year: 2020,
-
     startEngine() {
       console.log(`${this.brand} ${this.model} engine started.`);
     },
@@ -128,4 +127,56 @@
   car.drive(80); // Output: Toyota Corolla is driving at 80 km/h.
 
   // 3. Using "this" to Reference Object Properties
+  const user = {
+    userName: 'mahmud123',
+    email: 'mahmud@example.com',
+    displayInfo() {
+      console.log(`Username: ${this.userName}, Email: ${this.email}`);
+    },
+  };
+
+  user.displayInfo(); // Output: Username: mahmud123, Email: mahmud@example.com
+
+  // 4. Functions Inside Objects (Methods) and Arrow Functions
+  const obj = {
+    value: 42,
+    regularFunc() {
+      return this.value; // `this` refers to obj
+    },
+    arrowFunc: () => {
+      return this.value; // `this` refers to the outer scope, not obj
+    },
+  };
+
+  console.log(obj.regularFunc()); // Output: 42
+  console.log(obj.arrowFunc()); // Output: undefined
+
+  // 5. Constructor Functions & Classes
+
+  // Constructor Function Example:
+  function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.greet = function () {
+      console.log(`Hello, my name is ${this.name}`);
+    };
+  }
+
+  const person1 = new Person('Mahmud', 24);
+  person1.greet(); // Output: Hello, my name is Mahmud
+
+  // ES6 Class Example:
+  class PersonCl {
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+
+    greet() {
+      console.log(`Hello, my name is ${this.name}`);
+    }
+  }
+
+  const person2 = new PersonCl('Mahmud', 24);
+  person2.greet(); // Output: Hello, my name is Mahmud
 }
