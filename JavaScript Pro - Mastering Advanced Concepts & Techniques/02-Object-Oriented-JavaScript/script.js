@@ -3,6 +3,7 @@
 //* Working with Plain Old JavaScript Objects (POJOs)
 
 // Chat GPT 👇
+// https://chatgpt.com/share/2ad5336c-4b20-42bc-ab09-96035f903119
 
 /* 
 {
@@ -93,6 +94,7 @@
 //* Mixing Data & Functions With Objects
 
 // Chat GPT 👇
+// https://chatgpt.com/share/449db814-6273-4418-a67c-0dda3cdd9fea
 
 /* 
 {
@@ -190,6 +192,7 @@
 //* Class Basics
 
 // Chat GPT 👇
+// https://chatgpt.com/share/c9a61420-91a1-438d-a56c-c143866854e4
 
 /* 
 {
@@ -269,6 +272,7 @@
 //* Constructors
 
 // Chat GPT 👇
+// https://chatgpt.com/share/7a7e48b9-8367-4bb4-813c-0ffdd73c5b0f
 
 /* 
 {
@@ -386,7 +390,9 @@
 //* Instance Methods
 
 // Chat GPT 👇
+// https://chatgpt.com/share/ab337c66-2d24-44bb-9ae3-8ec70da502c9
 
+/* 
 {
   // 1. Instance Methods in JavaScript Classes
   class CarCl {
@@ -470,4 +476,96 @@
 
   const dog = new DogCl('Buddy');
   console.log(dog.speak()); // Buddy barks
+}
+ */
+
+// Lecture Code
+{
+}
+
+//* Inheritance Basics
+
+// Chat GPT 👇
+// https://chatgpt.com/share/9709e48c-7b8a-4f4c-bdd4-29f4c0a2e2e2
+
+{
+  // NOTE: 2. Constructor Functions: Before ES6 introduced the class syntax, constructor functions were used to create objects and implement inheritance.
+
+  function Animal(name) {
+    this.name = name;
+  }
+
+  Animal.prototype.speak = function () {
+    console.log(this.name + ' makes a sound');
+  };
+
+  function Dog(name) {
+    Animal.call(this, name); // Call the parent constructor
+  }
+
+  // Inherit the prototype from Animal
+  Dog.prototype = Object.create(Animal.prototype);
+  Dog.prototype.constructor = Dog;
+
+  Dog.prototype.speak = function () {
+    console.log(this.name + ' barks');
+  };
+
+  const dog = new Dog('Buddy');
+  dog.speak(); // Buddy barks
+
+  // NOTE: 3. Object.create(): This method is a simple way to create a new object that inherits from an existing object. It's often used in prototypal inheritance.
+
+  const animal = {
+    speak() {
+      console.log(`Animal makes a sound`);
+    },
+  };
+
+  const cat = Object.create(animal);
+  cat.speak(); // Animal makes a sound
+
+  // NOTE: 4. ES6 class Syntax: In ES6, JavaScript introduced a cleaner and more familiar syntax for implementing inheritance through class. This syntax is just syntactic sugar over the existing prototype-based inheritance system.
+
+  class AnimalCl {
+    constructor(name) {
+      this.name = name;
+    }
+
+    speak() {
+      console.log(`${this.name} makes a sound`);
+    }
+  }
+
+  class DogCl extends AnimalCl {
+    constructor(name) {
+      super(name);
+    }
+
+    // Overriding the speak method
+    speak() {
+      console.log(`${this.name} barks`);
+    }
+  }
+
+  const dog2 = new DogCl('Buddy');
+  dog2.speak(); // Buddy barks
+
+  // IMPORTANT: 6. Prototype Chain: The prototype chain in JavaScript is how the inheritance mechanism works. Each object has a prototype, which is another object that serves as a template object. If a property or method is not found on the object itself, JavaScript looks up the chain of prototypes until it finds the desired property or reaches the end of the chain (null).
+
+  console.log(dog2.__proto__ === DogCl.prototype);
+  console.log(dog2.__proto__.__proto__ === AnimalCl.prototype);
+  console.log(dog2.__proto__.__proto__.__proto__ === Object.prototype);
+  console.log(dog2.__proto__.__proto__.__proto__.__proto__);
+
+  /* 
+  Summary:
+    JavaScript inheritance is based on prototypes, where objects can inherit properties and methods from other objects.
+
+    Prototypal inheritance is achieved using Object.create() or by setting up constructor functions and linking prototypes.
+
+    ES6 class syntax provides a cleaner way to work with inheritance but still uses prototypes under the hood.
+
+    Inheritance allows you to create reusable code and share behaviors between objects.
+  */
 }
