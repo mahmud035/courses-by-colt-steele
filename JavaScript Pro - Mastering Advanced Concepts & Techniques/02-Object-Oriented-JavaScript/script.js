@@ -191,6 +191,7 @@
 
 // Chat GPT 👇
 
+/* 
 {
   // Defining a Class
   class PersonCl {
@@ -259,7 +260,119 @@
   person2.age = 25; // Setter called
   console.log(person2.age); // Outputs: 25
 }
+ */
 
 // Lecture Code
 {
+}
+
+//* Constructors
+
+// Chat GPT 👇
+
+{
+  // 1. What is a Constructor?
+
+  // NOTE: A constructor is a regular function, but when called with the new keyword, it creates an instance of an object. Constructors define the properties and behavior of that object.
+
+  function Person(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  // 2. How to Use Constructors
+  const person1 = new Person('John', 25);
+  const person2 = new Person('Jane', 30);
+
+  console.log(person1.name); // John
+  console.log(person2.age); // 30
+
+  // 3. The "this" Keyword in Constructors
+  function Car(model, year) {
+    this.model = model;
+    this.year = year;
+
+    // WARNING: Don't Do This
+    this.start = function () {
+      console.log(this.model + ' is starting...');
+    };
+  }
+
+  const car1 = new Car('Toyota', 2021);
+  car1.start(); // Toyota is starting...
+
+  // 4. Using Prototypes with Constructors
+
+  // NOTE: In JavaScript, every function has a prototype object. By adding methods to the prototype, you ensure all instances created by the constructor share the same method without duplicating it for each object instance.
+
+  function Animal(type) {
+    this.type = type;
+  }
+
+  // TODO: Instead DO This
+  Animal.prototype.sound = function () {
+    console.log(this.type + ' makes a sound');
+  };
+
+  const animal1 = new Animal('Dog');
+  const animal2 = new Animal('Cat');
+
+  animal1.sound(); // Dog makes a sound
+  animal2.sound(); // Cat makes a sound
+
+  // The "sound" method is added to the Animal.prototype. It’s shared by all instances (animal1, animal2).
+
+  // 5. ES6 Classes (Modern Constructor Syntax)
+
+  // NOTE: With ES6 (ES2015), JavaScript introduced class syntax, which is a more intuitive way to define constructor functions and object behavior. However, classes are essentially syntactic sugar over the existing constructor functions.
+
+  class PersonCl {
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+
+    greet() {
+      console.log(`Hello, my name is ${this.name}`);
+    }
+  }
+
+  const person3 = new PersonCl('John', 25);
+  person3.greet(); // Hello, my name is John
+
+  // 6. Inheritance with Constructors
+
+  // NOTE: Inheritance allows one constructor to acquire properties and methods from another constructor. In ES5, inheritance is achieved using prototype and call().
+
+  function Parent(name) {
+    this.name = name;
+  }
+
+  function Child(name, age) {
+    Parent.call(this, name); // Call Parent constructor
+    this.age = age;
+  }
+
+  Child.prototype = Object.create(Parent.prototype);
+
+  const child1 = new Child('Alice', 10);
+  console.log(child1.name); // Alice
+  console.log(child1.age); // 10
+
+  // NOTE: In ES6, inheritance is simpler with the extends keyword:
+  class ParentCl {
+    constructor(name) {
+      this.name = name;
+    }
+  }
+  class ChildCl extends ParentCl {
+    constructor(name, age) {
+      super(name); // Call Parent constructor
+      this.age = age;
+    }
+  }
+
+  const child2 = new ChildCl('Alice', 10);
+  console.log(child2.name); // Alice
+  console.log(child2.age); // 10
 }
