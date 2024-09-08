@@ -645,6 +645,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/832db185-0ca2-4e30-ab42-789807d8c4b1
 
+/* 
 {
   // 1. Defining Static Properties & Static Methods
 
@@ -723,4 +724,75 @@
   }
 
   console.log(ConfigCl.API_URL); // https://api.example.com
+}
+ */
+
+// Lecture Code
+{
+}
+
+//* Static Methods
+
+// Chat GPT 👇
+// https://chatgpt.com/share/1a32e315-bb94-4fc6-b5df-dd9a04d4da60
+
+/* 
+{
+  // NOTE: Static methods in JavaScript are methods that belong to the class itself rather than to any instance (object) of the class. They are called directly on the class, without the need to create an instance of the class. These methods are defined using the "static" keyword inside a class.
+
+  // Syntax:
+  class MyClass {
+    // Static method
+    static myStaticMethod() {
+      console.log(`This is a static method`);
+    }
+
+    // Instance method
+    myInstanceMethod() {
+      console.log(`This is an instance method`);
+    }
+  }
+
+  // Calling the static method
+  MyClass.myStaticMethod(); // "This is a static method"
+
+  // Trying to call the static method on an instance (This will cause an error)
+  const myInstance = new MyClass();
+  // myInstance.myStaticMethod(); // TypeError: myInstance.myStaticMethod is not a function
+
+  // Real-World Use Cases:
+
+  // 1. Utility Functions: Static methods are often used for utility functions, such as math calculations, array manipulations, or string transformations.
+
+  class MathUtils {
+    static add(a, b) {
+      return a + b;
+    }
+  }
+
+  console.log(MathUtils.add(5, 10)); // 15
+
+  // 2. Factory Methods: You can use static methods as factory methods, which create instances of the class in a particular way.
+
+  class UserCl {
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+
+    // Static Factory Method
+    static createFromJSON(jsonString) {
+      const data = JSON.parse(jsonString);
+      return new UserCl(data.name, data.age);
+    }
+  }
+
+  const json = '{"name": "Mahmud", "age": 23}';
+  const user = UserCl.createFromJSON(json);
+  console.log(user); // UserCl { name: 'Mahmud', age: 23 }
+}
+ */
+
+// Lecture Code
+{
 }
