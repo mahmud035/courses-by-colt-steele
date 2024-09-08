@@ -635,3 +635,92 @@
   console.log(myDog.makeSound()); // Buddy makes a sound. Woof! Woof!
   console.log(myDog.breed); // Golden Retriever
 }
+
+// Lecture Code
+{
+}
+
+//* Static Properties
+
+// Chat GPT 👇
+// https://chatgpt.com/share/832db185-0ca2-4e30-ab42-789807d8c4b1
+
+{
+  // 1. Defining Static Properties & Static Methods
+
+  // NOTE: JavaScript classes support static properties and methods by prefixing them with the keyword "static". These properties and methods are called on the class itself, rather than on an instance of the class.
+
+  // IMPORTANT: Always remember that static properties &  methods are accessed via the class, not via individual objects.
+
+  class CarCl {
+    static manufacturer = 'Toyota'; // static property
+
+    constructor(model) {
+      this.model = model;
+    }
+
+    // static method
+    static getManufacturer() {
+      return CarCl.manufacturer;
+    }
+  }
+
+  const myCar = new CarCl('Corolla');
+
+  console.log(CarCl.manufacturer); // Accessing the static property, Output: "Toyota"
+  console.log(CarCl.getManufacturer()); // Output: "Toyota"
+
+  console.log(myCar.manufacturer); // Error, because static properties aren't available on instances
+
+  // 2. Practical Example: Using Static Properties in a Class
+
+  // NOTE: Let’s say you are working on an application where multiple instances of a class share the same configuration (e.g., app version):
+
+  class AppCl {
+    static version = '1.0.0'; // Shared version for all instances
+
+    constructor(name) {
+      this.name = name;
+    }
+
+    static getVersion() {
+      return `App version: ${AppCl.version}`;
+    }
+  }
+
+  const app1 = new AppCl('Calculator');
+  const app2 = new AppCl('Weather');
+
+  console.log(AppCl.version); // 1.0.0
+  console.log(AppCl.getVersion()); // "App Version: 1.0.0"
+
+  console.log(app1.version); // Error: cannot access static property via instance
+
+  // 3. Use Cases for Static Properties:
+
+  // i. Counters: You can use a static property to keep track of the number of instances of a class that have been created:
+  class CounterCl {
+    static count = 0;
+
+    constructor() {
+      CounterCl.count++;
+    }
+
+    static getCount() {
+      return CounterCl.count;
+    }
+  }
+
+  const instance1 = new CounterCl();
+  const instance2 = new CounterCl();
+  console.log(CounterCl.getCount()); // Output: 2
+
+  // In this case, every time a new Counter object is created, the static property count increases, and it can be accessed without needing an instance.
+
+  // ii. Constants: Static properties are perfect for defining constants or configuration data for your class.
+  class ConfigCl {
+    static API_URL = 'https://api.example.com';
+  }
+
+  console.log(ConfigCl.API_URL); // https://api.example.com
+}
