@@ -488,6 +488,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/9709e48c-7b8a-4f4c-bdd4-29f4c0a2e2e2
 
+/* 
 {
   // NOTE: 2. Constructor Functions: Before ES6 introduced the class syntax, constructor functions were used to create objects and implement inheritance.
 
@@ -558,14 +559,79 @@
   console.log(dog2.__proto__.__proto__.__proto__ === Object.prototype);
   console.log(dog2.__proto__.__proto__.__proto__.__proto__);
 
-  /* 
-  Summary:
-    JavaScript inheritance is based on prototypes, where objects can inherit properties and methods from other objects.
+  // Summary:
+  //   JavaScript inheritance is based on prototypes, where objects can inherit properties and methods from other objects.
 
-    Prototypal inheritance is achieved using Object.create() or by setting up constructor functions and linking prototypes.
+  //   Prototypal inheritance is achieved using Object.create() or by setting up constructor functions and linking prototypes.
 
-    ES6 class syntax provides a cleaner way to work with inheritance but still uses prototypes under the hood.
+  //   ES6 class syntax provides a cleaner way to work with inheritance but still uses prototypes under the hood.
 
-    Inheritance allows you to create reusable code and share behaviors between objects.
-  */
+  //   Inheritance allows you to create reusable code and share behaviors between objects.
+}
+ */
+
+// Lecture Code
+{
+}
+
+//* The Super Keyword
+
+// Chat GPT 👇
+// https://chatgpt.com/share/4919c193-ca3a-4710-9369-7e9cb59f69d4
+
+{
+  // ================================
+  // NOTE: The "super" keyword in JavaScript is used in classes to refer to the parent class. It’s primarily used in two ways:
+
+  //* 1. Calling the constructor of the parent class.
+  //* 2. Accessing methods or properties of the parent class.
+
+  // The super keyword is essential when working with inheritance in ES6 classes, where one class extends another.
+  // ================================
+
+  // 1. Using "super" to Call the Parent Class Constructor
+  class ParentCl {
+    constructor(name) {
+      this.name = name;
+    }
+  }
+
+  class ChildCl extends ParentCl {
+    constructor(name, age) {
+      // Call the constructor of ParentCl class with super
+      super(name);
+      this.age = age;
+    }
+  }
+
+  const child = new ChildCl('Mahmud', 23);
+  console.log(child.name); // Mahmud
+  console.log(child.age); // 23
+
+  // NOTE: Example of a Complete Scenario
+  class AnimalCl {
+    constructor(name) {
+      this.name = name;
+    }
+
+    makeSound() {
+      return `${this.name} makes a sound.`;
+    }
+  }
+
+  class DogCl extends AnimalCl {
+    constructor(name, breed) {
+      super(name); // Calls the AnimalCl constructor
+      this.breed = breed;
+    }
+
+    makeSound() {
+      // Overrides the makeSound method of AnimalCl
+      return `${super.makeSound()} Woof! Woof!`; // Calls parent method
+    }
+  }
+
+  const myDog = new DogCl('Buddy', 'Golden Retriever');
+  console.log(myDog.makeSound()); // Buddy makes a sound. Woof! Woof!
+  console.log(myDog.breed); // Golden Retriever
 }
