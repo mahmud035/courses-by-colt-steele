@@ -1,6 +1,6 @@
 'use strict';
 
-// Working with Plain Old JavaScript Objects (POJOs)
+//* Working with Plain Old JavaScript Objects (POJOs)
 
 // Chat GPT 👇
 
@@ -90,10 +90,11 @@
 {
 }
 
-// Mixing Data & Functions With Objects
+//* Mixing Data & Functions With Objects
 
 // Chat GPT 👇
 
+/* 
 {
   // 1. Objects in JavaScript
   const person = {
@@ -179,4 +180,86 @@
 
   const person2 = new PersonCl('Mahmud', 24);
   person2.greet(); // Output: Hello, my name is Mahmud
+}
+ */
+
+// Lecture Code
+{
+}
+
+//* Class Basics
+
+// Chat GPT 👇
+
+{
+  // Defining a Class
+  class PersonCl {
+    // Constructor function to initialize properties
+    constructor(name, age) {
+      this.name = name; // Instance property
+      this.age = age; // Instance property
+    }
+
+    // Instance method
+    greet() {
+      console.log(`Hello, my name is ${this.name}`);
+    }
+
+    // Static method
+    static info() {
+      console.log(`This is a static method`);
+    }
+  }
+
+  // Creating an Instance of a Class
+  const person1 = new PersonCl('Mahmud', 22);
+  person1.greet();
+
+  PersonCl.info();
+
+  // Inheritance: Extending Classes
+  class StudentCl extends PersonCl {
+    constructor(name, age, grade) {
+      // Call the parent class constructor with super()
+      super(name, age);
+      this.grade = grade;
+    }
+
+    // Overriding greet method
+    greet() {
+      console.log(`Hi, I'm ${this.name}, a grade ${this.grade} student.`);
+    }
+  }
+
+  const student1 = new StudentCl('Mahmud', 22, 'A');
+  student1.greet();
+
+  // Getters and Setters
+  class PersonCl2 {
+    constructor(name, age) {
+      this._name = name;
+      this._age = age;
+    }
+
+    // Getter method
+    get age() {
+      return this._age;
+    }
+
+    // Setter method
+    set age(value) {
+      if (value > 0) this._age = value;
+      else console.log(`Age must be a positive number`);
+    }
+  }
+
+  const person2 = new PersonCl2('Mahmud', 22);
+  console.log(person2.age); // Getter called, Outputs: 22
+
+  person2.age = 25; // Setter called
+  console.log(person2.age); // Outputs: 25
+}
+
+// Lecture Code
+{
 }
