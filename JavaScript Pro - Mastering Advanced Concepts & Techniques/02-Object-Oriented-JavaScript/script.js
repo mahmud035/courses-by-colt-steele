@@ -270,6 +270,7 @@
 
 // Chat GPT 👇
 
+/* 
 {
   // 1. What is a Constructor?
 
@@ -359,7 +360,7 @@
   console.log(child1.name); // Alice
   console.log(child1.age); // 10
 
-  // NOTE: In ES6, inheritance is simpler with the extends keyword:
+  // NOTE: In ES6, inheritance is simpler with the "extends" keyword:
   class ParentCl {
     constructor(name) {
       this.name = name;
@@ -375,4 +376,98 @@
   const child2 = new ChildCl('Alice', 10);
   console.log(child2.name); // Alice
   console.log(child2.age); // 10
+}
+ */
+
+// Lecture Code
+{
+}
+
+//* Instance Methods
+
+// Chat GPT 👇
+
+{
+  // 1. Instance Methods in JavaScript Classes
+  class CarCl {
+    constructor(make, model, year) {
+      // Constructor sets properties for each instance
+      this.make = make;
+      this.model = model;
+      this.year = year;
+    }
+
+    // Instance method that can access the properties of an instance
+    getCarInfo() {
+      return `${this.year} ${this.make} ${this.model}`;
+    }
+
+    // Another instance method
+    startEngine() {
+      return `${this.make} ${this.model} engine started`;
+    }
+  }
+
+  // Creating an instance of the CarCl class
+  const myCar = new CarCl('Toyota', 'Corolla', 2020);
+
+  // Calling instance methods on the object (myCar)
+  console.log(myCar.getCarInfo()); // 2020 Toyota Corolla
+  console.log(myCar.startEngine()); // Toyota Corolla engine started.
+
+  // 2. Characteristics of Instance Methods
+  const anotherCar = new CarCl('Honda', 'Civic', 2022);
+  console.log(anotherCar.getCarInfo()); // 2022 Honda Civic
+
+  // 3. Instance Methods vs Static Methods
+  class MathHelper {
+    // Static method belongs to the class, not instances
+    static square(number) {
+      return number * number;
+    }
+  }
+
+  console.log(MathHelper.square(5)); // 25
+
+  // 4. Instance Methods in Object Literals
+
+  // NOTE: Even without using classes, you can create instance methods within object literals.
+
+  const person = {
+    firstName: 'Mahmud',
+    lastName: 'Hasan',
+
+    // Instance method in an object literal
+    getFullName() {
+      return `${this.firstName} ${this.lastName}`;
+    },
+  };
+
+  // Call the instance method
+  console.log(person.getFullName()); // Mahmud Hasan
+
+  // 5. Inheritance and Instance Methods
+  class AnimalCl {
+    constructor(name) {
+      this.name = name;
+    }
+
+    // Instance method
+    speak() {
+      return `${this.name} make a sound`;
+    }
+  }
+  class DogCl extends AnimalCl {
+    constructor(name) {
+      super(name);
+    }
+
+    // Overriding the speak method
+    speak() {
+      return `${this.name} barks`;
+    }
+  }
+
+  const dog = new DogCl('Buddy');
+  console.log(dog.speak()); // Buddy barks
 }
