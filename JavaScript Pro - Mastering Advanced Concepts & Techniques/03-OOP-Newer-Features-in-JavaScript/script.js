@@ -5,6 +5,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/4467b597-8c70-428d-9aed-7a7abf66ddfa
 
+/* 
 {
   // 1. Defining a Getter
 
@@ -71,8 +72,54 @@
   user.fullName = 'Ahmed Khan';
   console.log(user.fullName); // Ahmed Khan
 }
+ */
 
 // Lecture Code
 
 {
 }
+
+//* Setters
+
+// Chat GPT 👇
+// https://chatgpt.com/share/75634718-4bba-47a2-9380-45d8d41d1072
+
+/* 
+{
+  const person = {
+    firstName: 'Mahmud',
+    lastName: 'Hasan',
+
+    set fullName(name) {
+      const [first, last] = name.split(' ');
+      this.firstName = first;
+      this.lastName = last;
+    },
+  };
+
+  person.fullName = 'Ahmed Hossain'; // This will trigger the setter
+
+  console.log(person.firstName); // "Ahmed"
+  console.log(person.lastName); // "Hossain"
+
+  // Use Cases of Setters
+
+  // 1. Validation: Setters are useful when you want to validate the value being assigned to a property. For example, you can ensure that only numbers are assigned to an age property.
+
+  const person2 = {
+    _age: 25,
+
+    get age() {
+      return this._age;
+    },
+
+    set age(value) {
+      if (typeof value === 'number' && value > 0) this._age = value;
+      else console.log('Please enter a valid age');
+    },
+  };
+
+  person2.age = 30; // valid
+  person2.age = -5; // invalid
+}
+ */
