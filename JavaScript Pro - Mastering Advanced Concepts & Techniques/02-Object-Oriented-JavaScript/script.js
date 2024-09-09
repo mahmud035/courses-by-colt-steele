@@ -579,6 +579,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/4919c193-ca3a-4710-9369-7e9cb59f69d4
 
+/* 
 {
   // ================================
   // NOTE: The "super" keyword in JavaScript is used in classes to refer to the parent class. It’s primarily used in two ways:
@@ -635,6 +636,7 @@
   console.log(myDog.makeSound()); // Buddy makes a sound. Woof! Woof!
   console.log(myDog.breed); // Golden Retriever
 }
+ */
 
 // Lecture Code
 {
@@ -795,4 +797,52 @@
 
 // Lecture Code
 {
+}
+
+//* Use Cases For Static Methods
+
+// Chat GPT 👇
+// https://chatgpt.com/share/0f31a8e5-88a1-4508-a9ee-7ce716308326
+
+{
+  // 1. Utility Functions and Helper Methods
+
+  // NOTE: Static methods are often used to define utility or helper functions that don't depend on the state of an instance. These are typically functions that perform general operations relevant to the class but don't require any instance-specific data.
+  class MathUtils {
+    static add(a, b) {
+      return a + b;
+    }
+
+    static subtract(a, b) {
+      return a - b;
+    }
+  }
+
+  // Usage
+  console.log(MathUtils.add(5, 3)); // 8
+  console.log(MathUtils.subtract(10, 7)); // 3
+
+  // 2. Factory Methods
+
+  // NOTE: A common design pattern in object-oriented programming is the Factory Method pattern, "where static methods are used to create and return instances of a class". This allows the creation logic to be encapsulated in one place.
+  class Car {
+    constructor(brand, model) {
+      this.brand = brand;
+      this.model = model;
+    }
+
+    static createTesla(model) {
+      return new Car('Tesla', model);
+    }
+
+    static createBMW(model) {
+      return new Car('BMW', model);
+    }
+  }
+
+  const myTesla = Car.createTesla('Model X');
+  const myBMW = Car.createBMW('XS');
+
+  console.log(myTesla); // Car { brand: 'Tesla', model: 'Model X' }
+  console.log(myBMW); // Car { brand: 'BMW', model: 'X5' }
 }
