@@ -507,6 +507,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/da4b07a9-fc53-470b-acfc-77f9856704d8
 
+/* 
 {
   // ==============================================
   // IMPORTANT: Key Points:
@@ -543,4 +544,96 @@
   button2.addEventListener('click', obj2.greet.bind(obj2, 'Hello')); // Passing argument!
 
   // In this case, the event listener will always greet with the word "Hello", even though it’s attached to the button. So when you click the button, it will log: "Hello, Mahmud".
+}
+ */
+
+//* Bind With Timers
+
+// Chat GPT 👇
+// https://chatgpt.com/share/5dc6f9d1-51af-4991-8c2e-9f83f1dddeae
+
+{
+  // ==============================================
+  // IMPORTANT: Key Points:
+
+  // 1. "this" Behavior: When using timers, "this" does not automatically refer to the object that owns the method. Instead, it defaults to the global object ("window" in browsers) or "undefined" in strict mode.
+
+  // 2. "bind()" Solution: The "bind()" method is used to explicitly set the value of "this", ensuring that the function runs in the correct context.
+
+  // 3. Common Use: "bind()" is especially helpful when passing methods as callbacks or arguments to functions like "setTimeout()" or "setInterval()".
+
+  // ==============================================
+
+  {
+    // Basic Example of bind():
+    const person = {
+      name: 'Alice',
+      greet() {
+        console.log(`Hello, my name is ${this.name}`);
+      },
+    };
+
+    const greetFn = person.greet;
+    // greetFn(); // 🔴 Undefined, since `this` is not bound to `person`
+
+    // Here, calling greetFn() does not work as expected because "this" loses its reference to the "person" object when the method is stored in a variable.
+
+    // ✅ However, using "bind()" ensures that "this" always refers to the "person" object:
+    const boundGreetFn = person.greet.bind(person);
+    boundGreetFn(); // "Hello, my name is Alice"
+  }
+
+  {
+    // Bind with "setTimeout":
+    const person = {
+      name: 'Alice',
+      greet() {
+        console.log(`My name is ${this.name}`);
+      },
+    };
+
+    // 🔴 Without `bind()`, `this` is undefined in the `greet` method
+    setTimeout(person.greet, 1000); // "My name is undefined"
+
+    //✅ With `bind()`, `this` is bound to `person`
+    setTimeout(person.greet.bind(person), 1000); // "My name is Alice"
+
+    // In the first "setTimeout", the function loses its context when passed to the timer. The second "setTimeout" ensures the "greet" function is called with the correct "this" (which is bound to person).
+  }
+
+  {
+    // Bind with "setInterval":
+    const counter = {
+      count: 0,
+      increment() {
+        this.count++;
+        console.log(this.count);
+      },
+    };
+
+    // 🔴 Without `bind()`, `this` is undefined
+    // setInterval(counter.increment, 1000); // NaN (since `this.count` is undefined)
+
+    // ✅ With `bind()`, `this` refers to `counter`
+    // setInterval(counter.increment.bind(counter), 1000); // Output: 1, 2, 3, 4, ...
+  }
+
+  {
+    // Alternative Solutions:
+
+    // NOTE: Arrow Functions: Arrow functions don’t have their own this and inherit it from the enclosing scope, which can also solve the problem.
+
+    const person = {
+      name: 'Alice',
+      greet() {
+        setTimeout(() => {
+          console.log(`My name is ${this.name}`);
+        }, 1000);
+      },
+    };
+
+    person.greet(); // My name is Alice
+
+    // In this case, the arrow function inherits the "this" value from its enclosing context ("greet"), so there's no need for "bind()".
+  }
 }
