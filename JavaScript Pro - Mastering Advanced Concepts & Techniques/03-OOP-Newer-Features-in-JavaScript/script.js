@@ -134,6 +134,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/b245b1a4-51ae-4ee0-9cee-971baf9f893c
 
+/* 
 {
   // Syntax for Public Fields
 
@@ -181,4 +182,78 @@
 
   console.log(lion.type); // Mammal
   lion.describe(); // Lion is a Mammal
+}
+ */
+
+// Lecture Code
+
+{
+}
+
+//* Private Fields
+
+// Chat GPT 👇
+// https://chatgpt.com/share/9402c94b-44ed-4e34-8691-8f78013e4fe7
+
+{
+  // Key Points about Private Fields:
+
+  // NOTE: Declaration Syntax:
+  // i. A private field is declared with a # before the field name inside the class.
+  // ii. You cannot access or modify the private fields outside of a class.
+
+  class Example {
+    #privateField; // Private field declaration
+
+    constructor(value) {
+      this.#privateField = value; // Accessing the private field inside the class
+    }
+
+    getPrivateField() {
+      return this.#privateField;
+    }
+  }
+
+  const obj = new Example(42);
+
+  console.log(obj.getPrivateField()); // 42
+  // console.log(obj.#privateField);
+
+  // SyntaxError: Private field '#privateField' must be declared in an enclosing class
+
+  // NOTE: Private Fields vs Public Fields:
+  // i. Public fields can be accessed and modified anywhere.
+  // ii. Private fields can only be accessed and modified within the class where they are declared.
+
+  class Animal {
+    #privateAge = 5; // Private field
+    publicName = 'Lion'; // Public field
+
+    getAge() {
+      return this.#privateAge;
+    }
+  }
+
+  const lion = new Animal();
+  console.log(lion.publicName); // "Lion"
+  console.log(lion.getAge()); // 5
+  // console.log(lion.#privateAge); // SyntaxError
+
+  // NOTE: Static Private Fields: You can also define static private fields, which are associated with the class itself rather than instances of the class. "They can only be accessed within static methods of the class."
+
+  class Counter {
+    static #count = 0; // Static private field
+
+    static increment() {
+      this.#count++;
+    }
+
+    static getCount() {
+      return this.#count;
+    }
+  }
+
+  Counter.increment();
+  console.log(Counter.getCount()); // 1
+  // console.log(Counter.#count); // SyntaxError: Private field '#count' must be declared in an enclosing class
 }
