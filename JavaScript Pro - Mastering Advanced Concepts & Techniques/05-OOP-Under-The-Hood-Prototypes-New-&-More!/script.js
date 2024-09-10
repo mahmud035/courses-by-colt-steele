@@ -198,6 +198,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/a0bbf582-0299-4411-a5af-8c4daefb5ea6
 
+/* 
 {
   // NOTE: In JavaScript, the `new` keyword is used to create instances of objects. When used with a constructor function or a class, it enables the creation of an object with predefined properties and methods.
 
@@ -259,5 +260,140 @@
     const car1 = new Car('Honda', 'Civic');
 
     console.log(car1.displayInfo()); // Car: Honda Civic
+  }
+}
+ */
+
+//* Prototypes: Part 1
+
+// Chat GPT 👇
+// https://chatgpt.com/share/b94882d5-dfce-4394-8fc0-c929bcf572b6
+
+{
+  // ==============================================
+  // IMPORTANT: Key Takeaways:
+
+  // 1. Every JavaScript object has a `prototype`, which is an object it inherits from.
+
+  // 2. Prototypes allow objects to share methods and properties efficiently.
+
+  // 3. JavaScript looks up properties along the prototype chain when they are not found directly on the object.
+
+  // 4. `prototype` is a property of constructor functions, while `__proto__` is the internal link between an object and its prototype.
+
+  // ==============================================
+
+  {
+    // NOTE: Prototype Property
+    // Every JavaScript object has an internal property called `[[Prototype]]` (sometimes referred to as` __proto__`, though this is not standardized but supported in most browsers). This `[[Prototype]]` property points to another object, which is called its prototype.
+    // The prototype itself is also an object and may have its own `[[Prototype]]`, creating a chain known as the prototype chain.
+  }
+
+  {
+    // NOTE: Prototype Chain
+    // The prototype chain is a series of linked objects. When you attempt to access a property or method on an object, JavaScript first looks for the property on the object itself. If it doesn't find the property there, it looks at the object's prototype. If it doesn't find it there, it keeps going up the chain until it either finds the property or reaches the end of the chain (i.e., the top-level `Object.prototype`).
+
+    // Example of Prototype Chain:
+
+    const animal = { eats: true };
+    const rabbit = { jumps: true };
+
+    // Set prototype of rabbit to animal
+    rabbit.__proto__ = animal;
+
+    console.log(rabbit.jumps); // true (from rabbit)
+    console.log(rabbit.eats); // true (inherited from animal)
+
+    // In this example:
+
+    // `rabbit` inherits properties from `animal` via the prototype chain.
+    // If we try to access `eats` on `rabbit`, JavaScript doesn’t find it on `rabbit` itself but finds it on `animal`.
+  }
+
+  {
+    // NOTE: Constructor Functions and Prototypes
+    // In JavaScript, constructor functions are used to create objects. By default, every function in JavaScript has a `prototype` property, which is an object containing a `constructor` property that points back to the function itself. You can add properties and methods to the function's `prototype` property, which will be shared across all instances created by that constructor.
+
+    // Example:
+    function Person(name) {
+      this.name = name;
+    }
+
+    Person.prototype.greet = function () {
+      console.log('My name is ' + this.name);
+    };
+
+    const john = new Person('John');
+    const jane = new Person('Jane');
+
+    john.greet(); // My name is John
+    jane.greet(); // My name is Jane
+
+    // Here:
+
+    // `Person` is a constructor function.
+    // Both `john` and `jane` objects have access to the `greet` method because it is defined on `Person.prototype`.
+    // Each instance created by `new Person()` shares the same `greet` function, so it doesn’t get recreated for each object.
+  }
+
+  {
+    // NOTE: Modifying Prototypes
+    // You can dynamically modify prototypes, meaning you can add methods to a constructor’s prototype even after objects have been created.
+
+    // Example:
+    function Car(model) {
+      this.model = model;
+    }
+
+    const myCar = new Car('Toyota');
+
+    // Adding a method to the prototype
+    Car.prototype.drive = function () {
+      console.log(this.model + ' is driving!');
+    };
+
+    myCar.drive(); // Toyota is driving!
+  }
+
+  {
+    // NOTE: Prototype vs __proto__ vs prototype
+    //
+    // `__proto__`: This is the actual property that exists on each object, pointing to its prototype. It’s often used to manually set or access the prototype of an object, though it’s better to use `Object.getPrototypeOf()` and `Object.setPrototypeOf()`.
+    //
+    // `prototype`: This is a property that only exists on constructor functions (e.g., `Person.prototype`). It’s the object that will be used as the prototype for all instances created by the constructor.
+    //
+    // Prototype Chain: This is the chain of objects connected via the `[[Prototype]]` property. When a property or method is accessed, JavaScript will traverse the prototype chain to find it.
+  }
+
+  {
+    // NOTE: ES6 Classes and Prototypes
+    // In ES6 (ECMAScript 2015), the concept of classes was introduced. Although classes provide a cleaner and more familiar syntax for developers coming from other object-oriented languages, they still use prototypes under the hood.
+
+    // Example with Class:
+    class Animal {
+      constructor(name) {
+        this.name = name;
+      }
+
+      speak() {
+        console.log(this.name + ' makes a noise.');
+      }
+    }
+
+    class Dog extends Animal {
+      constructor(name) {
+        super(name);
+      }
+
+      // Overriding method
+      speak() {
+        console.log(this.name + ' barks.');
+      }
+    }
+
+    const dog = new Dog('Rex');
+    dog.speak(); // Rex barks
+
+    // Despite the class syntax, the inheritance mechanism still works through prototypes. The `Dog` class extends `Animal`, and both classes' methods are stored on their respective prototypes.
   }
 }
