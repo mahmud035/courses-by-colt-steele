@@ -272,6 +272,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/8e3aab39-fe22-4e94-98d3-c6f92f9a58d5
 
+/* 
 {
   // NOTE: Syntax:
   //       ==>   functionName.apply(thisArg, [argsArray])
@@ -350,5 +351,93 @@
     introduce.call(null, 'Ali', 30); // call() takes arguments individually
 
     introduce.apply(null, ['Ali', 30]); // apply() takes arguments as an array
+  }
+}
+ */
+
+//* The Bind Method
+
+// Chat GPT 👇
+// https://chatgpt.com/share/fe61e7a8-a91e-4c32-a7e9-53bbbc0820bf
+
+{
+  // NOTE: Sometimes, you need to explicitly set the value of "this" inside a function, no matter where or how the function is called. This is where the bind() method becomes useful.
+
+  // ==============================================
+  // IMPORTANT: bind(), call(), and apply()
+
+  // bind(): Returns a new function with the specified "this" context.
+
+  // call(): Calls a function with a specific "this" value and arguments, but does not return a new function.
+
+  // apply(): Similar to call(), but accepts an array of arguments.
+  // ==============================================
+
+  {
+    // Example 1: Simple use of bind()
+
+    const person = {
+      firstName: 'John',
+      lastName: 'Doe',
+      fullName: function () {
+        return this.firstName + ' ' + this.lastName;
+      },
+    };
+
+    const anotherPerson = {
+      firstName: 'Jane',
+      lastName: 'Smith',
+    };
+
+    const boundFullName = person.fullName.bind(anotherPerson);
+    console.log(boundFullName()); // "Jane Smith"
+
+    // In this example, we use bind() to make sure that the this inside person.fullName always refers to anotherPerson. Even though person.fullName() belongs to person, the bind() method forces it to use anotherPerson as the context.
+  }
+
+  {
+    // Example 2: Pre-setting Arguments
+
+    function multiply(a, b) {
+      return a * b;
+    }
+
+    const double = multiply.bind(null, 2); // Preset the first argument to 2
+    console.log(double(5)); // 10
+    console.log(double(10)); // 20
+
+    // Here, we create a new function double by binding multiply and setting a = 2. When we call double(5), it behaves as if we're calling multiply(2, 5).
+  }
+
+  {
+    // Example 3: Using bind() in Event Handlers
+
+    const button = document.querySelector('button');
+
+    const user = {
+      name: 'Mahmud',
+      showName() {
+        console.log(this.name);
+      },
+    };
+
+    button.addEventListener('click', user.showName.bind(user)); // Ensures 'this' refers to the 'user' object
+
+    // In this example, without using bind(), this inside showName would refer to the button element, because it is the element that triggered the event. By using bind(user), we ensure that this always refers to the user object.
+  }
+
+  {
+    //* bind(), call(), and apply()
+
+    function greet(greeting, punctuation) {
+      console.log(greeting + ' ' + this.name + punctuation);
+    }
+
+    const person = { name: 'Mahmud' };
+
+    greet.call(person, 'Hello', '!'); // "Hello Mahmud!"
+    greet.apply(person, ['Hi', '.']); // "Hi Mahmud."
+    const boundGreet = greet.bind(person, 'Salam', '?');
+    boundGreet(); // "Salam Mahmud?"
   }
 }
