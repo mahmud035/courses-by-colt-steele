@@ -270,6 +270,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/e5f077b4-6886-494b-ac2a-2711c36c1429
 
+/* 
 {
   // ==============================================
   // IMPORTANT: Key Points:
@@ -360,4 +361,76 @@
   // myCar.#checkEngine(); // 🔴 SyntaxError
 
   // Here, both #engineStatus (a private property) and #checkEngine (a private method) are encapsulated within the class and cannot be accessed directly from outside.
+}
+ */
+
+// Lecture Code
+
+{
+}
+
+//* ES2022 Static Initialization Blocks
+
+// Chat GPT 👇
+// https://chatgpt.com/share/210dc819-f9d4-4aed-a1f9-3a0a0b6bb4bb
+
+{
+  // NOTE: The Static Initialization Blocks is defined using the "static" keyword, followed by curly braces {}. Any code inside this block will run once, when the class is first loaded.
+
+  // ==============================================
+  // IMPORTANT: Key Points to Remember:
+  // 1. Static initialization blocks are executed only once when the class is initialized.
+
+  // 2. You can reference "this" inside the block, which points to the class constructor.
+
+  // 3. Static blocks can be used to initialize static fields, perform setup logic, or validate configurations.
+
+  // 4. Multiple static blocks are allowed, and they execute in the order they appear.
+  // ==============================================
+
+  class MyClass {
+    static field1 = 42;
+    static field2;
+
+    // Static initialization block
+    static {
+      this.field2 = this.field1 * 2; // Field2 initialized using logic
+      console.log('Static block executed');
+    }
+  }
+
+  // Example 1: Basic Initialization
+  class Config {
+    static baseUrl;
+    static env;
+
+    // static {
+    //   if (process.env.NODE_ENV === 'production') {
+    //     this.baseUrl = 'https://api.example.com';
+    //     this.env = 'production';
+    //   } else {
+    //     this.baseUrl = 'http://localhost:3000';
+    //     this.env = 'development';
+    //   }
+    // }
+  }
+
+  console.log(Config.baseUrl); // Output depends on NODE_ENV
+
+  // Example 2: Multiple Static Blocks
+  class Counter {
+    static count = 0;
+
+    static {
+      console.log('First block');
+      this.count += 1;
+    }
+
+    static {
+      console.log('Second block');
+      this.count += 2;
+    }
+  }
+
+  console.log(Counter.count); // 3
 }
