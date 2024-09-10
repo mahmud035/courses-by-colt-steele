@@ -123,3 +123,62 @@
   person2.age = -5; // invalid
 }
  */
+
+// Lecture Code
+
+{
+}
+
+//* Public Fields
+
+// Chat GPT 👇
+// https://chatgpt.com/share/b245b1a4-51ae-4ee0-9cee-971baf9f893c
+
+{
+  // Syntax for Public Fields
+
+  // NOTE: Public fields are declared directly inside the class body. These fields are publicly accessible and can be initialized with or without default values.
+
+  // Example 1: Class with Public Fields
+  class User {
+    // Public field (accessible from outside the class)
+    name = 'John Doe';
+
+    constructor(age) {
+      this.age = age;
+    }
+
+    // Public method
+    greet() {
+      console.log(
+        `Hello, my name is ${this.name} and I am ${this.age} years old`
+      );
+    }
+  }
+
+  const user = new User(25);
+
+  console.log(user.name); // John Doe
+  console.log(user.age); // 25
+  user.greet(); // Hello, my name is John Doe and I am 25 years old.
+
+  // Example 2: Class with Public Fields
+  class Animal {
+    // Public field
+    type = 'Mammal';
+
+    constructor(name) {
+      this.name = name;
+    }
+
+    // Public method
+    describe() {
+      console.log(`${this.name} is a ${this.type}`);
+    }
+  }
+
+  const lion = new Animal('Lion');
+
+  console.log(lion.type); // Mammal
+  lion.describe(); // Lion is a Mammal
+}
