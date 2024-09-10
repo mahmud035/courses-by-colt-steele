@@ -181,9 +181,10 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/895772d6-c42f-4480-962f-280854e1251d
 
+/* 
 {
   // NOTE: Syntax:
-  //             functionName.call(thisArg, arg1, arg2, ...)
+  //       ==>   functionName.call(thisArg, arg1, arg2, ...)
 
   // where,
   // functionName: The function you want to call / invoke.
@@ -262,5 +263,92 @@
     // Output: Hello, my name is Charlie. I am 25 years old and I live in New York.
 
     // In this example, the "introduce" function is invoked with "person" as its "this" value and also with two arguments ("age" and "city"). The call() method passes these arguments in a comma-separated list after the "thisArg".
+  }
+}
+ */
+
+//* The Apply Method
+
+// Chat GPT 👇
+// https://chatgpt.com/share/8e3aab39-fe22-4e94-98d3-c6f92f9a58d5
+
+{
+  // NOTE: Syntax:
+  //       ==>   functionName.apply(thisArg, [argsArray])
+
+  // where,
+  // functionName: The function you want to call / invoke.
+
+  // thisArg: This refers to the value you want to set as "this" inside the function you're calling. It determines the context in which the function will execute. You can pass any object here, or even null or undefined (in strict mode, null/undefined will be passed as it is; in non-strict mode, they'll default to the global object, such as window in browsers).
+
+  // argsArray: This is an array or array-like object that contains the arguments you want to pass to the function when it's called. If no arguments are required, you can pass an empty array or null.
+
+  // ==============================================
+  // IMPORTANT: Why Use apply() Instead of Direct Function Calls?
+  // 1. Dynamic Arguments: If you have arguments in an array or array-like structure, "apply()" allows you to pass them all at once, without needing to explicitly unpack them.
+
+  // 2. Changing Context ("this"): It allows you to run a function in the context of any object by setting a different "this" value.
+
+  // 3. Borrowing Methods: You can use it to borrow methods from one object and apply them to another, which can be useful for code reuse.
+  // ==============================================
+
+  {
+    // Example 1: Basic Usage
+    function greet(name, age) {
+      console.log(`Hello, my name is ${name} and Iam ${age} years old`);
+    }
+
+    greet.apply(null, ['Mahmud', 25]); // Hello, my name is Mahmud and I am 25 years old.
+
+    // Explanation:
+
+    // The greet function takes two arguments: name and age.
+    // The apply() method allows you to call greet and pass null for thisArg (since this isn't needed here), and an array ["Mahmud", 25] for the arguments.
+  }
+
+  {
+    // Example 2: Using apply() to Borrow Methods
+
+    // You can use apply() to "borrow" methods from one object and apply them to another.
+
+    const person1 = {
+      fullName() {
+        return this.firstName + ' ' + this.lastName;
+      },
+    };
+
+    const person2 = {
+      firstName: 'John',
+      lastName: 'Doe',
+    };
+
+    console.log(person1.fullName.apply(person2)); // John Doe
+
+    // Explanation:
+
+    // Here, "person1" has a method "fullName".
+    // "apply()" is used to call "person1.fullName()" with "person2" as the "this" context.
+    // As a result, it outputs the full name based on person2's properties.
+  }
+
+  {
+    // Example 3: Using apply() with Math Functions
+
+    const numbers = [5, 6, 2, 3, 7];
+
+    const maxNumber = Math.max.apply(null, numbers);
+    console.log(maxNumber);
+  }
+
+  {
+    // Difference Between apply() and call()
+
+    function introduce(name, age) {
+      console.log(`Hello, I'm ${name} and I'm ${age} years old.`);
+    }
+
+    introduce.call(null, 'Ali', 30); // call() takes arguments individually
+
+    introduce.apply(null, ['Ali', 30]); // apply() takes arguments as an array
   }
 }
