@@ -5,6 +5,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/9728e8ab-4e16-4f4e-b7fd-c1e0419b2f75
 
+/* 
 {
   // ==============================================
   // IMPORTANT: Key Points To Remember: 👇
@@ -131,4 +132,28 @@
 
   const john = new PersonCl('John');
   john.greet(); // 'John'
+}
+ */
+
+// Lecture Code
+
+{
+}
+
+//* The Mystery of The Keyword "this"
+
+// Chat GPT 👇
+// https://chatgpt.com/share/9728e8ab-4e16-4f4e-b7fd-c1e0419b2f75
+
+{
+  // See Above Code 👆
+}
+
+//* Global Objects and "this"
+
+// Chat GPT 👇
+// https://chatgpt.com/share/43a12d25-c84e-4398-9d3c-1a5fe3f3880f
+
+{
+  // See Above Code 👆
 }
