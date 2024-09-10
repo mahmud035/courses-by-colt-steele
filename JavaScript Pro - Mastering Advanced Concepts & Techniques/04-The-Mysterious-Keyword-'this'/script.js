@@ -157,3 +157,12 @@
 {
   // See Above Code 👆
 }
+
+//* The "Left Of The Dot" Rule
+
+// Chat GPT 👇
+// https://chatgpt.com/share/93856aa8-20f3-417d-81ae-4e4ed6c8e5d5
+
+{
+  // See Above Code 👆
+}
