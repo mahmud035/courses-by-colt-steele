@@ -5,6 +5,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/cec6e587-3e49-462c-bf7b-f7c0d17d604f
 
+/* 
 {
   {
     // 1. Objects and Properties
@@ -183,5 +184,80 @@
 
     // Here,
     // The same `speak` method behaves differently based on whether the object is a `Dog` or a `Cat`.
+  }
+}
+ */
+
+// Lecture Code
+
+{
+}
+
+//* The `new` Keyword
+
+// Chat GPT 👇
+// https://chatgpt.com/share/a0bbf582-0299-4411-a5af-8c4daefb5ea6
+
+{
+  // NOTE: In JavaScript, the `new` keyword is used to create instances of objects. When used with a constructor function or a class, it enables the creation of an object with predefined properties and methods.
+
+  // ==============================================
+  // IMPORTANT: How `new` keyword works:
+
+  // 1. Creates a new empty object {}
+  // 2. Sets the prototype of the object
+  // 3. Binds `this` to the new object
+  // 4. Returns the new object
+
+  // ==============================================
+
+  {
+    // Using `new` with Constructor Functions
+
+    function Car(brand, model) {
+      // `this` refers to the new object
+      this.brand = brand;
+      this.model = model;
+
+      // Adding a method to the new object
+      // WARNING: Don't add method in this way
+      this.displayInfo = function () {
+        return `Car: ${this.brand} ${this.model}`;
+      };
+    }
+
+    // TODO: Instead add method directly to constructor
+    Car.prototype.startEngine = function () {
+      return `Car starting...`;
+    };
+
+    // Creating a new instance using `new`
+    const car1 = new Car('Toyota', 'Corolla');
+
+    console.log(car1.displayInfo()); // Car: Toyota Corolla
+  }
+
+  {
+    // Using new with ES6 Classes
+    class Car {
+      constructor(brand, model) {
+        this.brand = brand;
+        this.model = model;
+      }
+
+      // Method added to the prototype of the object
+      displayInfo() {
+        return `Car: ${this.brand} ${this.model}`;
+      }
+
+      startEngine() {
+        return `Car starting...`;
+      }
+    }
+
+    // Creating an instance using `new`
+    const car1 = new Car('Honda', 'Civic');
+
+    console.log(car1.displayInfo()); // Car: Honda Civic
   }
 }
