@@ -166,3 +166,12 @@
 {
   // See Above Code 👆
 }
+
+//* "this" and Classes
+
+// Chat GPT 👇
+// https://chatgpt.com/share/9728e8ab-4e16-4f4e-b7fd-c1e0419b2f75
+
+{
+  // See Above Code 👆
+}
