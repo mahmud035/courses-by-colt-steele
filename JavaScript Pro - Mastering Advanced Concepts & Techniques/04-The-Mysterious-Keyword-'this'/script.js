@@ -360,7 +360,17 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/fe61e7a8-a91e-4c32-a7e9-53bbbc0820bf
 
+/* 
 {
+  // NOTE: Syntax:
+  //       ==>   functionName.bind(thisArg, arg1, arg2, ...)
+
+  // where,
+  // functionName: The function you want to call / invoke.
+  // thisArg: The value you want to set as "this" inside the function. This can be "null" if the function doesn't rely on "this".
+  // arg1, arg2, ...: The arguments you want to pass to the function.
+
+
   // NOTE: Sometimes, you need to explicitly set the value of "this" inside a function, no matter where or how the function is called. This is where the bind() method becomes useful.
 
   // ==============================================
@@ -396,13 +406,15 @@
   }
 
   {
-    // Example 2: Pre-setting Arguments
+    // Example 2: Binding Arguments
+
+    // NOTE: You can also use bind() to bind arguments, making the function behave as if those arguments were passed in every time it is invoked.
 
     function multiply(a, b) {
       return a * b;
     }
 
-    const double = multiply.bind(null, 2); // Preset the first argument to 2
+    const double = multiply.bind(null, 2); // Binding the first argument to 2
     console.log(double(5)); // 10
     console.log(double(10)); // 20
 
@@ -440,4 +452,50 @@
     const boundGreet = greet.bind(person, 'Salam', '?');
     boundGreet(); // "Salam Mahmud?"
   }
+}
+ */
+
+//* Binding Arguments
+
+// Chat GPT 👇
+// https://chatgpt.com/share/12a8d983-b8b7-42ce-a23d-d435fa2ca5bc
+
+{
+  // Example: Binding Arguments
+
+  // NOTE: You can use bind() to bind arguments, making the function behave as if those arguments were passed in every time it is invoked.
+
+  function multiply(a, b) {
+    return a * b;
+  }
+
+  const double = multiply.bind(null, 2); // Binding the first argument to 2
+  console.log(double(5)); // 10
+  console.log(double(10)); // 20
+
+  // In this example:
+
+  // "multiply.bind(null, 2)" creates a new function "double" where "a" is always "2". When you call "double(5)", it is equivalent to calling "multiply(2, 5)", and similarly for other calls.
+
+  // You can bind multiple arguments as well:
+
+  const tripleAndAdd = multiply.bind(null, 3, 5);
+  console.log(tripleAndAdd()); // 15 (since both arguments are bound)
+
+  // In this case, both arguments are bound, so calling "tripleAndAdd()" doesn't require any further arguments.
+
+  // Use Cases of Binding Arguments
+
+  // 1. Partial Function Application: Binding allows for creating partially applied functions, where some of the arguments are fixed, but the rest can be provided later. This is a common functional programming pattern.
+
+  // 2. Currying: Binding can be used as a way to implement currying, where a function with multiple arguments is transformed into a series of functions that each take a single argument.
+
+  function add(a) {
+    return function (b) {
+      return a + b;
+    };
+  }
+
+  const add5 = add(5); // Partially applies 5
+  console.log(add5(10)); // Output: 15
 }
