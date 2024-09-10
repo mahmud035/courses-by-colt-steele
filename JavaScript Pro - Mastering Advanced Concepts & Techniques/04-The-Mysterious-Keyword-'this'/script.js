@@ -175,3 +175,92 @@
 {
   // See Above Code 👆
 }
+
+//* The Call Method
+
+// Chat GPT 👇
+// https://chatgpt.com/share/895772d6-c42f-4480-962f-280854e1251d
+
+{
+  // NOTE: Syntax:
+  //             functionName.call(thisArg, arg1, arg2, ...)
+
+  // where,
+  // functionName: The function you want to call / invoke.
+  // thisArg: The value you want to set as "this" inside the function.
+  // arg1, arg2, ...: The arguments you want to pass to the function.
+
+  // ==============================================
+  // IMPORTANT: When to Use call():
+
+  // 1. Function borrowing: If you want to use a function from one object on another object.
+
+  // 2. Setting explicit context: When you need to ensure a function runs with a particular "this" value.
+
+  // 3. Passing arguments: When you want to pass arguments individually and not as an array (use call() over apply()).
+  // ==============================================
+
+  {
+    // Example 1: Using call() to Set "this"
+
+    // Here’s an example of using call() to invoke a function with a different "this" context.
+
+    const person1 = {
+      name: 'Alice',
+      greet() {
+        console.log(`Hello, my name is ${this.name}`);
+      },
+    };
+
+    const person2 = {
+      name: 'Bob',
+    };
+
+    // Use greet method of person1, but change the context of person2
+    person1.greet.call(person2); // Hello, my name is Bob
+
+    // In this example, the "greet" function is defined inside the "person1" object. By default, the "this" value inside the "greet" method refers to "person1". However, by using call(), we explicitly set "this" to refer to "person2", which changes the behavior of the function when invoked.
+  }
+
+  {
+    // Example 2: Borrowing a Method Using call()
+
+    // You can also use the call() method to borrow functions from one object and use them with another object.
+
+    const person1 = {
+      fullName() {
+        return this.firstName + ' ' + this.lastName;
+      },
+    };
+
+    const person2 = {
+      firstName: 'John',
+      lastName: 'Doe',
+    };
+
+    // Borrow the fullName method from person1 for person2
+    console.log(person1.fullName.call(person2)); // John Doe
+
+    // Here, the "fullName()" method is defined for "person1", but we use it for "person2" by calling "person1.fullName.call(person2)". The "this" context is set to "person2", so it uses person2's properties.
+  }
+
+  {
+    // Example 3: Passing Arguments with call()
+
+    function introduce(age, city) {
+      console.log(
+        `Hello, my name is ${this.name}. I am ${age} years old and I live in ${city}.`
+      );
+    }
+
+    const person = {
+      name: 'Charlie',
+    };
+
+    // Call the introduce function with specific arguments and set this to person
+    introduce.call(person, 25, 'New York');
+    // Output: Hello, my name is Charlie. I am 25 years old and I live in New York.
+
+    // In this example, the "introduce" function is invoked with "person" as its "this" value and also with two arguments ("age" and "city"). The call() method passes these arguments in a comma-separated list after the "thisArg".
+  }
+}
