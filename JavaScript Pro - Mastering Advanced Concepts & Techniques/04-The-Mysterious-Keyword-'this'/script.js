@@ -460,6 +460,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/12a8d983-b8b7-42ce-a23d-d435fa2ca5bc
 
+/* 
 {
   // Example: Binding Arguments
 
@@ -498,4 +499,48 @@
 
   const add5 = add(5); // Partially applies 5
   console.log(add5(10)); // Output: 15
+}
+ */
+
+//* Bind With Event Listeners
+
+// Chat GPT 👇
+// https://chatgpt.com/share/da4b07a9-fc53-470b-acfc-77f9856704d8
+
+{
+  // ==============================================
+  // IMPORTANT: Key Points:
+
+  // Event Listeners and "this": Inside event listeners, the "this" keyword typically refers to the element that triggered the event, not necessarily the object containing the function.
+
+  // Using "bind()": The "bind()" method allows you to bind the correct "this" context to the function, ensuring that "this" inside the event listener points to the right object.
+
+  // Important for Callbacks: When passing object methods as callbacks (e.g., to "addEventListener"), always consider using "bind()" to avoid losing the correct "this" reference.
+  // ==============================================
+
+  // Example 1: Event Listeners and "this"
+  const obj = {
+    name: 'Mahmud',
+    greet() {
+      console.log(`Hello, ${this.name}`);
+    },
+  };
+
+  const button = document.querySelector('button');
+  button.addEventListener('click', obj.greet.bind(obj)); // Corrected!
+
+  // Here, "obj.greet.bind(obj)" returns a new function where "this" is always bound to "obj", no matter where it is called. Now, when the button is clicked, the output will correctly be "Hello, Mahmud".
+
+  // Example 2: Passing Arguments with "bind()"
+  const obj2 = {
+    name: 'Mahmud',
+    greet(greeting) {
+      console.log(greeting + ' ' + this.name);
+    },
+  };
+
+  const button2 = document.querySelector('button');
+  button2.addEventListener('click', obj2.greet.bind(obj2, 'Hello')); // Passing argument!
+
+  // In this case, the event listener will always greet with the word "Hello", even though it’s attached to the button. So when you click the button, it will log: "Hello, Mahmud".
 }
