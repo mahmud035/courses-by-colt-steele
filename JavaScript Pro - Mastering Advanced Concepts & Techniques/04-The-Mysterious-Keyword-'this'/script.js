@@ -552,6 +552,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/5dc6f9d1-51af-4991-8c2e-9f83f1dddeae
 
+/* 
 {
   // ==============================================
   // IMPORTANT: Key Points:
@@ -636,4 +637,40 @@
 
     // In this case, the arrow function inherits the "this" value from its enclosing context ("greet"), so there's no need for "bind()".
   }
+}
+ */
+
+//* Arrow Functions and This
+
+// Chat GPT 👇
+// https://chatgpt.com/share/89c8c723-d539-4509-8005-89ca8dd6ba8b
+
+{
+  // ==============================================
+  // IMPORTANT: Key Points:
+
+  // Arrow functions do not have their own `this`. They inherit `this` from the surrounding (or parent) scope.
+
+  // Arrow functions do not have `arguments`, `super`, or `new.target` bindings.
+
+  // They are not suitable for methods in objects because methods often rely on the dynamic `this` that refers to the object itself.
+
+  // Arrow functions are often used in callbacks, event handlers, and functional programming, where preserving the outer `this` is needed.
+
+  // ==============================================
+
+  // Use Case: Arrow Functions in Callbacks
+
+  function Timer() {
+    this.seconds = 0;
+
+    setInterval(() => {
+      // 'this' refers to the Timer instance because arrow functions inherit 'this' from the lexical scope
+      this.seconds++;
+      console.log(this.seconds);
+    }, 1000);
+  }
+  // new Timer();
+
+  // Here, the arrow function inherits `this` from the `Timer` constructor, so `this.seconds++` works as expected.
 }
