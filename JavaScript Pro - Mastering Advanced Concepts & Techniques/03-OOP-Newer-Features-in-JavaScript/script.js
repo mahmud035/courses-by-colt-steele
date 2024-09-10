@@ -195,6 +195,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/9402c94b-44ed-4e34-8691-8f78013e4fe7
 
+/* 
 {
   // Key Points about Private Fields:
 
@@ -206,7 +207,7 @@
     #privateField; // Private field declaration
 
     constructor(value) {
-      this.#privateField = value; // Accessing the private field inside the class
+      this.#privateField = value; // ✅ Accessing the private field inside the class
     }
 
     getPrivateField() {
@@ -219,7 +220,7 @@
   console.log(obj.getPrivateField()); // 42
   // console.log(obj.#privateField);
 
-  // SyntaxError: Private field '#privateField' must be declared in an enclosing class
+  // 🔴 SyntaxError: Private field '#privateField' must be declared in an enclosing class
 
   // NOTE: Private Fields vs Public Fields:
   // i. Public fields can be accessed and modified anywhere.
@@ -237,7 +238,7 @@
   const lion = new Animal();
   console.log(lion.publicName); // "Lion"
   console.log(lion.getAge()); // 5
-  // console.log(lion.#privateAge); // SyntaxError
+  // console.log(lion.#privateAge); // 🔴 SyntaxError
 
   // NOTE: Static Private Fields: You can also define static private fields, which are associated with the class itself rather than instances of the class. "They can only be accessed within static methods of the class."
 
@@ -255,5 +256,108 @@
 
   Counter.increment();
   console.log(Counter.getCount()); // 1
-  // console.log(Counter.#count); // SyntaxError: Private field '#count' must be declared in an enclosing class
+  // console.log(Counter.#count); // 🔴 SyntaxError: Private field '#count' must be declared in an enclosing class
+}
+ */
+
+// Lecture Code
+
+{
+}
+
+//* Private Methods
+
+// Chat GPT 👇
+// https://chatgpt.com/share/e5f077b4-6886-494b-ac2a-2711c36c1429
+
+{
+  // ==============================================
+  // IMPORTANT: Key Points:
+  // 1. Declaration: A private method is declared by prefixing the method name with a #.
+
+  // 2. Scope: Private methods are only accessible within the class itself. If you try to access them from outside the class (or even from child classes), JavaScript will throw an error.
+
+  // 3. Encapsulation: The use of private methods allows you to hide internal details of how a class works, exposing only what is necessary to the outside world.
+  // ==============================================
+
+  // 1. Syntax of Private Methods
+  class Example {
+    // Public method
+    publicMethod() {
+      console.log('I am a public method');
+      this.#privateMethod(); // ✅ Can call private method within the class
+    }
+
+    // Private method
+    #privateMethod() {
+      console.log('I am a private method');
+    }
+  }
+
+  const example = new Example();
+  example.publicMethod(); // I am a public method. I am a private method.
+  // example.#privateMethod(); // 🔴 SyntaxError: Private field '#privateMethod' must be declared in an enclosing class
+
+  // 2. Example: Practical Usage
+
+  // NOTE: Let's consider an example where private methods can be useful. Imagine a class "BankAccount" that represents a user's bank account. It might have internal logic that validates transactions or calculates fees, which should not be exposed to the user directly.
+
+  class BankAccount {
+    constructor(balance) {
+      this.balance = balance;
+    }
+
+    // Public method for deposing money
+    deposit(amount) {
+      if (this.#isValidTransaction(amount)) {
+        this.balance += amount;
+        console.log(`Deposited: ${amount}. New balance: ${this.balance}`);
+      } else {
+        console.log('Invalid deposit amount');
+      }
+    }
+
+    // Private method to validate transaction
+    #isValidTransaction(amount) {
+      return amount > 0;
+    }
+  }
+
+  const account = new BankAccount(1000);
+  account.deposit(500); // Deposited: 500. New balance: 1500
+  account.deposit(-200); // Invalid deposit amount
+  // account.#isValidTransaction(200); // 🔴 SyntaxError: Private field '#isValidTransaction' must be declared in an enclosing class
+
+  // 3. Private Methods vs Private Properties
+
+  // NOTE: Private methods work similarly to private properties. Both are declared using the # syntax and are only accessible within the class.
+
+  class Car {
+    // Private field
+    #engineStatus;
+
+    // Public method to start the car
+    start() {
+      this.#engineStatus = true; // ✅ Private field can be called within the class
+      console.log('Car started');
+      this.#checkEngine(); // ✅ Private method can be called within the class
+    }
+
+    // Private method
+    #checkEngine() {
+      if (this.#engineStatus) {
+        console.log('Engine is started');
+      } else {
+        console.log('Engine is off');
+      }
+    }
+  }
+
+  const myCar = new Car();
+  myCar.start(); // Car started. Engine is running.
+
+  // myCar.#engineStatus; // 🔴 SyntaxError
+  // myCar.#checkEngine(); // 🔴 SyntaxError
+
+  // Here, both #engineStatus (a private property) and #checkEngine (a private method) are encapsulated within the class and cannot be accessed directly from outside.
 }
