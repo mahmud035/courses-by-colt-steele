@@ -269,6 +269,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/b94882d5-dfce-4394-8fc0-c929bcf572b6
 
+/* 
 {
   // ==============================================
   // IMPORTANT: Key Takeaways:
@@ -395,5 +396,150 @@
     dog.speak(); // Rex barks
 
     // Despite the class syntax, the inheritance mechanism still works through prototypes. The `Dog` class extends `Animal`, and both classes' methods are stored on their respective prototypes.
+  }
+}
+ */
+
+//* The Prototype Chain
+
+// Chat GPT 👇
+// https://chatgpt.com/share/1f632d88-e7a9-4c7b-bcc3-452aa7fc1963
+
+{
+  // NOTE: The Prototype Chain is a core concept in JavaScript, used in its object-oriented programming model. JavaScript is a prototype-based language, meaning objects can directly inherit properties and methods from other objects, which creates a chain of inheritance. This mechanism is referred to as the Prototype Chain.
+
+  {
+    // 1. Objects in JavaScript
+
+    // NOTE: When you create an object, it can have its own properties and methods, but it also has access to properties and methods inherited from its [[prototype]].
+
+    const person = {
+      name: 'Mahmud',
+      greet() {
+        console.log(`Hello ${this.name}`);
+      },
+    };
+
+    console.log(person);
+
+    // In the example above, the `person` object has its own properties (`name`) and methods (`greet`). But, behind the scenes, it also inherits properties and methods from its [[prototype]].
+  }
+
+  {
+    // 2. Prototypes in JavaScript
+
+    // NOTE: Each object in JavaScript has an internal reference to another object called the prototype. In modern JavaScript, you can access an object's prototype using the `__proto__` property or via the `Object.getPrototypeOf()` method.
+
+    const person = {
+      name: 'Mahmud',
+      greet() {
+        console.log(`Hello ${this.name}`);
+      },
+    };
+
+    console.log(person.__proto__); // This will log the prototype of the 'person' object
+    console.log(person.__proto__ === Object.prototype); // true
+
+    // By default, all objects in JavaScript inherit from `Object.prototype` unless explicitly defined otherwise. The `Object.prototype` is at the top of the prototype chain and contains methods like `hasOwnProperty()`, `toString()`, and others, which are available to all objects.
+  }
+
+  {
+    // 3. Prototype Chain in Action
+
+    // NOTE: When you try to access a property or method on an object, JavaScript first checks if the property exists on that object itself. If it doesn’t, it looks up the chain of prototypes until it either finds the property or reaches the end of the chain (i.e., `Object.prototype`), at which point it returns `undefined` if the property is not found.
+
+    const student = { age: 23 };
+
+    console.log(student);
+    console.log(student.toString());
+
+    // In this case, the `student` object does not have a `toString()` method of its own, so JavaScript looks in its prototype (`Object.prototype`) and finds the method there.
+  }
+
+  {
+    // 4. Constructor Functions and Prototypes
+
+    // NOTE: When you create objects using `constructor functions`, the prototype chain plays a significant role. Each function in JavaScript has a `prototype` property. When you create an object from a constructor, that object inherits the properties from the constructor's prototype.
+
+    function Person(name) {
+      this.name = name;
+    }
+
+    Person.prototype.greet = function () {
+      console.log(`Hello ${this.name}`);
+    };
+
+    const person1 = new Person('Mahmud');
+    person1.greet(); // Hello, Mahmud
+
+    // Here’s what’s happening:
+
+    // `person1` is an instance of the `Person` constructor.
+    // `person1` doesn’t have the `greet()` method directly. However, JavaScript looks up the prototype chain and finds the `greet` method on `Person.prototype`.
+  }
+
+  {
+    // 5. The `new` Keyword and Prototype Inheritance
+
+    // ==============================================
+    // IMPORTANT: When you use the `new` keyword to create an object from a constructor function, it performs the following:
+
+    // 1. A new empty object is created.
+
+    // 2. The object’s internal `[[Prototype]]` is set to the constructor's `prototype`.
+
+    // 3. The constructor function is executed, and `this` points to the new object.
+
+    // 4. The new object is returned unless the constructor returns its own object.
+
+    // ==============================================
+
+    function Car(make) {
+      this.make = make;
+    }
+
+    Car.prototype.drive = function () {
+      console.log(`Driving a ${this.make}`);
+    };
+
+    const car1 = new Car('Toyota');
+    car1.drive(); // Driving a Toyota
+  }
+
+  {
+    // 6. Prototype Chain Lookup
+
+    // Let’s illustrate how the lookup works with a more complex example:
+    function Animal(name) {
+      this.name = name;
+    }
+
+    Animal.prototype.speak = function () {
+      console.log(`${this.name} makes a noise`);
+    };
+
+    function Dog(name) {
+      Animal.call(this, name); // Inherit properties from Animal
+    }
+
+    Dog.prototype = Object.create(Animal.prototype); // Inherit methods from Animal
+    Dog.prototype.constructor = Dog;
+
+    // Overriding speak method
+    Dog.prototype.speak = function () {
+      console.log(`${this.name} barks`);
+    };
+
+    const dog = new Dog('Rex');
+
+    dog.speak(); // Rex barks.
+
+    // Here’s what’s happening:
+
+    // `Dog.prototype = Object.create(Animal.prototype)` ensures that `Dog` instances inherit from `Animal`.
+
+    // When `dog.speak()` is called, JavaScript first looks at the `Dog.prototype` to find the `speak()` method. It finds the overridden `speak` method and uses it.
+
+    // If `speak` were not defined in `Dog.prototype`, JavaScript would have looked up the chain and found `Animal.prototype.speak()`.
   }
 }
