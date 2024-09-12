@@ -698,3 +698,78 @@
   }
 }
  */
+
+//* __proto__ vs. prototype
+
+// Chat GPT 👇
+// https://chatgpt.com/share/c8f2d6fa-3f33-490b-8f79-04714b3affce
+
+{
+  {
+    // IMPORTANT: Summary:
+    //
+    // `__proto__` is an internal link to an object’s prototype. It shows how an object is connected to its prototype and how inheritance works.
+    //
+    // `prototype` is a property of constructor functions and is used to add properties and methods that will be inherited by instances created using `new`.
+    //
+    //* `__proto__` is present on all objects, whereas `prototype` exists only on constructor functions.
+  }
+
+  {
+    // 1. __proto__ (Dunder Proto)
+    const animal = { eats: true };
+    const rabbit = { jumps: true };
+
+    rabbit.__proto__ = animal; // rabbit now inherits from animal
+
+    console.log(rabbit.eats); // true (inherited from animal)
+
+    // IMPORTANT: Key Points:
+
+    // All objects in JavaScript have `__proto__` except the base object, `Object.prototype`, which is the end of the prototype chain.
+
+    //` __proto__` links objects in the prototype chain and allows inheritance.
+  }
+
+  {
+    // 2. prototype
+    function Animal() {}
+
+    Animal.prototype.eats = true;
+
+    const rabbit = new Animal();
+
+    console.log(rabbit.eats); // true (inherited from Animal.prototype)
+
+    // In this example:
+
+    // `Animal` is a constructor function.
+
+    // `Animal.prototype` is an object that has the property `eats: true`.
+
+    // When we create a new object using `new Animal()`, the `__proto__` of the created object (`rabbit`) is set to `Animal.prototype`. Hence, `rabbit` can access the `eats` property through prototypal inheritance.
+
+    console.log(rabbit.__proto__ === Animal.prototype); // true
+
+    // IMPORTANT: Key Points:
+
+    // `prototype` is used for inheritance when creating new objects using constructor functions.
+
+    // Any property or method added to `prototype` will be available to all instances created by that constructor.
+
+    // Changing the prototype of a constructor function affects all instances created by it, as they share the same prototype.
+  }
+
+  {
+    // Visualizing the Relationship
+
+    function Animal() {} // constructor function
+    const rabbit = new Animal();
+
+    console.log(rabbit.__proto__ === Animal.prototype); // true
+
+    console.log(rabbit.__proto__.__proto__ === Object.prototype); // true
+
+    console.log(Animal.prototype.__proto__ === Object.prototype); // true
+  }
+}
