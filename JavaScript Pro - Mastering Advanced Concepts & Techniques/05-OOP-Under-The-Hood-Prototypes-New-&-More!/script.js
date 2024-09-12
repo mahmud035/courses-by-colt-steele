@@ -704,6 +704,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/c8f2d6fa-3f33-490b-8f79-04714b3affce
 
+/* 
 {
   {
     // IMPORTANT: Summary:
@@ -771,5 +772,106 @@
     console.log(rabbit.__proto__.__proto__ === Object.prototype); // true
 
     console.log(Animal.prototype.__proto__ === Object.prototype); // true
+  }
+}
+ */
+
+//* Useful Prototype Methods
+
+// Chat GPT 👇
+// https://chatgpt.com/share/688a4ffc-248b-4512-9136-3f11aecb923f
+
+{
+  {
+    // 1. Array Prototype Methods
+    const numbers = [1, 2, 3, 4];
+
+    // 1.1. Array.prototype.map()
+    const double = numbers.map((num) => num * 2);
+
+    // 1.2. Array.prototype.filter()
+    const even = numbers.filter((num) => num % 2 === 0);
+
+    // 1.3. Array.prototype.reduce()
+    const sum = numbers.reduce((acc, curr) => acc + curr, 0);
+
+    // 1.4. Array.prototype.forEach()
+    numbers.forEach((num) => console.log(num));
+
+    // 1.5. Array.prototype.find()
+    const firstEven = numbers.find((num) => num % 2 === 0);
+  }
+
+  {
+    // 2. String Prototype Methods
+    const str = 'Hello world';
+
+    // 2.1. String.prototype.includes()
+    console.log(str.includes('world'));
+
+    // 2.2. String.prototype.split()
+    const words = str.split(' ');
+
+    // 2.3. String.prototype.replace()
+    const newStr = str.replace('world', 'JavaScript');
+
+    // 2.4. String.prototype.trim()
+    const trimmedStr = str.trim();
+  }
+
+  {
+    // 3. Object Prototype Methods
+    const obj = { name: 'Mahmud', age: 25 };
+
+    // 3.1. Object.prototype.hasOwnProperty()
+    console.log(obj.hasOwnProperty('name'));
+
+    // 3.2. Object.prototype.toString()
+    console.log(obj.toString());
+  }
+
+  {
+    // 4. Function Prototype Methods
+
+    // 4.1. Function.prototype.call()
+    function greet() {
+      console.log(this.name);
+    }
+    const user = { name: 'Mahmud' };
+
+    greet.call(user);
+
+    // 4.2. Function.prototype.apply()
+    function sum(a, b) {
+      return a + b;
+    }
+    console.log(sum.apply(null, [3, 5])); // 8
+
+    // 4.3. Function.prototype.bind()
+    function greet2() {
+      console.log(this.name);
+    }
+    const user2 = { name: 'Mahmud' };
+
+    const greetUser = greet2.bind(user2);
+    greetUser(); // "Mahmud"
+  }
+
+  {
+    // 5. Other Useful Prototype Methods
+
+    // 5.1. Object.create()
+    const proto = {
+      greet() {
+        console.log('Hello');
+      },
+    };
+
+    const newObj = Object.create(proto);
+    newObj.greet(); // "Hello"
+
+    // 5.2. Object.keys()
+    const obj = { name: 'Mahmud', age: 25 };
+    console.log(Object.keys(obj)); // ["name", "age"]
   }
 }
