@@ -552,6 +552,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/28dfc399-ea33-462a-a57d-84ae30d3f0d1
 
+/* 
 {
   {
     // 1. Classes in JavaScript
@@ -696,3 +697,4 @@
     // Prototype chain is the way JavaScript resolves property lookups, climbing the chain until it finds the property or reaches `null`.
   }
 }
+ */

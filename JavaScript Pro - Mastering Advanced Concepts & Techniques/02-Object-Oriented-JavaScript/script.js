@@ -804,6 +804,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/0f31a8e5-88a1-4508-a9ee-7ce716308326
 
+/* 
 {
   // 1. Utility Functions and Helper Methods
 
@@ -845,4 +846,9 @@
 
   console.log(myTesla); // Car { brand: 'Tesla', model: 'Model X' }
   console.log(myBMW); // Car { brand: 'BMW', model: 'X5' }
+}
+ */
+
+// Lecture Code
+{
 }

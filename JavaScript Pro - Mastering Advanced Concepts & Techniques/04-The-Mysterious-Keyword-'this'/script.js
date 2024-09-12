@@ -645,6 +645,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/89c8c723-d539-4509-8005-89ca8dd6ba8b
 
+/* 
 {
   // ==============================================
   // IMPORTANT: Key Points:
@@ -674,3 +675,4 @@
 
   // Here, the arrow function inherits `this` from the `Timer` constructor, so `this.seconds++` works as expected.
 }
+ */

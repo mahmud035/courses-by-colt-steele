@@ -374,6 +374,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/210dc819-f9d4-4aed-a1f9-3a0a0b6bb4bb
 
+/* 
 {
   // NOTE: The Static Initialization Blocks is defined using the "static" keyword, followed by curly braces {}. Any code inside this block will run once, when the class is first loaded.
 
@@ -433,4 +434,10 @@
   }
 
   console.log(Counter.count); // 3
+}
+ */
+
+// Lecture Code
+
+{
 }
