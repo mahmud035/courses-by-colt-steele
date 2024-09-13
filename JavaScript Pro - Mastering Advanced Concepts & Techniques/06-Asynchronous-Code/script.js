@@ -41,6 +41,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/38bfd2a9-514c-4ff5-a3b4-92805b13cded
 
+/* 
 {
   {
     // 1. Callback Hell:
@@ -98,5 +99,86 @@
     };
 
     // IMPORTANT: This approach makes the code more readable and maintainable while providing cleaner error handling using `try-catch` blocks.
+  }
+}
+ */
+
+//* The Basics of Promises
+
+// Chat GPT 👇
+// https://chatgpt.com/share/66e43567-de84-800f-a347-2a1f7a8ebb7b
+
+{
+  // NOTE: A Promise in JavaScript represents an operation that hasn't completed yet but is expected to be completed in the future. It’s essentially a placeholder for the result of an asynchronous operation.
+
+  {
+    // Here's how a Basic Promise is constructed:
+
+    const myPromise = new Promise((resolve, reject) => {
+      let success = true; // Simulate success or failure
+
+      if (success) {
+        resolve('The operation was successful');
+      } else {
+        reject('There was an error during the operation');
+      }
+    });
+
+    // How to Consume a Promise
+    myPromise
+      .then((data) => console.log('Success:', data))
+      .catch((error) => console.log('Error:', error))
+      .finally(() => console.log('This code runs no matter what'));
+  }
+
+  {
+    // Real-World Example: Fetching Data from an API
+
+    const fetchData = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const data = { user: 'Mahmud', age: 25 };
+        let success = true; // Simulate success or failure
+
+        if (success) {
+          resolve(data);
+        } else {
+          reject('Failed to fetch data');
+        }
+      }, 2000);
+    });
+
+    // Consume the Promise
+    fetchData
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
+
+    // In this case, after a delay of 2 seconds, the promise resolves (successfully returns) with the data. If something went wrong (i.e., `success` was `false`), it would reject and throw an error.
+  }
+
+  {
+    // Chaining Promises
+
+    // NOTE: You can chain multiple `.then()` calls. Each `.then()` can return a new promise, allowing you to create a sequence of asynchronous tasks.
+
+    const firstPromise = new Promise((resolve) => resolve('First step done'));
+
+    firstPromise
+      .then((data) => {
+        console.log(data); // First step done
+        return `Second step done`;
+      })
+      .then((data) => {
+        console.log(data); // Second step done
+        return 'Third step done';
+      })
+      .then((data) => {
+        console.log(data); // Third step done
+        return 'Fourth step done';
+      })
+      .then((data) => {
+        console.log(data); // Fourth step done
+      });
+
+    // IMPORTANT: Each `.then()` waits for the previous promise to resolve before executing.
   }
 }
