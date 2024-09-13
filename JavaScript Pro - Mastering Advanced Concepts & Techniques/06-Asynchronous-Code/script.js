@@ -210,3 +210,30 @@
   //
   // ==============================================
 }
+
+//* Promise Chaining To Flatten Code
+
+// Chat GPT 👇
+// https://chatgpt.com/share/66e443a8-b224-800f-9416-2eb8fc9512c2
+
+{
+  // What is Promise Chaining?
+  //
+  // NOTE: Promise chaining is the process of using multiple `.then()` methods to handle the result of promises in sequence. Each `.then()` returns a new promise, and the next `.then()` in the chain will only be executed after the promise returned from the previous `.then()` is resolved.
+  //
+  // NOTE: Key Points of Promise Chaining:
+  //
+  // 1. Returning Promises: Each `.then()` returns a new promise, so the next `.then()` in the chain waits for the previous one to resolve. If you don’t return anything, the next `.then()` will be called with `undefined`.
+  //
+  // 2. Error Handling: You can add a single `.catch()` at the end of the chain to handle errors from any of the promises. This prevents the need to handle errors for each individual step.
+  //
+  // 3. Chaining Simplifies Code: Promise chaining helps simplify code by avoiding deep nesting. The structure becomes flat and easier to follow.
+}
+
+//* Error Handling With Promises
+
+// Chat GPT 👇
+// https://chatgpt.com/share/66e44a52-b2c0-800f-8857-1380a35923ab
+
+{
+}
