@@ -108,6 +108,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/66e43567-de84-800f-a347-2a1f7a8ebb7b
 
+/* 
 {
   // NOTE: A Promise in JavaScript represents an operation that hasn't completed yet but is expected to be completed in the future. It’s essentially a placeholder for the result of an asynchronous operation.
 
@@ -181,4 +182,31 @@
 
     // IMPORTANT: Each `.then()` waits for the previous promise to resolve before executing.
   }
+}
+ */
+
+//* Using .then() and .catch()
+
+// Chat GPT 👇
+// https://chatgpt.com/share/66e43cab-b6e0-800f-b4fa-a93b420bb30c
+
+{
+  // See above code 👆
+  //
+  // NOTE: Understanding Promises:
+  // A Promise in JavaScript can be in one of three states:
+  //
+  // 1. Pending: The operation hasn't completed yet.
+  // 2. Fulfilled (Resolved): The operation completed successfully.
+  // 3. Rejected: The operation failed.
+  //
+  // ==============================================
+  // IMPORTANT: Key Points:
+  //
+  // 1. `.then()` is for handling successful completion (resolved state).
+  // 2. `.catch()` is for handling failures (rejected state).
+  // 3. Both can be chained together to handle complex asynchronous operations.
+  // 4. Errors in `.then()` automatically propagate to `.catch()`.
+  //
+  // ==============================================
 }
