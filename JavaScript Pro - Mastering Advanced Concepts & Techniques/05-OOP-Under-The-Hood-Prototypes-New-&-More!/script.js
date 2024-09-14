@@ -781,6 +781,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/688a4ffc-248b-4512-9136-3f11aecb923f
 
+/* 
 {
   {
     // 1. Array Prototype Methods
@@ -875,3 +876,4 @@
     console.log(Object.keys(obj)); // ["name", "age"]
   }
 }
+ */
