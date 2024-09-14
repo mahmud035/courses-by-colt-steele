@@ -236,4 +236,126 @@
 // https://chatgpt.com/share/66e44a52-b2c0-800f-8857-1380a35923ab
 
 {
+  // ==============================================
+  // IMPORTANT: Best Practices:
+
+  // 1. Always handle rejections: Make sure every promise chain has a `.catch()` at the end to handle any errors.
+
+  // 2. Avoid unhandled rejections: If you don't catch errors, they may lead to hard-to-debug issues in the code.
+
+  // ✅ 3. Use `async/await` with `try/catch` for readability: When possible, `async/await` is preferred for cleaner, more readable code, especially for complex promise chains.
+
+  // 4. Graceful recovery: Implement fallback mechanisms, such as default values or retrying the operation when errors occur.
+
+  // ==============================================
+
+  {
+    // Creating a Promise
+
+    const myPromise = new Promise((resolve, reject) => {
+      // asynchronous task
+      let success = true;
+
+      if (success) {
+        resolve('Operation Successful');
+      } else {
+        reject('Error Occurred');
+      }
+    });
+
+    // Error Handling in Promises 👇
+
+    // There are two primary ways to handle errors in promises:
+
+    // 1. ✅ Using `.then()` and `.catch()`:
+
+    // NOTE: When handling promises, the `.then()` method is used to handle successful operations, and the `.catch()` method is used to catch any errors (rejected promises).
+
+    myPromise
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
+
+    // 2. ✅ Using `async/await` with `try/catch`:
+
+    // NOTE: Another modern way of working with promises involves the `async/await` syntax. With `async/await`, you can write asynchronous code that looks synchronous, making it easier to understand and maintain. Error handling is done using `try/catch` blocks.
+
+    const fetchPost = async () => {
+      try {
+        const res = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+        // const data = await res.json();
+        // return data;
+        return res.json();
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    const post = await fetchPost();
+    console.log(post);
+  }
+
+  {
+    // Handling Errors Gracefully
+
+    // NOTE: When working with promises, you should aim to handle errors as close as possible to where they occur. For instance, in a chain of promises, you can place `catch` blocks after individual promises to handle specific errors before they propagate up the chain:
+
+    const myPromise = new Promise((resolve, reject) => {
+      // asynchronous task
+      let success = true;
+
+      if (success) {
+        resolve('Operation Successful');
+      } else {
+        reject('Error Occurred');
+      }
+    });
+
+    myPromise
+      .then((data) => {
+        console.log(data);
+        return anotherAsyncTask();
+      })
+      .catch((error) => {
+        console.log('Error in first task:', error);
+        return defaultValue; // Recover and continue the chain
+      })
+      .then((nextResult) => {
+        console.log(nextResult);
+      })
+      .catch((error) => {
+        console.log('Error in second task:', error);
+      });
+
+    // In this example, there are multiple `catch` blocks handling errors at different points. If an error occurs in the first promise, it’s caught early and the chain can continue using some recovery value (`defaultValue`).
+  }
+
+  {
+    // Re-throwing Errors
+
+    // NOTE: In some cases, you may want to catch an error, perform some logging or other side-effects, and then let the error propagate further. You can achieve this by re-throwing the error in the `catch` block.
+
+    const myPromise = new Promise((resolve, reject) => {
+      // asynchronous task
+      let success = true;
+
+      if (success) {
+        resolve('Operation Successful');
+      } else {
+        reject('Error Occurred');
+      }
+    });
+
+    myPromise
+      .then((data) => {
+        console.log(data);
+        return anotherAsyncTask();
+      })
+      .catch((error) => {
+        console.log('Logging the error:', error);
+        throw error; // TODO: Re-throw the error to propagate it further
+      })
+      .catch((error) => {
+        console.log('Error handled at the top level:', error);
+      });
+  }
 }
