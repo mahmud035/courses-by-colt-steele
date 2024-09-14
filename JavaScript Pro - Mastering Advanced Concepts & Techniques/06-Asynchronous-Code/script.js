@@ -707,6 +707,7 @@
 // Chat GPT 👇
 // Same link above 👆 => https://chatgpt.com/share/66e51c44-4ef4-800f-b5c1-5c6714f73647
 
+/* 
 {
   {
     // 1. Basic Error Handling with `try/catch`
@@ -768,5 +769,132 @@
     // The `finally` block will execute regardless of whether the promise resolves or rejects.
 
     // This is particularly useful for tasks that need to happen after a network request or long-running process, such as hiding a loading spinner or closing a file.
+  }
+}
+ */
+
+//* Async Patterns: Parallel Async Operations
+
+// Chat GPT 👇
+
+{
+  // Methods for Parallel Async Operations
+
+  // In JavaScript, there are several ways to handle parallel async operations:
+
+  {
+    // 1. `Promise.all()`
+
+    // NOTE: `Promise.all()` is a method that takes an array of promises and runs them in parallel. It resolves when all the promises are fulfilled or rejects if any one of the promises fails.
+
+    const fetchMultipleData = async () => {
+      const promise1 = fetch('https://fakestoreapi.com/products/1');
+      const promise2 = fetch('https://fakestoreapi.com/products/2');
+      const promise3 = fetch('https://fakestoreapi.com/products/3');
+
+      // Start all fetches at the same time (parallel execution)
+      const [res1, res2, res3] = await Promise.all([
+        promise1,
+        promise2,
+        promise3,
+      ]);
+
+      const data1 = await res1.json();
+      const data2 = await res2.json();
+      const data3 = await res3.json();
+
+      console.log('Data from all APIs:', data1, data2, data3);
+    };
+
+    fetchMultipleData();
+
+    // In this example, all three `fetch()` requests are fired in parallel, and the `Promise.all()` waits until all of them are resolved. If any one request fails, `Promise.all()` will reject the entire process.
+  }
+
+  {
+    // 2. `Promise.allSettled()`
+
+    // NOTE: `Promise.allSettled()` is similar to `Promise.all()`, but it returns results for all promises regardless of whether they resolved or rejected.
+
+    const fetchMultipleData = async () => {
+      const promise1 = fetch('https://fakestoreapi.com/products/1');
+      const promise2 = fetch('https://fakestoreapi.com/products/2');
+      const promise3 = fetch('https://fakestoreapi.com/products/3');
+
+      // Start all fetches at the same time (parallel execution)
+      const [res1, res2, res3] = await Promise.allSettled([
+        promise1,
+        promise2,
+        promise3,
+      ]);
+
+      const data1 = await res1.value.json();
+      const data2 = await res2.value.json();
+      const data3 = await res3.value.json();
+
+      console.log('All settled promise result:', data1, data2, data3);
+    };
+
+    fetchMultipleData();
+
+    // Benefits:
+
+    // Handles both success and failure cases without failing the entire batch.
+
+    // Useful when you want to know the result of all promises, whether resolved or rejected.
+  }
+
+  {
+    // 3. `Promise.race()`
+
+    // NOTE: `Promise.race()` returns the result of the first promise that resolves or rejects.
+
+    const fetchMultipleData = async () => {
+      const promise1 = fetch('https://fakestoreapi.com/products/1');
+      const promise2 = fetch('https://fakestoreapi.com/products/2');
+      const promise3 = fetch('https://fakestoreapi.com/products/3');
+
+      // Start all fetches at the same time (parallel execution)
+      const res = await Promise.race([promise1, promise2, promise3]);
+
+      const data = await res.json();
+
+      console.log('First settled promise:', data);
+    };
+
+    fetchMultipleData();
+
+    // Use Case:
+
+    // Useful in situations where you care only about the first response (e.g., performance optimizations).
+
+    //* Good for timeout handling => if you want to return whichever request completes first, or provide a fallback.
+  }
+
+  {
+    // 4. `Promise.any()`
+
+    // NOTE: `Promise.any()` resolves as soon as the first promise resolves successfully. If all promises reject, it will throw an aggregate error.
+
+    const fetchMultipleData = async () => {
+      const promise1 = fetch('https://fakestoreapi.com/products/1');
+      const promise2 = fetch('https://fakestoreapi.com/products/2');
+      const promise3 = fetch('https://fakestoreapi.com/products/3');
+
+      // Start all fetches at the same time (parallel execution)
+      const res = await Promise.race([promise1, promise2, promise3]);
+
+      const data = await res.json();
+
+      console.log('First successful response:', data);
+    };
+
+    fetchMultipleData();
+
+    // Benefits:
+
+    // Unlike `Promise.race()`, it doesn’t care about rejected promises—it waits for the first successful one.
+
+    // Useful when you’re making requests to multiple sources and need only the first successful response.
   }
 }
