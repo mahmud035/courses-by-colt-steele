@@ -777,6 +777,7 @@
 
 // Chat GPT 👇
 
+/* 
 {
   // Methods for Parallel Async Operations
 
@@ -896,5 +897,74 @@
     // Unlike `Promise.race()`, it doesn’t care about rejected promises—it waits for the first successful one.
 
     // Useful when you’re making requests to multiple sources and need only the first successful response.
+  }
+}
+ */
+
+//* Async Patterns: Sequential Async Operations
+
+// Chat GPT 👇
+
+{
+  // NOTE: Sequential Async Operations ensure that the tasks are completed one after another, preserving the logic and flow of operations.
+
+  // ==============================================
+  // IMPORTANT: Why Use Sequential Async Operations?
+
+  // Some real-world scenarios where sequential async operations are useful include:
+
+  // 1. Making dependent network requests (where one request needs data from the previous one).
+
+  // 2. Performing database transactions in a specific order.
+
+  // 3. Executing file read and write operations in a step-by-step manner.
+
+  // ==============================================
+
+  //? Ways to Handle Sequential Async Operations
+
+  {
+    // 2. Sequential Async Operations with `async/await`
+
+    // IMPORTANT: Using `async/await` is often the cleanest and most readable way to perform Sequential Async Operations. It allows you to write asynchronous code that looks synchronous.
+
+    const fetchDataSequentially = async () => {
+      try {
+        const data1 = await fetch('https://fakestoreapi.com/products/1').then(
+          (res) => res.json()
+        );
+        console.log('Data from API 1:', data1);
+
+        const data2 = await fetch('https://fakestoreapi.com/products/2').then(
+          (res) => res.json()
+        );
+        console.log('Data from API 2:', data2);
+
+        const data3 = await fetch('https://fakestoreapi.com/products/3').then(
+          (res) => res.json()
+        );
+        console.log('Data from API 3:', data3);
+      } catch (error) {
+        console.error('Error in fetching data:', error);
+      }
+    };
+
+    fetchDataSequentially();
+
+    // NOTE: How it works:
+
+    // Each `await` statement pauses the function’s execution until the asynchronous operation is completed.
+
+    // The `async` keyword marks the function as asynchronous, allowing the use of `await`.
+
+    // The code looks like a synchronous sequence, making it easier to read and manage.
+
+    // NOTE: Benefits:
+
+    // Cleaner, more readable syntax than chaining `.then()` calls.
+
+    // Allows easier error handling using `try/catch` blocks.
+
+    //* Ideal for long chains of async operations that need to run one after the other.
   }
 }
