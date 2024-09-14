@@ -235,6 +235,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/66e44a52-b2c0-800f-8857-1380a35923ab
 
+/* 
 {
   // ==============================================
   // IMPORTANT: Best Practices:
@@ -357,5 +358,176 @@
       .catch((error) => {
         console.log('Error handled at the top level:', error);
       });
+  }
+}
+ */
+
+//* Async/Await Basics
+
+// Chat GPT 👇
+// https://chatgpt.com/share/66e51c44-4ef4-800f-b5c1-5c6714f73647
+
+{
+  // NOTE: JavaScript is a single-threaded, asynchronous language. To handle tasks like making API calls or reading files from a disk without blocking the execution of other code, JavaScript uses asynchronous programming techniques like callbacks, promises, and async/await.
+
+  {
+    // 1. Promises Refresher
+
+    // Before jumping into async/await, it's essential to understand promises. A promise is an object representing the eventual completion (or failure) of an asynchronous operation.
+
+    const myPromise = new Promise((resolve, reject) => {
+      // Simulate an async task (e.g., fetching data)
+      setTimeout(() => {
+        const success = true;
+
+        if (success) resolve('Data fetched successfully');
+        else reject('Error fetching data');
+      }, 1000);
+    });
+
+    myPromise
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
+  }
+
+  {
+    // 3. Writing Async/Await Code
+
+    // Here's how you'd rewrite the above promise example using async/await: 👇
+
+    // Step 1: Declare an async function
+    const fetchData = async () => {
+      try {
+        // Step 2: Use 'await' to wait for the promise to resolve
+        const res = await new Promise((resolve, reject) => {
+          setTimeout(() => {
+            const success = true;
+
+            if (success) resolve('Data fetched successfully');
+            else reject('Error fetching data');
+          }, 1000);
+        });
+
+        console.log(res);
+      } catch (error) {
+        // Step 3: Handle any error that might be thrown
+        console.error(error);
+      }
+    };
+
+    // Step 4: Call the async function
+    fetchData();
+  }
+
+  {
+    // IMPORTANT: Key Features of Async/Await
+
+    //* Async Functions Always Return a Promise: When you declare a function with the `async` keyword, it `always returns a promise`, even if it seems like the function is returning something else. For example:
+
+    const sayHello = async () => {
+      return 'Hello';
+    };
+
+    const result = await sayHello();
+    console.log(result); // 'Hello'
+
+    // Here, `sayHello()` returns a promise that resolves to `Hello`.
+  }
+
+  {
+    // 5. Error Handling in Async/Await
+
+    // NOTE: Error handling with async/await is much simpler than working with promises. Instead of chaining `.catch()`, you can use a `try/catch` block.
+
+    const fetchWithError = async () => {
+      try {
+        const res = await new Promise((_, reject) => {
+          setTimeout(() => {
+            reject('There was an error!');
+          }, 1000);
+        });
+
+        console.log(res); // This won't run if there's an error
+      } catch (error) {
+        console.error(error); // Logs: There was an error!
+      }
+    };
+    fetchWithError();
+  }
+
+  {
+    // 6. Multiple `await` Calls
+
+    // NOTE: If your function has multiple asynchronous operations, you can call `await` multiple times to wait for each one to complete.
+
+    const fetchData = async () => {
+      try {
+        const res1 = await new Promise((resolve) =>
+          setTimeout(() => resolve('Data 1'), 1000)
+        );
+        console.log(res1); // Logs: Data 1
+
+        const res2 = await new Promise((resolve) =>
+          setTimeout(() => resolve('Data 2'), 1000)
+        );
+        console.log(res2); // Logs: Data 2
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }
+
+  {
+    // 7. Parallel Execution
+
+    // NOTE: In the previous example, the asynchronous calls happen sequentially, one after the other. However, if the tasks are independent of each other and can be executed simultaneously, you can run them in parallel using `Promise.all()`:
+
+    const fetchParallel = async () => {
+      try {
+        const promise1 = new Promise((resolve) =>
+          setTimeout(() => resolve('Data 1'), 1000)
+        );
+        const promise2 = new Promise((resolve) =>
+          setTimeout(() => resolve('Data 2'), 1000)
+        );
+
+        const [res1, res2] = await Promise.all([promise1, promise2]);
+
+        console.log(res1); // Logs: Data 1
+        console.log(res2); // Logs: Data 2
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchParallel();
+  }
+
+  {
+    // 9. WARNING: Common Mistakes to Avoid
+
+    // Not Using `await` Properly: If you forget to use `await`, the function will move on without waiting for the promise to resolve
+
+    const fetchData = async () => {
+      const res = new Promise((resolve) =>
+        setTimeout(() => resolve('Data'), 1000)
+      );
+
+      console.log(res); // Logs: Promise { <pending> }
+    };
+    fetchData();
+
+    // Here, `console.log(response)` prints the promise instead of the resolved value. Adding `await` will fix this issue.
+
+    // Blocking Code: While `await` simplifies asynchronous code, overuse of it can introduce delays if you're waiting for operations that could happen simultaneously.
+  }
+
+  {
+    // 10. TODO: When to Use Async/Await
+    //
+    // API Requests: Fetching data from APIs.
+    // Database Queries: Fetching data from a database.
+    // Reading/Writing Files: Performing file I/O operations.
+    // Waiting for Timers: Waiting for timeouts or intervals.
   }
 }
