@@ -539,6 +539,7 @@
 // Chat GPT 👇
 // Same link above 👆 => https://chatgpt.com/share/66e51c44-4ef4-800f-b5c1-5c6714f73647
 
+/* 
 {
   {
     // 1. The `async` Keyword: What it Does Under the Hood
@@ -698,9 +699,74 @@
 
     // getUserAndPosts(1);
   }
-}
+} 
+*/
 
 //* Error Handling With Async Functions
 
 // Chat GPT 👇
 // Same link above 👆 => https://chatgpt.com/share/66e51c44-4ef4-800f-b5c1-5c6714f73647
+
+{
+  {
+    // 1. Basic Error Handling with `try/catch`
+
+    const fetchData = async () => {
+      try {
+        const res = await fetch('https://invalid-api-url.com/data');
+        if (!res.ok) throw new Error('Network response was not OK');
+
+        const data = await res.json();
+        console.log(data);
+      } catch (error) {
+        console.error('An error occurred:', error.message);
+      }
+    };
+
+    fetchData();
+  }
+
+  {
+    // 2. Handling Rejected Promises
+
+    // NOTE: Async functions always return a promise. If an error is thrown inside an async function (either explicitly or implicitly via a rejected promise), the function will return a rejected promise.
+
+    const getData = async () => {
+      try {
+        throw new Error('Something went wrong');
+      } catch (error) {
+        console.error('Caught inside function:', error);
+      }
+    };
+
+    getData();
+  }
+
+  {
+    // 6. Using `finally` for Cleanup
+
+    // NOTE: This is useful for cleanup tasks like `closing connections`, `resetting states` or `hiding a loading spinner`.
+
+    const fetchData = async () => {
+      try {
+        const res = await fetch('https://invalid-api-url.com/data');
+        if (!res.ok) throw new Error('Network request was not OK');
+
+        const data = await res.json();
+        console.log(data);
+      } catch (error) {
+        console.error('Error occurred:', error);
+      } finally {
+        console.log('Cleanup code run here, success or fail');
+      }
+    };
+
+    fetchData();
+
+    // Explanation:
+
+    // The `finally` block will execute regardless of whether the promise resolves or rejects.
+
+    // This is particularly useful for tasks that need to happen after a network request or long-running process, such as hiding a loading spinner or closing a file.
+  }
+}
