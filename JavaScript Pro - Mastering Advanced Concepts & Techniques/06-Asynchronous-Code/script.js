@@ -789,22 +789,26 @@
     // NOTE: `Promise.all()` is a method that takes an array of promises and runs them in parallel. It resolves when all the promises are fulfilled or rejects if any one of the promises fails.
 
     const fetchMultipleData = async () => {
-      const promise1 = fetch('https://fakestoreapi.com/products/1');
-      const promise2 = fetch('https://fakestoreapi.com/products/2');
-      const promise3 = fetch('https://fakestoreapi.com/products/3');
+      try {
+        const promise1 = fetch('https://fakestoreapi.com/products/1');
+        const promise2 = fetch('https://fakestoreapi.com/products/2');
+        const promise3 = fetch('https://fakestoreapi.com/products/3');
 
-      // Start all fetches at the same time (parallel execution)
-      const [res1, res2, res3] = await Promise.all([
-        promise1,
-        promise2,
-        promise3,
-      ]);
+        // Start all fetches at the same time (parallel execution)
+        const [res1, res2, res3] = await Promise.all([
+          promise1,
+          promise2,
+          promise3,
+        ]);
 
-      const data1 = await res1.json();
-      const data2 = await res2.json();
-      const data3 = await res3.json();
+        const data1 = await res1.json();
+        const data2 = await res2.json();
+        const data3 = await res3.json();
 
-      console.log('Data from all APIs:', data1, data2, data3);
+        console.log('Data from all APIs:', data1, data2, data3);
+      } catch (error) {
+        console.error('At least one promise rejected:', error);
+      }
     };
 
     fetchMultipleData();
@@ -883,7 +887,7 @@
       const promise3 = fetch('https://fakestoreapi.com/products/3');
 
       // Start all fetches at the same time (parallel execution)
-      const res = await Promise.race([promise1, promise2, promise3]);
+      const res = await Promise.any([promise1, promise2, promise3]);
 
       const data = await res.json();
 
@@ -905,6 +909,7 @@
 
 // Chat GPT 👇
 
+/* 
 {
   // NOTE: Sequential Async Operations ensure that the tasks are completed one after another, preserving the logic and flow of operations.
 
@@ -968,3 +973,156 @@
     //* Ideal for long chains of async operations that need to run one after the other.
   }
 }
+ */
+
+//* Async Patterns: Promise.all()
+
+// Chat GPT 👇
+
+/* 
+{
+  // NOTE: `Promise.all()` is a method that takes an array of promises and runs them in parallel. It resolves when all the promises are fulfilled or rejects if any one of the promises fails.
+
+  {
+    // Example 1: Basic `Promise.all()` Usage
+
+    // Let’s assume you are making three asynchronous requests, and you want all of them to finish before you process the results.
+
+    const promise1 = new Promise((resolve) =>
+      setTimeout(() => resolve('Result 1'), 1000)
+    );
+    const promise2 = new Promise((resolve) =>
+      setTimeout(() => resolve('Result 2'), 2000)
+    );
+    const promise3 = new Promise((resolve) =>
+      setTimeout(() => resolve('Result 3'), 3000)
+    );
+
+    Promise.all([promise1, promise2, promise3])
+      .then((results) => {
+        console.log('All promise resolved:', results); // ["Result 1", "Result 2", "Result 3"]
+      })
+      .catch((error) => {
+        console.error('At least one promise rejected:', error);
+      });
+
+    // Explanation:
+
+    // `promise1` resolves in 1 second.
+    // `promise2` resolves in 2 seconds.
+    // `promise3` resolves in 3 seconds.
+    // `Promise.all()` waits for all three promises to complete, and when they do, the results are printed in the same order as the input promises (`["Result 1", "Result 2", "Result 3"]`).
+
+    // If any promise rejects, the `.catch()` block would handle the error.
+  }
+
+  {
+    // IMPORTANT: Example 2: Fetch Data from Multiple APIs in Parallel
+
+    // Suppose you need to fetch data from three different APIs and you want to make sure all the requests are completed before proceeding.
+
+    const fetchMultipleData = async () => {
+      try {
+        const promise1 = fetch('https://fakestoreapi.com/products/1');
+        const promise2 = fetch('https://fakestoreapi.com/products/2');
+        const promise3 = fetch('https://fakestoreapi.com/products/3');
+
+        // Start all fetches at the same time (parallel execution)
+        const [res1, res2, res3] = await Promise.all([
+          promise1,
+          promise2,
+          promise3,
+        ]);
+
+        const data1 = await res1.json();
+        const data2 = await res2.json();
+        const data3 = await res3.json();
+
+        console.log('Data from all APIs:', data1, data2, data3);
+      } catch (error) {
+        console.error('At least one promise rejected:', error);
+      }
+    };
+
+    fetchMultipleData();
+  }
+}
+ */
+
+//* Async Patterns: Promise.allSettled()
+
+// Chat GPT 👇
+
+/* 
+{
+  // NOTE: `Promise.allSettled()` is a JavaScript method that handles multiple promises concurrently, and it returns a promise that resolves when all the input promises have either fulfilled or rejected, without short-circuiting like `Promise.all()`. Unlike `Promise.all()`, which fails fast and rejects as soon as any promise fails, `Promise.allSettled()` waits for all promises to complete, no matter if they are successful or failed.
+
+  {
+    // NOTE: Output of `Promise.allSettled()`:
+    //
+    // For each promise in the array, `Promise.allSettled()` returns an object with two properties:
+    //
+    // 1. `status`: The outcome of the promise. It can either be:
+    //  "fulfilled" if the promise resolved successfully.
+    //  "rejected" if the promise failed.
+    //
+    // 2. `value` or `reason`:
+    //
+    //  If the promise is fulfilled, the object will contain a `value` property with the resolved value.
+    //
+    //  If the promise is rejected, the object will contain a `reason` property with the error message or reason for the rejection.
+  }
+
+  {
+    // Example 1: Basic Usage of Promise.allSettled()
+
+    // Here’s an example where some promises resolve and some reject, but `Promise.allSettled()` handles both.
+
+    const handleMultiplePromise = async () => {
+      const promise1 = Promise.resolve('Success 1');
+      const promise2 = Promise.reject('Error in Promise 2');
+      const promise3 = Promise.resolve('Success 3');
+
+      const results = await Promise.allSettled([promise1, promise2, promise3]);
+
+      // console.log(results);
+
+      results.forEach((result) => {
+        if (result.status === 'fulfilled') {
+          console.log(`Promise fulfilled with value: ${result.value}`);
+        } else {
+          console.log(`Promise rejected with reason: ${result.reason}`);
+        }
+      });
+    };
+
+    handleMultiplePromise();
+  }
+
+  {
+    // Example 2: Fetching Multiple APIs and Handling Errors Gracefully
+
+    // Consider an example where you need to fetch data from multiple APIs, but you don’t want one failed request to stop you from processing the others.
+
+    const fetchMultipleData = async () => {
+      const promise1 = fetch('https://fakestoreapi.com/products/1');
+      const promise2 = fetch('https://Invalid-api.com'); // Assume this fails
+      const promise3 = fetch('https://fakestoreapi.com/products/3');
+
+      const results = await Promise.allSettled([promise1, promise2, promise3]);
+
+      // console.log(results);
+
+      results.forEach(async (result) => {
+        if (result.status === 'fulfilled') {
+          console.log('Fetch succeeded:', await result.value.json());
+        } else {
+          console.error('Fetch failed:', result.reason);
+        }
+      });
+    };
+
+    fetchMultipleData();
+  }
+}
+ */
