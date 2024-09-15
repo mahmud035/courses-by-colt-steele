@@ -36,6 +36,11 @@
 }
  */
 
+// Lecture Code
+
+{
+}
+
 //* Callback Hell & The Pyramid of Doom
 
 // Chat GPT 👇
@@ -1249,6 +1254,7 @@
 // Chat GPT 👇
 // https://chatgpt.com/share/66e68494-4b40-800f-8560-a24fe360f274
 
+/* 
 {
   {
     // Creating Our Own Promise Object
@@ -1334,3 +1340,4 @@
     }
   }
 }
+ */
