@@ -776,6 +776,7 @@
 //* Async Patterns: Parallel Async Operations
 
 // Chat GPT 👇
+// https://chatgpt.com/share/66e68396-6b4c-800f-87f8-6f0294bf7fb7
 
 /* 
 {
@@ -908,6 +909,7 @@
 //* Async Patterns: Sequential Async Operations
 
 // Chat GPT 👇
+// Same link above 👆 https://chatgpt.com/share/66e68396-6b4c-800f-87f8-6f0294bf7fb7
 
 /* 
 {
@@ -978,6 +980,7 @@
 //* Async Patterns: Promise.all()
 
 // Chat GPT 👇
+// Same link above 👆 https://chatgpt.com/share/66e68396-6b4c-800f-87f8-6f0294bf7fb7
 
 /* 
 {
@@ -1052,6 +1055,7 @@
 //* Async Patterns: Promise.allSettled()
 
 // Chat GPT 👇
+// Same link above 👆 https://chatgpt.com/share/66e68396-6b4c-800f-87f8-6f0294bf7fb7
 
 /* 
 {
@@ -1130,7 +1134,9 @@
 //* Async Patterns: Promise.race()
 
 // Chat GPT 👇
+// Same link above 👆 https://chatgpt.com/share/66e68396-6b4c-800f-87f8-6f0294bf7fb7
 
+/* 
 {
   // ==============================================
   // IMPORTANT: Summary of `Promise.race()`:
@@ -1234,5 +1240,97 @@
       .catch((error) => {
         console.error('First promise reject:', error);
       });
+  }
+}
+ */
+
+//* Building Our Own Promise Objects
+
+// Chat GPT 👇
+// https://chatgpt.com/share/66e68494-4b40-800f-8560-a24fe360f274
+
+{
+  {
+    // Creating Our Own Promise Object
+
+    // Let's create a simple promise that resolves after 2 seconds:
+
+    // Creating a promise
+
+    const myPromise = new Promise((resolve, reject) => {
+      // Simulating an asynchronous operation using setTimeout
+      setTimeout(() => {
+        let success = true; // Change this to 'false' to simulate a failure
+
+        if (success) {
+          resolve('The operation was successful');
+        } else {
+          reject('There was an error in the operation');
+        }
+      }, 2000);
+    });
+
+    // Using the promise
+    // myPromise
+    //   .then((data) => {
+    //     console.log(data); // Logs: "The operation was successful!" after 2 seconds
+    //   })
+    //   .catch((error) => {
+    //     console.error(error); // This would run if `reject` was called
+    //   });
+  }
+
+  {
+    // More Detailed Example (Simulating an API Call)
+
+    // Imagine you’re fetching data from a server. If the data is available, the promise is resolved; otherwise, it's rejected.
+
+    const fetchData = async () => {
+      return new Promise((resolve, reject) => {
+        console.log('Fetching data...');
+
+        setTimeout(() => {
+          const data = { name: 'John', age: 30 }; // Simulated server response
+          let success = true; // Simulate success or failure of fetching
+
+          if (success) {
+            resolve(data); // Resolving the promise with the data
+          } else {
+            reject('Failed to fetch data'); // Rejecting the promise with an error message
+          }
+        }, 3000); // Simulating a 3-second delay for the server response
+      });
+    };
+
+    // Consume / Using the promise
+    try {
+      const data = await fetchData();
+      console.log(data);
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
+  }
+
+  {
+    // Example: Converting Callbacks to Promises
+
+    // TODO: Follow this pattern: You can convert this to use promises instead:
+
+    const getUserData = async () => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          const data = { name: 'Alice', age: 25 };
+          resolve(data); // Resolving with the data
+        }, 2000);
+      });
+    };
+
+    // Consume / Using the promise
+    try {
+      const data = await getUserData();
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
