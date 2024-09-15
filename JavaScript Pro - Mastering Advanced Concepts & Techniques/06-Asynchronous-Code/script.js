@@ -1126,3 +1126,113 @@
   }
 }
  */
+
+//* Async Patterns: Promise.race()
+
+// Chat GPT 👇
+
+{
+  // ==============================================
+  // IMPORTANT: Summary of `Promise.race()`:
+
+  // First Settling Promise Wins: Whether it's fulfilled or rejected, the first settled promise determines the outcome.
+
+  // Fast Failures or Fast Successes: `Promise.race()` is ideal when you care about speed (the first result matters) rather than the results of all promises.
+
+  // Use Cases: Timeout mechanisms, getting the fastest result, or racing tasks against failures.
+
+  // ==============================================
+
+  {
+    // Example 3: IMPORTANT: Real-Life Use Case - Timeout Implementation
+
+    // NOTE: A common use case for `Promise.race()` is setting a timeout for an asynchronous operation. If the operation takes too long, you can race it against a promise that rejects after a specified timeout.
+
+    const fetchWithTimeout = async (url, timeInMS) => {
+      const fetchPromise = fetch(url).then((res) => res.json()); // Assume a network request
+
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject('Request time out'), timeInMS)
+      );
+
+      return Promise.race([fetchPromise, timeoutPromise]);
+    };
+
+    fetchWithTimeout('https://fakestoreapi.com/products/1', 10000)
+      .then((result) => {
+        console.log('Fetch succeeded:', result);
+      })
+      .catch((error) => {
+        console.error('Fetch failed:', error);
+      });
+  }
+
+  {
+    // Example 1: Basic Usage of `Promise.race()`
+
+    // Let’s consider a case with three promises, and we want to know which one settles first.
+
+    const promise1 = new Promise((resolve) =>
+      setTimeout(() => resolve('Result 1'), 3000)
+    );
+    const promise2 = new Promise((resolve) =>
+      setTimeout(() => resolve('Result 2'), 2000)
+    );
+    const promise3 = new Promise((resolve) =>
+      setTimeout(() => resolve('Result 3'), 1000)
+    );
+
+    Promise.race([promise1, promise2, promise3])
+      .then((result) => {
+        console.log('The first promise to resolve:', result);
+      })
+      .catch((error) => {
+        console.log('The first promise to reject:', error);
+      });
+  }
+
+  {
+    // Example 2: Handling Rejection with `Promise.race()`
+
+    // If the first settled promise is rejected, `Promise.race()` will reject immediately.
+
+    const promise1 = new Promise((resolve) =>
+      setTimeout(() => resolve('Result 1'), 3000)
+    );
+    const promise2 = new Promise((_, reject) =>
+      setTimeout(() => reject('Error in Promise 2'), 2000)
+    );
+    const promise3 = new Promise((resolve) =>
+      setTimeout(() => resolve('Result 3'), 1000)
+    );
+
+    Promise.race([promise1, promise2, promise3])
+      .then((result) => {
+        console.log('First resolved value:', result);
+      })
+      .catch((error) => {
+        console.error('First rejected reason:', error);
+      });
+  }
+
+  {
+    // Example 4: Multiple Promises with Different Outcomes
+
+    // NOTE: If you race promises where some resolve and some reject, `Promise.race()` only cares about the first one that settles, regardless of whether it's resolved or rejected.
+
+    const fastReject = new Promise((_, reject) =>
+      setTimeout(() => reject('Fast reject'), 1000)
+    );
+    const slowResolve = new Promise((resolve) =>
+      setTimeout(() => resolve('Slow resolve'), 3000)
+    );
+
+    Promise.race([fastReject, slowResolve])
+      .then((result) => {
+        console.log('First promise resolved:', result);
+      })
+      .catch((error) => {
+        console.error('First promise reject:', error);
+      });
+  }
+}
