@@ -213,3 +213,59 @@
   }
 }
  */
+
+//* Automatic Semicolon Insertion (ASI)
+
+// Chat GPT 👇
+
+{
+  // TODO: ✅ Read Chat GPT's Article.
+}
+
+//* JavaScript Generator Functions
+
+// Chat GPT 👇
+
+/* 
+{
+  {
+    // Example of a Simple Generator Function
+
+    function* countUp() {
+      yield 1;
+      yield 2;
+      yield 3;
+    }
+
+    const counter = countUp();
+
+    console.log(counter.next().value); // 1
+    console.log(counter.next().value); // 2
+    console.log(counter.next().value); // 3
+    console.log(counter.next().value); // undefined (iteration is complete)
+  }
+
+  {
+    // Detailed Example
+
+    function* generateSequence() {
+      try {
+        yield 1;
+        yield 2;
+        yield 3;
+      } catch (e) {
+        console.log('Error caught:', e);
+      }
+
+      return 'Done';
+    }
+
+    const gen = generateSequence();
+
+    console.log(gen.next().value); // 1
+    console.log(gen.next().value); // 2
+    console.log(gen.throw(new Error('An error occurred')).value); // Error caught: Error: An error occurred
+    console.log(gen.next().value); // Done (returns the value from the return statement)
+  }
+}
+ */
