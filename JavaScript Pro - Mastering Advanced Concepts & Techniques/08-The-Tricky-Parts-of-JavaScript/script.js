@@ -3,6 +3,7 @@
 //* Working With Float Imprecision
 
 // Chat GPT 👇
+// https://chatgpt.com/share/66e829b3-5bc8-800f-bd4a-fc56264cd935
 
 /* 
 {
@@ -24,6 +25,7 @@
 //* BigInt() and Really Large Numbers
 
 // Chat GPT 👇
+// Same as above 👆 https://chatgpt.com/share/66e829b3-5bc8-800f-bd4a-fc56264cd935
 
 /* 
 {
@@ -83,6 +85,7 @@
 //* isNan() vs. Number.isNaN()
 
 // Chat GPT 👇
+// Same as above 👆 https://chatgpt.com/share/66e829b3-5bc8-800f-bd4a-fc56264cd935
 
 /* 
 {
@@ -145,6 +148,7 @@
 //* Post and Pre Increment: ++x vs. x++
 
 // Chat GPT 👇
+// Same as above 👆 https://chatgpt.com/share/66e829b3-5bc8-800f-bd4a-fc56264cd935
 
 /* 
 {
@@ -217,6 +221,7 @@
 //* Automatic Semicolon Insertion (ASI)
 
 // Chat GPT 👇
+// Same as above 👆 https://chatgpt.com/share/66e829b3-5bc8-800f-bd4a-fc56264cd935
 
 {
   // TODO: ✅ Read Chat GPT's Article.
@@ -225,6 +230,7 @@
 //* JavaScript Generator Functions
 
 // Chat GPT 👇
+// Same as above 👆 https://chatgpt.com/share/66e829b3-5bc8-800f-bd4a-fc56264cd935
 
 /* 
 {
@@ -266,6 +272,92 @@
     console.log(gen.next().value); // 2
     console.log(gen.throw(new Error('An error occurred')).value); // Error caught: Error: An error occurred
     console.log(gen.next().value); // Done (returns the value from the return statement)
+  }
+}
+ */
+
+//* When Are Generators Useful?
+
+// Chat GPT 👇
+// Same as above 👆 https://chatgpt.com/share/66e829b3-5bc8-800f-bd4a-fc56264cd935
+
+//* The Incredibly Versatile `Array.from()` Method
+
+// Chat GPT 👇
+// Same as above 👆 https://chatgpt.com/share/66e829b3-5bc8-800f-bd4a-fc56264cd935
+
+/* 
+{
+  // TODO: ✅ Read Chat GPT's Article.
+
+  // NOTE: The `Array.from()` method in JavaScript is a highly versatile function used to create a new array instance from an array-like or iterable object. It’s a part of (ES6) and provides a flexible way to convert different types of data structures into arrays.
+
+  // Examples
+
+  {
+    // 1. Converting Array-Like Objects
+
+    // An array-like object is an object with a `length` property and indexed elements, but it’s not a true array. Examples include the `arguments` object inside functions and `NodeList` from DOM queries.
+
+    function example() {
+      const args = Array.from(arguments);
+      console.log(args); // [1, 2, 3]
+    }
+
+    example(1, 2, 3);
+  }
+
+  {
+    // 2. Converting Strings
+
+    // Strings are iterable objects, so `Array.from()` can be used to convert a string into an array of characters.
+
+    const str = 'hello';
+    const arr = Array.from(str);
+    console.log(arr); // ['h', 'e', 'l', 'l', 'o']
+  }
+
+  {
+    // 3. Converting Sets
+
+    // Sets are iterable objects that hold unique values. `Array.from()` can convert a set into an array.
+
+    const set = new Set([1, 2, 3, 4]);
+    const arr = Array.from(set);
+    console.log(arr); // [1, 2, 3, 4]
+  }
+
+  {
+    // 4. Using a Mapping Function
+
+    // You can pass a mapping function to `Array.from()` to transform the elements during conversion.
+
+    const str = '12345';
+    const arr = Array.from(str, (num) => Number(num) * 2);
+    console.log(arr); // [2, 4, 6, 8, 10]
+  }
+
+  {
+    //* 5. Generating Arrays from a Range
+
+    // `Array.from()` can be used to create an array of a specific length and populate it with values.
+
+    const arr = Array.from({ length: 5 }, (_, index) => index + 1);
+    console.log(arr); // [1, 2, 3, 4, 5]
+  }
+
+  {
+    // 6. Using `Array.from()` with `thisArg`
+
+    // The `thisArg` parameter can be used to provide a context for the `mapFunction`.
+
+    function multiply(x) {
+      return x * this.factor;
+    }
+
+    const obj = { factor: 2 };
+    const arr = Array.from([1, 2, 3], multiply, obj);
+    console.log(arr); // [2, 4, 6]
   }
 }
  */
