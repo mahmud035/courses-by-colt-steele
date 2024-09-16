@@ -79,3 +79,65 @@
   }
 }
  */
+
+//* isNan() vs. Number.isNaN()
+
+// Chat GPT 👇
+
+/* 
+{
+  // TODO: ✅ Read Chat GPT's Article.
+
+  // ==============================================
+  // IMPORTANT: Key Points:
+
+  // `isNaN()`: A more lenient function that coerces the argument to a number before checking if it's `NaN`. It may give false positives because of this coercion.
+
+  // `Number.isNaN()`: A stricter function that only returns `true` if the value is exactly `NaN`. It avoids false positives by not performing type coercion.
+
+  // TODO: When precision is required, such as when checking for `NaN` in calculations or data validation, it's recommended to use `Number.isNaN()` for accuracy.
+
+  // ==============================================
+
+  {
+    // Understanding `NaN` in JavaScript
+
+    // `NaN` is a special value in JavaScript that represents the result of operations that don't produce a valid number.
+
+    console.log(0 / 0); // NaN
+    console.log(Math.sqrt(-1)); // NaN
+    console.log(Number.parseInt('abc')); // NaN
+  }
+
+  {
+    // `isNaN()`
+
+    // The global `isNaN()` function tries to determine if a value is NaN. However, it first attempts to convert the value to a number and then checks if the result is NaN.
+
+    console.log(isNaN(NaN)); // true
+    console.log(isNaN(123)); // false
+    console.log(isNaN('123')); // false (string is converted to number 123)
+    console.log(isNaN('abc')); // true ('abc' is converted to NaN)
+
+    // As seen above, `isNaN()` attempts to coerce non-number values into numbers before making the determination. For instance, if you pass a string, it tries to convert it to a number, and only if that conversion results in `NaN`, it will return `true`.
+
+    // WARNING: This behavior can be problematic because it leads to false positives for certain values, like strings or other non-numeric values, that are not actually `NaN`.
+  }
+
+  {
+    // ✅ `Number.isNaN()`
+
+    // NOTE: `Number.isNaN()` was introduced in (ES6) to fix the issues associated with the global `isNaN()`. Unlike `isNaN()`, `Number.isNaN()` does not perform type coercion. It only returns true if the value is exactly `NaN`. It does not attempt to convert the value to a number first.
+
+    console.log(Number.isNaN(NaN)); // true
+    console.log(Number.isNaN(123)); // false
+    console.log(Number.isNaN('123')); // false
+    console.log(Number.isNaN('abc')); // false
+    console.log(Number.isNaN(undefined)); // false
+    console.log(Number.isNaN({})); // false
+    console.log(Number.isNaN([])); // false
+
+    // As you can see, `Number.isNaN()` strictly checks if the value is `NaN`, without any implicit type conversion. Therefore, it does not have the false positives that `isNaN()` has.
+  }
+}
+ */
