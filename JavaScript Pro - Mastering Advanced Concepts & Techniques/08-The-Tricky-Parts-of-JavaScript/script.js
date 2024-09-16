@@ -141,3 +141,75 @@
   }
 }
  */
+
+//* Post and Pre Increment: ++x vs. x++
+
+// Chat GPT 👇
+
+/* 
+{
+  // ==============================================
+  // IMPORTANT: Key Points:
+
+  // Pre-Increment (`++x`): Increments the variable first, then returns the incremented value. It is useful when you need the updated value immediately.
+
+  // Post-Increment (`x++`): Returns the current value first, and then increments the variable. It is useful when you need to use the current value before incrementing.
+
+  // ==============================================
+
+  {
+    // Pre-Increment (++x)
+
+    let x = 5;
+    let y = ++x; // Pre-increment
+
+    console.log(x); // 6 (x is incremented first)
+    console.log(y); // 6 (the new value of x is assigned to y)
+
+    // Here, the value of `x` becomes `6` after the pre-increment, and the variable `y` receives the incremented value (`6`).
+  }
+
+  {
+    // Post-Increment (x++)
+
+    let x = 5;
+    let y = x++; // Post-increment
+
+    console.log(x); // 6 (x is incremented after use)
+    console.log(y); // 5 (y gets the original value of x before the increment)
+
+    // Here, `x` is first used with the value `5`, and that value is assigned to `y`. Only after this, `x` is incremented to `6`.
+  }
+
+  {
+    // More Detailed Examples
+
+    {
+      let x = 5;
+      console.log(++x); // 6
+    }
+
+    {
+      let x = 5;
+      console.log(x++); // 5
+      console.log(x); // 6
+    }
+
+    {
+      let x = 3;
+      let y = 10 + ++x;
+
+      console.log(y); // 14
+      console.log(x); // 4
+    }
+
+    {
+      let x = 3;
+      let y = 10 + x++;
+
+      console.log(y); // 13
+      console.log(x); // 4
+    }
+  }
+}
+ */
