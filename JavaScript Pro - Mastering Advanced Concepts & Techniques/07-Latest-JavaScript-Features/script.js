@@ -7,6 +7,8 @@
 
 /* 
 {
+ // TODO: ✅ Read Chat GPT's Article.
+
 // NOTE: The Optional Chaining Operator returns `undefined` if an object is `undefined` or `null` (instead of throwing an error).
 
   const user = {
@@ -49,7 +51,7 @@
   // NOTE: The `??` operator returns the first argument if it is NOT nullish (`null` or `undefined`). Otherwise it returns the second.
   //
   //
-  // ✅ Read Chat GPT's Article.
+  // TODO: ✅ Read Chat GPT's Article.
 }
 
 //* Numeric Separators (_)
@@ -79,7 +81,7 @@
 // Same link above 👆 https://chatgpt.com/share/66e7f6f7-3c94-800f-9976-329dbfa2dc31
 
 {
-  // ✅ Read Chat GPT's Article.
+  // TODO: ✅ Read Chat GPT's Article.
 }
 
 //* String replaceAll()
@@ -88,7 +90,7 @@
 // Same link above 👆 https://chatgpt.com/share/66e7f6f7-3c94-800f-9976-329dbfa2dc31
 
 {
-  // ✅ Read Chat GPT's Article.
+  // TODO: ✅ Read Chat GPT's Article.
 }
 
 //* Logical OR Assignment `||=`
@@ -100,7 +102,7 @@
   // NOTE: The Logical OR Assignment Operator is used between two values. If the first value is `false`, the second value is assigned.
   //
   //
-  // ✅ Read Chat GPT's Article.
+  // TODO: ✅ Read Chat GPT's Article.
 }
 
 //* Logical AND Assignment `&&=`
@@ -111,7 +113,7 @@
 {
   // NOTE: The Logical AND Assignment Operator is used between two values. If the first value is `true`, the second value is assigned.
 
-  // ✅ Read Chat GPT's Article.
+  // TODO: ✅ Read Chat GPT's Article.
 
   let value = 0;
 
@@ -134,7 +136,7 @@
   // NOTE: The Nullish Coalescing Assignment Operator is used between two values. If the first value is `undefined` or `null`, the second value is assigned.
   //
   //
-  // ✅ Read Chat GPT's Article.
+  // TODO: ✅ Read Chat GPT's Article.
 }
 
 //* Promise.any()
@@ -143,7 +145,7 @@
 // Same link above 👆 https://chatgpt.com/share/66e7f6f7-3c94-800f-9976-329dbfa2dc31
 
 {
-  // ✅ Read Chat GPT's Article.
+  // TODO: ✅ Read Chat GPT's Article.
 }
 
 //* New OOP Features: Private Fields & Static Initialization Blocks
@@ -153,7 +155,7 @@
 
 /* 
 {
-  // ✅ Read Chat GPT's Article.
+   // TODO: ✅ Read Chat GPT's Article.
 
   class Counter {
     static count = 0;
