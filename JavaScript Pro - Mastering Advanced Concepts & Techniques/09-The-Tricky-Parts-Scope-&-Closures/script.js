@@ -104,6 +104,62 @@
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  // ==============================================
+  // IMPORTANT: Summary of Static Scope
+
+  // Static Scope (Lexical Scope): Variables and functions are scoped based on where they are defined in the source code, not where they are invoked.
+
+  // Lexical Environment: The JavaScript engine creates a mapping of variables at the time the code is parsed, determining what variables a function will have access to.
+
+  // Scope Chain: A function has access to its own local variables and to variables in its outer (parent) functions or the global scope, based on how the code is structured.
+
+  // Closures: Functions can "remember" the variables from their lexical scope even after the parent function has finished executing, thanks to static scoping.
+
+  // ==============================================
+
+  {
+    // Example of Static Scope (Lexical Scope):
+
+    const a = 10; // Global scope
+
+    const outer = () => {
+      const b = 20; // outer's local scope
+
+      const inner = () => {
+        const c = 30; // inner's local scope
+
+        console.log(a); // 10 (from global scope)
+        console.log(b); // 20 (from outer scope)
+        console.log(c); // 30 (from inner scope)
+      };
+
+      inner();
+    };
+
+    outer();
+  }
+
+  {
+    // NOTE: Closures rely on the static scope to "remember" the variables from the outer function’s environment.
+
+    // Example of a Closure Using Static Scope:
+
+    const outer = () => {
+      let count = 0;
+
+      const inner = () => {
+        count++;
+        console.log(count);
+      };
+
+      return inner;
+    };
+
+    const increment = outer();
+    increment(); // Output: 1
+    increment(); // Output: 2
+  }
 }
 
 //* Hoisting
