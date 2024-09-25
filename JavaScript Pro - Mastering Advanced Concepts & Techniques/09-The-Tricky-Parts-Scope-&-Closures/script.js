@@ -102,6 +102,7 @@
 
 // ChatGPT 👇
 
+/* 
 {
   // TODO: ✅ Read ChatGPT's Article.
 
@@ -161,6 +162,7 @@
     increment(); // Output: 2
   }
 }
+ */
 
 //* Hoisting
 
@@ -168,6 +170,14 @@
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  {
+    // 1. Hoisting with var
+
+    console.log(a); // Output: undefined
+    var a = 10;
+    console.log(a); // Output: 10
+  }
 }
 
 //* IIFEs
