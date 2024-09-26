@@ -3,6 +3,7 @@
 //* Recapping Var & Scope
 
 // ChatGPT 👇
+// https://chatgpt.com/share/66f593d1-132c-800f-a783-b134a36fa4dd
 
 {
   // TODO: ✅ Read ChatGPT's Article.
@@ -11,6 +12,7 @@
 //* Recapping Let, Const, & Scope
 
 // ChatGPT 👇
+// Same as above 👆 https://chatgpt.com/share/66f593d1-132c-800f-a783-b134a36fa4dd
 
 {
   // TODO: ✅ Read ChatGPT's Article.
@@ -33,6 +35,7 @@
 //* The Scope Chain
 
 // ChatGPT 👇
+// Same as above 👆 https://chatgpt.com/share/66f593d1-132c-800f-a783-b134a36fa4dd
 
 /* 
 {
@@ -101,6 +104,7 @@
 //* Static Scope
 
 // ChatGPT 👇
+// Same as above 👆 https://chatgpt.com/share/66f593d1-132c-800f-a783-b134a36fa4dd
 
 /* 
 {
@@ -167,6 +171,7 @@
 //* Hoisting
 
 // ChatGPT 👇
+// Same as above 👆 https://chatgpt.com/share/66f593d1-132c-800f-a783-b134a36fa4dd
 
 /* 
 {
@@ -293,6 +298,7 @@
 //* IIFEs
 
 // ChatGPT 👇
+// Same as above 👆 https://chatgpt.com/share/66f593d1-132c-800f-a783-b134a36fa4dd
 
 /* 
 {
@@ -352,6 +358,7 @@
 //* Closures: The Basics
 
 // ChatGPT 👇
+// Same as above 👆 https://chatgpt.com/share/66f593d1-132c-800f-a783-b134a36fa4dd
 
 /* 
 {
@@ -492,6 +499,7 @@
 //* Closures: Another Example
 
 // ChatGPT 👇
+// Same as above 👆 https://chatgpt.com/share/66f593d1-132c-800f-a783-b134a36fa4dd
 
 /* 
 {
@@ -532,6 +540,7 @@
 //* Closures: Factory Functions
 
 // ChatGPT 👇
+// Same as above 👆 https://chatgpt.com/share/66f593d1-132c-800f-a783-b134a36fa4dd
 
 /* 
 {
@@ -658,7 +667,9 @@
 //* Closures: Event Listeners
 
 // ChatGPT 👇
+// Same as above 👆 https://chatgpt.com/share/66f593d1-132c-800f-a783-b134a36fa4dd
 
+/* 
 {
   // TODO: ✅ Read ChatGPT's Article.
 
@@ -706,11 +717,25 @@
     setupButtons(); // Initialize event listeners
   }
 }
+ */
 
 //* Closures: Loops
 
 // ChatGPT 👇
+// Same as above 👆 https://chatgpt.com/share/66f593d1-132c-800f-a783-b134a36fa4dd
 
+/* 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  {
+    //  Using let to Fix Scope Issues in Loops
+
+    for (let i = 0; i < 3; i++) {
+      setTimeout(() => {
+        console.log(i);
+      }, 1000);
+    }
+  }
 }
+ */
