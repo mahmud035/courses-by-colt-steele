@@ -294,6 +294,7 @@
 
 // ChatGPT 👇
 
+/* 
 {
   // TODO: ✅ Read ChatGPT's Article.
 
@@ -346,6 +347,7 @@
     })(5); // Output: 120
   }
 }
+ */
 
 //* Closures: The Basics
 
@@ -353,6 +355,136 @@
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  {
+    // Example of Closure
+
+    const outerFunction = () => {
+      let outerVariable = `I'm outside!`;
+
+      const innerFunction = () => {
+        console.log(outerVariable); // Can access outerVariable
+      };
+
+      return innerFunction;
+    };
+
+    const closure = outerFunction();
+    closure(); // Output: "I'm outside!"
+  }
+
+  //* Practical Examples of Closures
+  {
+    // 1. Data Privacy and Encapsulation
+
+    // NOTE: Closures can be used to create private variables and functions, simulating encapsulation.
+
+    function createCounter() {
+      let count = 0; // Private variable
+
+      return function () {
+        count++;
+        console.log(count);
+      };
+    }
+
+    const counter = createCounter();
+    counter(); // Output: 1
+    counter(); // Output: 2
+    counter(); // Output: 3
+
+    // In this example:
+
+    // The `count` variable is private to the `createCounter` function.
+
+    // The inner anonymous function forms a closure over `count`, allowing it to access and modify it every time `counter()` is called.
+
+    // No code outside the `createCounter` function can directly access or modify `count`, achieving data encapsulation.
+  }
+
+  {
+    // 2. Function Factories
+
+    // NOTE: Closures are useful when you want to create multiple functions that share some of the same behavior but differ in specific values.
+
+    function createMultiplier(multiplier) {
+      return function (value) {
+        return value * multiplier;
+      };
+    }
+
+    const double = createMultiplier(2);
+    const triple = createMultiplier(3);
+
+    console.log(double(5)); // Output: 10
+    console.log(triple(5)); // Output: 15
+
+    // In this example:
+
+    // `createMultiplier` returns a function that multiplies a value by the given multiplier.
+
+    // `double` and `triple` are closures that "remember" their own multiplier values (`2` and 3` respectively) and use them when called.
+  }
+
+  //* Use Cases of Closures
+  {
+    // 1. Event Handlers: Closures are commonly used in event handlers to "remember" state data or a reference to a particular element.
+
+    const button = document.getElementById('button');
+
+    const setupClickHandler = (element, message) => {
+      element.addEventListener('click', () => {
+        console.log(message); // 👈 Closures happens here
+      });
+    };
+
+    setupClickHandler(button, 'Button Clicked!');
+
+    // NOTE: Here, the inner anonymous function (the event handler) retains access to the `message` variable, even after `setupClickHandler` has finished executing.
+  }
+
+  {
+    // 2. Callbacks and Timers: Closures are frequently used in asynchronous programming, especially with callbacks and timers.
+
+    const delayMessage = (message, delay) => {
+      setTimeout(() => {
+        console.log(message); // 👈 Closures happens here
+      }, delay);
+    };
+
+    delayMessage('Hello after 1 second!', 1000);
+
+    // NOTE: In this example, the anonymous function passed to `setTimeout` forms a closure over the `message` variable, which allows it to access `message` when the timer expires, even though the outer function has already returned.
+  }
+
+  //* Closures and the Scope Chain
+  {
+    const globalVar = 'Global';
+
+    const outerFunction = () => {
+      let outerVar = 'Outer';
+
+      const innerFunction = () => {
+        const innerVar = 'inner';
+
+        console.log(globalVar); // Output: "Global"
+        console.log(outerVar); // Output: "Outer"
+        console.log(innerVar); // Output: "Inner"
+      };
+
+      return innerFunction;
+    };
+
+    const closure = outerFunction();
+    closure();
+
+    // Here, the `innerFunction` forms a closure that has access to:
+    // 1. The `innerVar` in its own scope.
+    // 2. The `outerVar` in the scope of `outerFunction`.
+    // 3. The `globalVar` from the global scope.
+
+    // This demonstrates the "scope chain" in action. When the `innerFunction` is executed, it looks for variables starting from its own scope and moving outward, step by step, until it reaches the global scope.
+  }
 }
 
 //* Closures: Another Example
