@@ -79,9 +79,57 @@
 // ChatGPT 👇
 // Same as above 👆
 
+/* 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  //* Key Points
+
+  {
+    // 1. Repeated Execution: Unlike `setTimeout`, which triggers a function after a single delay, `setInterval` continuously runs the specified function at regular intervals until stopped.
+  }
+
+  {
+    // 2. Asynchronous Nature: Like `setTimeout`, `setInterval` is asynchronous. This means that JavaScript doesn't wait for the function to finish before continuing with other code.
+  }
+
+  {
+    // 3. Clearing an Interval: To stop a `setInterval`, you need to use `clearInterval()`, passing the ID returned by `setInterval`.
+
+    const intervalID = setInterval(() => {
+      console.log('This will stop after 5 seconds.');
+    }, 1000);
+
+    setTimeout(() => {
+      clearInterval(intervalID);
+    }, 5000);
+
+    // NOTE: In this example, the `setInterval` will run every second, but after 5 seconds, `clearInterval()` is called, which stops further executions.
+  }
+
+  //* Practical Use Cases
+
+  {
+    // Regular Updates: `setInterval` is perfect for scenarios where you want to continuously update something, such as refreshing data, updating a UI element, or running real-time clocks.
+
+    setInterval(() => {
+      const now = new Date();
+      console.log(now.toLocaleTimeString());
+    }, 1000); // Updates the time every second
+  }
+
+  {
+    // Polling: In web applications, `setInterval` is commonly used for polling, where the client repeatedly checks for new data from the server at a fixed interval.
+
+    const fetchData = () => {
+      console.log('Fetching data...');
+      // Simulate AJAX call or fetch
+    };
+
+    setInterval(fetchData, 5000); // Fetch data every 5 seconds
+  }
 }
+ */
 
 //* clearInterval
 
