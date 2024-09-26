@@ -493,6 +493,7 @@
 
 // ChatGPT 👇
 
+/* 
 {
   // TODO: ✅ Read ChatGPT's Article.
 
@@ -526,14 +527,133 @@
   console.log(counter2.increment()); // Output: 1
   console.log(counter2.getCount()); // Output: 1
 }
+ */
 
 //* Closures: Factory Functions
 
 // ChatGPT 👇
 
+/* 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  // NOTE: Definition of a Factory Function
+
+  // A factory function is a function designed to produce objects (or functions) on demand, with custom properties or behaviors, often based on parameters provided to the factory.
+
+  {
+    // Example 1: A Basic Factory Function Using Closures
+
+    const createCounter = () => {
+      let count = 0; // `count` is a private variable
+
+      return {
+        increment: () => {
+          count++; // Modify the private variable
+          return count;
+        },
+        getCount: () => {
+          return count; // Access the private variable
+        },
+      };
+    };
+
+    const counter1 = createCounter();
+    console.log(counter1.increment()); // Output: 1
+    console.log(counter1.increment()); // Output: 2
+    console.log(counter1.getCount()); // Output: 2
+
+    const counter2 = createCounter();
+    console.log(counter2.increment()); // Output: 1
+    console.log(counter2.getCount()); // Output: 1
+
+    // NOTE: Explanation:
+
+    // The `createCounter` function is a "factory function". Each time it is called, it returns an object with two methods: `increment` and `getCount`.
+
+    // The variable `count` is private to each instance of `createCounter`. This means each counter has its own separate `count`.
+
+    // `counter1` and `counter2` are two independent counters. They do not interfere with each other because each one has its own closure over the `count` variable.
+  }
+
+  {
+    // Example 2: Customizing Factory Functions with Parameters
+
+    // Factory functions often take parameters to customize the object or function being created. Let’s modify the counter example to allow the factory function to accept an initial value for the `count`:
+
+    const createCounter = (startValue) => {
+      let count = startValue; // Initialize `count` with a custom start value
+
+      return {
+        increment: () => {
+          count++;
+          return count;
+        },
+        getCount: () => {
+          return count;
+        },
+      };
+    };
+
+    const counter1 = createCounter(5);
+    console.log(counter1.increment()); // Output: 6
+    console.log(counter1.getCount()); // Output: 6
+
+    const counter2 = createCounter(10);
+    console.log(counter2.increment()); // Output: 11
+    console.log(counter2.getCount()); // Output: 11
+  }
+
+  {
+    // Example 3: Factory Functions for Creating Functions
+
+    // Let’s create a factory function that generates "multiplier functions". Each multiplier function will multiply an input number by a specific factor.
+
+    const createMultiplier = (multiplier) => {
+      return (number) => {
+        return number * multiplier;
+      };
+    };
+
+    const double = createMultiplier(2); // Create a function that multiplies by 2
+    const triple = createMultiplier(3); // Create a function that multiplies by 3
+
+    console.log(double(5)); // Output: 10
+    console.log(triple(5)); // Output: 15
+  }
+
+  {
+    // Example 4: Complex Factory Functions
+
+    // Let’s create a more complex factory function, where we generate objects representing employees with methods to manage their salary.
+
+    const createEmployee = (name, salary) => {
+      return {
+        getName: () => {
+          return name; // Access the private `name`
+        },
+        getSalary: () => {
+          return salary; // Access the private `salary`
+        },
+        increaseSalary: (amount) => {
+          salary += amount; // Modify the private `salary`
+          return salary;
+        },
+      };
+    };
+
+    const emp1 = createEmployee('John Doe', 50000);
+    console.log(emp1.getName()); // Output: "John Doe"
+    console.log(emp1.getSalary()); // Output: 50000
+    console.log(emp1.increaseSalary(5000)); // Output: 55000
+
+    const emp2 = createEmployee('Jane Smith', 60000);
+    console.log(emp2.getName()); // Output: "Jane Smith"
+    console.log(emp2.getSalary()); // Output: 60000
+    console.log(emp2.increaseSalary(10000)); // Output: 70000
+  }
 }
+ */
 
 //* Closures: Event Listeners
 
