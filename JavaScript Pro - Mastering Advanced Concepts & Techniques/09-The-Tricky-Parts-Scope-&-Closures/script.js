@@ -353,6 +353,7 @@
 
 // ChatGPT 👇
 
+/* 
 {
   // TODO: ✅ Read ChatGPT's Article.
 
@@ -486,6 +487,7 @@
     // This demonstrates the "scope chain" in action. When the `innerFunction` is executed, it looks for variables starting from its own scope and moving outward, step by step, until it reaches the global scope.
   }
 }
+ */
 
 //* Closures: Another Example
 
@@ -493,6 +495,36 @@
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  // Problem Setup: A Closure Example
+
+  // Imagine that we want to create a function that stores a "private" value and allows us to increment or access it. This would be a classic use case for closures since we can encapsulate data and control access to it through specific functions.
+
+  const createCounter = () => {
+    let count = 0; // `count` is a private variable
+
+    return {
+      increment: () => {
+        count++; // The closure captures and updates `count`
+        return count;
+      },
+      getCount: () => {
+        return count; // The closure can access the current `count`
+      },
+    };
+  };
+
+  const counter1 = createCounter();
+  console.log(counter1.increment()); // Output: 1
+  console.log(counter1.increment()); // Output: 2
+  console.log(counter1.getCount()); // Output: 2
+
+  // ==================== ====================
+
+  // Creating Multiple Counters with Closures
+  const counter2 = createCounter();
+  console.log(counter2.increment()); // Output: 1
+  console.log(counter2.getCount()); // Output: 1
 }
 
 //* Closures: Factory Functions
