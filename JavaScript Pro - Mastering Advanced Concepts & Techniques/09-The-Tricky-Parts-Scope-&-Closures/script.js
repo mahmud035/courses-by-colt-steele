@@ -661,6 +661,50 @@
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  {
+    // Example 1: Basic Closure with Event Listener
+
+    // In this example, we’ll add an event listener to a button, and use closures to capture and retain access to some data from the outer function.
+
+    const button = document.getElementById('button');
+
+    const setupClickHandler = () => {
+      let clickCount = 0; // Private variable to track the number of clicks
+
+      button.addEventListener('click', () => {
+        // ✅ Closure happens here
+        clickCount++; // Modify the private variable
+        console.log(`Button clicked ${clickCount} times`);
+      });
+    };
+
+    setupClickHandler(); // Initialize the event listener
+  }
+
+  {
+    // Example 2: Closures for Passing Data to Event Listeners
+
+    // NOTE: Sometimes, you need to capture and pass dynamic data into event listeners. Closures make it easy to pass data to event listeners, even if the data is not available when the event listener is defined.
+
+    // Let’s look at an example where we create multiple buttons, and each button remembers its own unique number using closures.
+
+    const setupButtons = () => {
+      const buttons = document.querySelectorAll('.myButton');
+
+      buttons.forEach((button) => {
+        // ✅ Closure happens here
+        let buttonNumber = button.getAttribute('data-number'); // Capture button number
+
+        button.addEventListener('click', () => {
+          // ✅ Closure happens here
+          console.log(`Button ${buttonNumber} clicked`);
+        });
+      });
+    };
+
+    setupButtons(); // Initialize event listeners
+  }
 }
 
 //* Closures: Loops
