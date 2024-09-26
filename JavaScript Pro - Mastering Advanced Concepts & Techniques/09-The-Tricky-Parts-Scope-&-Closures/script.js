@@ -171,12 +171,120 @@
 {
   // TODO: ✅ Read ChatGPT's Article.
 
+  // NOTE: Hoisting is a fundamental behavior in JavaScript where variable and function declarations are "moved" to the top of their respective scopes (global or function scope) during the compilation phase, before the code is executed. This means that you can use variables and functions before they are declared in the code without causing an error (with certain limitations).
+
+  // While it may seem like the declarations are "moved" to the top of the code, this is not what actually happens. Rather, JavaScript allocates memory for variables and function declarations during the compilation phase. This behavior is known as `hoisting`.
+
+  // ==============================================
+  // IMPORTANT: Key Points of Hoisting:
+
+  // 1. Declarations are hoisted, but not the initializations.
+
+  // 2. Function declarations are hoisted completely, including the entire function definition.
+
+  // 3. Variables declared with `var` are partially hoisted (declaration is hoisted, but initialization happens at runtime).
+
+  // 4. Variables declared with `let` and `const` are hoisted, but they are not initialized until the code execution reaches the line of declaration, leading to the temporal dead zone (TDZ).
+
+  // ==============================================
+
   {
-    // 1. Hoisting with var
+    // 1. Hoisting with `var`
 
     console.log(a); // Output: undefined
     var a = 10;
     console.log(a); // Output: 10
+
+    // IMPORTANT: Only the declaration `var a` is hoisted, not the initialization `a = 10`.
+  }
+
+  {
+    // 2. Hoisting with `let` and `const`
+
+    // console.log(b); // 🔴 ReferenceError: Cannot access 'b' before initialization
+    let b = 20;
+    console.log(b); // Output: 20
+
+    // In this example:
+
+    // The variable `b` is hoisted, but it's in the `TDZ` until the line where it is initialized.
+
+    // `Temporal Dead Zone (TDZ)` is the period between entering the block and the variable's declaration. During this time, the variable exists but is not accessible.
+  }
+
+  {
+    // 3. Hoisting with Functions
+
+    // NOTE: Function Declarations: Function declarations are "fully hoisted". This means both the function’s "name" and its "body" are hoisted to the top of the scope. This allows you to call a function before its declaration in the code.
+
+    greet(); // Output: "Hello!"
+
+    function greet() {
+      console.log('Hello');
+    }
+
+    // NOTE: Function Expressions: Function expressions (where a function is assigned to a variable) are treated differently. Only the variable is hoisted, not the function definition. As a result, trying to call a function expression before the declaration will result in an error.
+
+    // console.log(sum); // 🔴 ReferenceError: Cannot access 'sum' before initialization
+    // sum(); // 🔴 ReferenceError: Cannot access 'sum' before initialization
+
+    const sum = function () {
+      console.log('Adding numbers');
+    };
+  }
+
+  {
+    // 4. Class Hoisting
+
+    // const obj = new Person(); // 🔴 ReferenceError: Cannot access 'Person' before initialization
+
+    class Person {
+      constructor() {
+        this.name = 'John';
+      }
+    }
+
+    // Here, the `Person` class is hoisted, but it is in the `TDZ` until the class definition is encountered. Trying to instantiate an object of the class before the declaration results in a `ReferenceError`.
+  }
+
+  {
+    // Visual Representation of Hoisting
+
+    // NOTE: To better understand hoisting, let's take a sample code block and visualize what happens during the hoisting process.
+
+    // Original Code:
+    {
+      console.log(x); // Output: undefined
+      var x = 5;
+      console.log(x); // Output: 5
+
+      greet(); // Output: "Hello!"
+
+      function greet() {
+        console.log('Hello!');
+      }
+    }
+
+    // After Hoisting:
+    {
+      var x; // Declaration is hoisted, but not initialization
+      function greet() {
+        // Function declaration is hoisted with its body
+        console.log('Hello!');
+      }
+
+      console.log(x); // Output: undefined
+      x = 5; // Initialization happens here
+      console.log(x); // Output: 5
+
+      greet(); // Output: "Hello!"
+
+      // Here:
+
+      // The `var x` declaration is hoisted, so `console.log(x)` initially outputs `undefined` since `x` is declared but not yet initialized.
+
+      // The `greet` function is hoisted completely, so you can call it before its declaration.
+    }
   }
 }
 
