@@ -168,6 +168,7 @@
 
 // ChatGPT 👇
 
+/* 
 {
   // TODO: ✅ Read ChatGPT's Article.
 
@@ -287,6 +288,7 @@
     }
   }
 }
+ */
 
 //* IIFEs
 
@@ -294,6 +296,55 @@
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  // NOTE: An IIFE (Immediately Invoked Function Expression) is a JavaScript function that is defined and executed immediately after it is created. This pattern allows you to create a function and invoke it right away, without the need to call it separately later in the code.
+
+  // IIFEs are often used to avoid polluting the global scope, creating a scope that protects variables and functions from being accessed from the outside. This was especially useful before the introduction of ES6 modules, and it remains a good technique for encapsulation.
+
+  {
+    // Syntax of an IIFE
+
+    (function () {
+      // Function body (statements)
+    })();
+
+    // Or with arrow functions:
+
+    (() => {
+      // Function body (statements)
+    })();
+
+    // Here:
+    // The function is wrapped in parentheses `()` to turn it into an "expression".
+    // The parentheses at the end `()` immediately "invoke" the function.
+  }
+
+  {
+    // Example of an IIFE
+
+    (() => {
+      console.log('This is an IIFE!');
+    })();
+  }
+
+  {
+    // Parameters and IIFEs
+
+    ((num1, num2) => {
+      console.log(num1 + num2);
+    })(5, 10);
+  }
+
+  {
+    // Named IIFE
+
+    (function factorial(n) {
+      if (n <= 1) {
+        return 1;
+      }
+      return n * factorial(n - 1); // Recursive call
+    })(5); // Output: 120
+  }
 }
 
 //* Closures: The Basics
