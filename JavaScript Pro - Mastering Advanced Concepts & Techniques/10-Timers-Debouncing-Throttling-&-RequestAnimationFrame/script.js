@@ -405,6 +405,8 @@
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+  //
+  // NOTE: Throttling is a technique in JavaScript used to control the frequency with which a function is executed. It ensures that a function is only called at most once within a specified time interval, even if it's triggered continuously. Unlike debouncing, which delays the execution of a function until the event stops firing, throttling executes the function at regular intervals during continuous event triggers.
 }
 
 //* Building a Fancy Throttle Function
