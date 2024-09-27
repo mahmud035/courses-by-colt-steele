@@ -4,6 +4,7 @@
 
 // ChatGPT 👇
 
+/* 
 {
   // TODO: ✅ Read ChatGPT's Article.
 
@@ -212,6 +213,7 @@
   // Concurrency: Since there are no side effects and no shared mutable state, functional programming can make it easier to work with concurrent processes.
   // ==============================================
 }
+ */
 
 //* First Class Functions
 
@@ -220,6 +222,85 @@
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  // NOTE: In JavaScript, "functions are first-class citizens", meaning functions can be treated like any other value in the language. This makes functions extremely versatile, as they can be:
+  // 👉 Assigned to variable
+  // 👉 Passed as arguments to other functions
+  // 👉 Returned from other functions
+  // 👉 Stored in data structures such as arrays and objects
+
+  // This capability is crucial for writing higher-order functions and following functional programming principles.
+
+  {
+    // 1. Assigning Functions to Variables
+
+    // NOTE: Functions in JavaScript can be assigned to variables just like numbers, strings, or objects.
+
+    // Assigning a function to a variable
+    const sayHello = function (name) {
+      return `Hello, ${name}`;
+    };
+
+    // Using the function stored in the variable
+    console.log(sayHello('Mahmud')); // Hello, Mahmud
+
+    // In the above example, the function is assigned to the variable `sayHello`, and can be called later using that variable.
+  }
+
+  {
+    // 2. Passing Functions as Arguments to Other Functions
+
+    // NOTE: Functions can be passed as arguments to other functions. This is commonly done in higher-order functions like `map()`, `filter()`, and `reduce()`.
+
+    function greet(name) {
+      return `Hello, ${name}`;
+    }
+
+    function printMessage(fn, value) {
+      console.log(fn(value));
+    }
+
+    // Passing `greet` function as an argument to `printMessage`
+    printMessage(greet, 'Mahmud'); // Output: Hello, Mahmud
+  }
+
+  {
+    // 3. Returning Functions from Other Functions
+
+    // NOTE: In JavaScript, functions can also be returned from other functions. This allows for the creation of higher-order functions and closures, making JavaScript highly flexible.
+
+    const createMultiplier = (multiplier) => {
+      return (num) => {
+        return num * multiplier;
+      };
+    };
+
+    // The function `createMultiplier` returns another function
+    const multiplyBy2 = createMultiplier(2);
+    console.log(multiplyBy2(5)); // Output: 10
+
+    // In the example above, `createMultiplier` is a function that returns another function. `multiplyBy2` becomes a function that multiplies any number by 2.
+  }
+
+  {
+    // 4. Storing Functions in Data Structures
+
+    // NOTE: Since functions are treated like objects in JavaScript, they can be stored in arrays or objects.
+
+    const operations = {
+      add: (a, b) => a + b,
+      subtract: (a, b) => a - b,
+      multiply: (a, b) => a * b,
+      division: (a, b) => a / b,
+    };
+
+    console.log(operations.add(5, 3)); // 8
+    console.log(operations.subtract(5, 3)); // 2
+    console.log(operations.multiply(5, 3)); // 15
+    console.log(operations.division(5, 3)); // 1.67
+
+    // Here, functions are stored as properties of an object, which allows for easy access and calling of specific operations.
+  }
 }
 
 //* Writing Pure Functions
