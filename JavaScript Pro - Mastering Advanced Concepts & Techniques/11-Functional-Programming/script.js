@@ -220,6 +220,7 @@
 // ChatGPT 👇
 // Same as above 👆
 
+/* 
 {
   // TODO: ✅ Read ChatGPT's Article.
 
@@ -301,7 +302,10 @@
 
     // Here, functions are stored as properties of an object, which allows for easy access and calling of specific operations.
   }
+
+
 }
+ */
 
 //* Writing Pure Functions
 
@@ -310,6 +314,24 @@
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  // ==============================================
+  // IMPORTANT: Writing Pure Functions: Guidelines
+
+  // 1. Avoid Changing Global State
+  // 2. Avoid Mutating Input Arguments
+  // 3. No Side Effects
+  //    A pure function should not cause side effects such as:
+  // 👉 Modifying external data.
+  // 👉 Logging to the console.
+  // 👉 Making network requests or modifying the DOM.
+  // 4. Use Immutable Data Structures (such as array or object)
+
+  // ==============================================
+
+  {
+    console.log('Writing Pure Functions');
+  }
 }
 
 //* Returning Functions
