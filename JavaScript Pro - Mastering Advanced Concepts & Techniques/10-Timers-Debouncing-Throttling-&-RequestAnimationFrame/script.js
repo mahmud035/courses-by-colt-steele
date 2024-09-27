@@ -138,6 +138,109 @@
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  //* Key Points to Understand
+
+  {
+    // 1. Stopping Repeated Execution: `clearInterval` is used to stop the continuous execution of a function that was set to run periodically using `setInterval`. Once `clearInterval` is called, the timer associated with the interval is cleared, and the function will no longer run.
+
+    const intervalID = setInterval(() => {
+      console.log('This will stop after 5 seconds.');
+    }, 1000);
+
+    setTimeout(() => {
+      clearInterval(intervalID); // Stops the interval after 5 seconds
+    }, 5000);
+
+    // In this example:
+
+    // The message will be printed every second.
+    // After 5 seconds, `clearInterval(intervalID)` is called, which stops further executions.
+  }
+
+  {
+    // 2. `clearInterval` Only Cancels `setInterval`
+  }
+
+  {
+    // 3. Immediate Cancelation: You can cancel an interval immediately after setting it, which prevents the interval from ever running. This is useful when certain conditions change soon after the interval is set.
+
+    const intervalID = setInterval(() => {
+      console.log('This will never run.');
+    }, 1000);
+
+    clearInterval(intervalID); // Cancels the interval before it runs
+
+    // In this example, the interval is cleared before it has a chance to execute, so no messages are printed.
+  }
+
+  {
+    // 4. Using in Conditional Logic: You can conditionally cancel an interval depending on specific actions or state changes, such as stopping a process when a user clicks a button or when certain criteria are met.
+
+    let count = 0;
+
+    const intervalID = setInterval(() => {
+      count += 1;
+      console.log(`Count: ${count}`);
+
+      if (count === 5) {
+        clearInterval(intervalID); // Stops the interval after 5 iterations
+      }
+    }, 1000);
+
+    // Here, the interval will stop after the count reaches 5.
+  }
+
+  {
+    // 5. Clearing Multiple Intervals: If you have multiple intervals, you can store each intervalID and cancel them individually or all at once.
+
+    const intervalID1 = setInterval(() => {
+      console.log('Interval 1');
+    }, 1000);
+
+    const intervalID2 = setInterval(() => {
+      console.log('Interval 2');
+    }, 2000);
+
+    // Cancel both interval
+    clearInterval(intervalID1);
+    clearInterval(intervalID2);
+  }
+
+  {
+    // 6. Combining `setInterval` with User Interaction: A common use case for `clearInterval` is stopping an interval when the user performs a specific action, such as pressing a button.
+
+    const btnStop = document.getElementById('btn-stop');
+
+    // const intervalID = setInterval(() => {
+    //   console.log('Running every 2 seconds...');
+    // }, 2000);
+
+    // btnStop.addEventListener('click', () => {
+    //   clearInterval(intervalID); // Stops the interval when the user clicks the button
+    //   console.log('Interval stopped.');
+    // });
+
+    // In this example, the interval stops running when the user clicks the "Stop" button.
+  }
+
+  //* Practical Use Cases
+
+  {
+    // IMPORTANT: Creating a Countdown Timer: You can create a countdown timer that updates every second and stops when the time reaches zero.
+
+    let timeLeft = 5; // 5 seconds countdown
+
+    const intervalID = setInterval(() => {
+      console.log(`Time left: ${timeLeft}`);
+      timeLeft -= 1;
+
+      if (timeLeft < 0) {
+        clearInterval(intervalID); // Stop the countdown when it reaches zero
+        console.log("Time's up!");
+      }
+    }, 1000); // Updates every seconds
+  }
 }
 
 //* clearTimeout
@@ -145,6 +248,7 @@
 // ChatGPT 👇
 // Same as above 👆
 
+/* 
 {
   // TODO: ✅ Read ChatGPT's Article.
 
@@ -232,6 +336,7 @@
     // IMPORTANT: In this case, the search function is only executed when the user has stopped typing for 500 milliseconds. If the user keeps typing, the previous timeout is cleared.
   }
 }
+ */
 
 //* Debouncing
 
