@@ -330,7 +330,7 @@
   // ==============================================
 
   {
-    console.log('Writing Pure Functions');
+    // console.log('Writing Pure Functions');
   }
 }
 
@@ -341,6 +341,71 @@
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  // NOTE: In JavaScript, "functions can return other functions", which is a fundamental feature of functional programming. When a function returns another function, it creates "closures" and enables the creation of "higher-order functions".
+
+  {
+    // 1. Basic Example of Returning Functions
+
+    const greet = () => {
+      return (name) => {
+        return `Hello, ${name}`;
+      };
+    };
+
+    const greeting = greet(); // Returns a function
+    console.log(greeting('Mahmud')); // Output: Hello, Mahmud
+  }
+
+  {
+    // 2. Closures in Returned Functions
+
+    // NOTE: When a function returns another function, it can "remember" the variables of the outer function, even if the outer function has already completed execution. This is known as a "closure".
+
+    const outerFunction = (outerVar) => {
+      const innerFunction = (innerVar) => {
+        return `Outer: ${outerVar}, Inner: ${innerVar}`;
+      };
+
+      return innerFunction;
+    };
+
+    const newFunction = outerFunction('outside');
+    console.log(newFunction('inside')); // Outer: outside, Inner: inside
+  }
+
+  {
+    // 3. Function Factories
+
+    // NOTE: Returning functions allows you to create function factories — functions that generate other functions dynamically.
+
+    const createMultiplier = (multiplier) => {
+      return (number) => {
+        return number * multiplier;
+      };
+    };
+
+    const double = createMultiplier(2);
+    const triple = createMultiplier(3);
+
+    console.log(double(5)); // Output: 10
+    console.log(triple(5)); // Output: 15
+  }
+
+  {
+    // 4. Currying
+
+    // NOTE: "Currying" is a functional programming technique where a function with multiple parameters is transformed into a sequence of functions that each take one parameter.
+
+    const add = (a) => {
+      return (b) => {
+        return a + b;
+      };
+    };
+
+    const addFive = add(5); // Returns a function
+    console.log(addFive(3)); // Output: 8
+  }
 }
 
 //* Immutability
