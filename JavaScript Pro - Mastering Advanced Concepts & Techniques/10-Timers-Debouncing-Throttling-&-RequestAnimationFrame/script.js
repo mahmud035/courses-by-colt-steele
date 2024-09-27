@@ -147,6 +147,90 @@
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  //* Key Points to Understand
+
+  {
+    // 1. Prevent Execution of the Function: The primary use of `clearTimeout` is to stop the function passed to `setTimeout` from executing. Once `clearTimeout` is called, the timer associated with the function is cleared, and the function will not run.
+
+    const timeoutID = setTimeout(() => {
+      console.log('This message will never appear.');
+    }, 5000);
+
+    clearTimeout(timeoutID); // Cancels the timeout
+  }
+
+  {
+    // 2. It Only Works for `setTimeout`: `clearTimeout` only cancels timeouts created by `setTimeout`.
+  }
+
+  {
+    // 3. Calling `clearTimeout` after the Function Has Executed: Once the timeout function has already been executed, calling `clearTimeout` has no effect because the function is already finished.
+
+    const timeoutID = setTimeout(() => {
+      console.log('This message appears after 1 second.');
+    }, 1000);
+
+    setTimeout(() => {
+      clearTimeout(timeoutID); // This does nothing because the timeout has already executed
+    }, 2000);
+  }
+
+  {
+    // 4. Conditional Execution: You can use `clearTimeout` to create conditional logic for executing or preventing the timeout, depending on specific conditions or user actions.
+
+    const timeoutID = setTimeout(() => {
+      console.log('This message will only show if not cancelled.');
+    }, 3000);
+
+    const shouldCancel = true; // Change this to false to allow the timeout to run
+
+    if (shouldCancel) {
+      clearTimeout(timeoutID);
+    }
+
+    // NOTE: In this example, the message will only show if `shouldCancel` is `false`. If `shouldCancel` is `true`, the timeout will be canceled, and the message will never appear.
+  }
+
+  {
+    // 6. Cancel Multiple Timeouts: If you have multiple timeouts, you can cancel them individually by storing each `timeoutID`. You can also create a system to cancel all timeouts if necessary.
+
+    const timeoutID1 = setTimeout(() => {
+      console.log('Timeout 1');
+    }, 1000);
+
+    const timeoutID2 = setTimeout(() => {
+      console.log('Timeout 2');
+    }, 2000);
+
+    // Cancel both timeouts
+    clearTimeout(timeoutID1);
+    clearTimeout(timeoutID2);
+  }
+
+  //* Practical Use Cases
+
+  {
+    // IMPORTANT: 1. Debouncing User Input: A common use case is in debouncing user input in search fields, where the search function is triggered only if the user has stopped typing for a certain amount of time.
+
+    const searchInput = document.getElementById('search-input');
+    let searchTimeout;
+
+    const performSearch = (keyword) => {
+      console.log(`Searching results for "${keyword}"`);
+      // Fetching search results...
+    };
+
+    searchInput.addEventListener('input', (e) => {
+      clearTimeout(searchTimeout); // Cancel the previous search timeout
+
+      searchTimeout = setTimeout(() => {
+        performSearch(e.target.value);
+      }, 500); // Wait for 500ms before executing the search
+    });
+
+    // IMPORTANT: In this case, the search function is only executed when the user has stopped typing for 500 milliseconds. If the user keeps typing, the previous timeout is cleared.
+  }
 }
 
 //* Debouncing
