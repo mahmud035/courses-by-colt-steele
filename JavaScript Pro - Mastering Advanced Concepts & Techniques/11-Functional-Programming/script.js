@@ -339,6 +339,7 @@
 // ChatGPT 👇
 // Same as above 👆
 
+/* 
 {
   // TODO: ✅ Read ChatGPT's Article.
 
@@ -377,7 +378,7 @@
   {
     // 3. Function Factories
 
-    // NOTE: Returning functions allows you to create function factories — functions that generate other functions dynamically.
+    // NOTE: Returning functions allows you to create function factories — "functions that generate other functions dynamically".
 
     const createMultiplier = (multiplier) => {
       return (number) => {
@@ -407,6 +408,7 @@
     console.log(addFive(3)); // Output: 8
   }
 }
+ */
 
 //* Immutability
 
@@ -415,6 +417,49 @@
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  {
+    // Immutable Example:
+    const person = { name: 'Mahmud', age: 25 };
+
+    // Creating a new object instead of modifying the original one
+    const updatedPerson = { ...person, age: 26 };
+
+    console.log(person); // Output: { name: 'Mahmud', age: 25 }
+    console.log(updatedPerson); // Output: { name: 'Mahmud', age: 26 }
+  }
+
+  //* Techniques for Enforcing Immutability in JavaScript
+
+  {
+    // 1. Object Spread Operator (`...`)
+
+    // NOTE: The spread operator (`...`) is a convenient way to create a shallow copy of an object or array. It allows you to create new versions of an object with changes, without modifying the original.
+
+    // Example with Objects:
+    const book = { title: 'JavaScript Guide', author: 'John' };
+
+    // Create a new object by spreading the properties of the original one
+    const updatedBook = { ...book, year: 2024 };
+
+    console.log(book);
+    // Original object is unchanged:
+    // { title: 'JavaScript Guide', author: 'John' }
+
+    console.log(updatedBook);
+    // New object: { title: 'JavaScript Guide', author: 'John', year: 2024 }
+
+    // ==========================================
+
+    // Example with Arrays:
+    const numbers = [1, 2, 3];
+
+    // Create a new array by spreading the original array
+    const newNumbers = [...numbers, 4];
+
+    console.log(numbers); // Original array: [1, 2, 3]
+    console.log(newNumbers); // New array: [1, 2, 3, 4]
+  }
 }
 
 //* Recursion
