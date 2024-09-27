@@ -136,6 +136,7 @@
 // ChatGPT 👇
 // Same as above 👆
 
+/* 
 {
   // TODO: ✅ Read ChatGPT's Article.
 
@@ -241,7 +242,8 @@
       }
     }, 1000); // Updates every seconds
   }
-}
+} 
+*/
 
 //* clearTimeout
 
@@ -322,7 +324,7 @@
 
     const performSearch = (keyword) => {
       console.log(`Searching results for "${keyword}"`);
-      // Fetching search results...
+      // Simulate API call or search logic
     };
 
     searchInput.addEventListener('input', (e) => {
@@ -343,12 +345,49 @@
 // ChatGPT 👇
 // Same as above 👆
 
+/* 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  // NOTE: Debouncing is an essential tool for optimizing performance in applications, especially when dealing with events that fire rapidly, such as user input, window resizing, or scrolling. By delaying function execution until after the user has finished interacting, debouncing helps to reduce unnecessary calls, improve performance, and create a more responsive user experience.
+
   // ==============================================
-  // IMPORTANT: Key Points of Debouncing:
+  // IMPORTANT: Usage Example: Debouncing an Input Field
+
+  // NOTE: Let's say you have an input field where users type search queries, and you want to execute a search function only when the user stops typing for 500 milliseconds.
+
+  const searchInput = document.getElementById('search-input');
+
+  // Function to perform the search
+  function performSearch(query) {
+    console.log(`Searching for: "${query}"`);
+    // Simulating API call or search logic
+  }
+
+  // Debounce function implementation
+  function debounce(func, delay) {
+    let timeoutID;
+
+    return function (...args) {
+      clearTimeout(timeoutID);
+
+      timeoutID = setTimeout(() => {
+        func.apply(this, args);
+      }, delay);
+    };
+  }
+
+  // Debounce the performSearch function with a 500ms delay
+  const debouncedSearch = debounce((e) => {
+    performSearch(e.target.value);
+  }, 500);
+
+  // Add an event listener to the input field to trigger the debounced function
+  searchInput.addEventListener('input', debouncedSearch);
+
   // ==============================================
 }
+ */
 
 //* Writing a Fancy Debounce Function
 
