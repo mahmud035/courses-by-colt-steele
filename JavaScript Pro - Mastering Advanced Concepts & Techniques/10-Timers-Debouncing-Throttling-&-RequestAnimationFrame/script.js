@@ -3,6 +3,7 @@
 //* setTimeout
 
 // ChatGPT 👇
+// https://chatgpt.com/share/66f63e94-cd34-800f-b3c7-1067e9cccb05
 
 /* 
 {
@@ -77,7 +78,7 @@
 //* setInterval
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f63e94-cd34-800f-b3c7-1067e9cccb05
 
 /* 
 {
@@ -134,7 +135,7 @@
 //* clearInterval
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f63e94-cd34-800f-b3c7-1067e9cccb05
 
 /* 
 {
@@ -248,7 +249,7 @@
 //* clearTimeout
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f63e94-cd34-800f-b3c7-1067e9cccb05
 
 /* 
 {
@@ -343,7 +344,7 @@
 //* Debouncing
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f63e94-cd34-800f-b3c7-1067e9cccb05
 
 /* 
 {
@@ -392,7 +393,7 @@
 //* Writing a Fancy Debounce Function
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f63e94-cd34-800f-b3c7-1067e9cccb05
 
 {
   // TODO: ✅ Read ChatGPT's Article.
@@ -401,7 +402,7 @@
 //* Throttling
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f63e94-cd34-800f-b3c7-1067e9cccb05
 
 {
   // TODO: ✅ Read ChatGPT's Article.
@@ -412,7 +413,7 @@
 //* Building a Fancy Throttle Function
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f63e94-cd34-800f-b3c7-1067e9cccb05
 
 {
   // TODO: ✅ Read ChatGPT's Article.
