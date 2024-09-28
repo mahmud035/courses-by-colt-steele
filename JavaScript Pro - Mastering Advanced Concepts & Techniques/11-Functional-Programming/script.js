@@ -645,6 +645,7 @@
 // ChatGPT 👇
 // Same as above 👆
 
+/* 
 {
   // TODO: ✅ Read ChatGPT's Article.
 
@@ -665,6 +666,7 @@
     };
   }
 }
+ */
 
 //* Writing a Fancier Compose Function
 
@@ -673,6 +675,44 @@
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  // Step-by-Step: Fancier `compose()` Function
+
+  const compose = (...fns) => {
+    if (fns.length === 0) return (x) => x;
+    if (fns.length === 1) return fns[0];
+
+    return (...args) => {
+      try {
+        return fns.reduceRight((acc, fn) => {
+          return Promise.resolve(acc).then(fn);
+        }, args);
+      } catch (error) {
+        throw new Error('Error in composed functions: ', error.message);
+      }
+    };
+  };
+
+  // Example Usage of the Fancier `compose()` Function
+  {
+    // Synchronous Example:
+    const double = (x) => x * 2;
+    const square = (x) => x * x;
+    const subtractFive = (x) => x - 5;
+
+    const composedSync = compose(subtractFive, square, double);
+    console.log(composedSync(3)); // Output: 31
+  }
+
+  // Asynchronous Example:
+  {
+    const double = (x) => Promise.resolve(x * 2);
+    const square = (x) => x * x;
+    const subtractFive = (x) => x - 5;
+
+    const composedAsync = compose(subtractFive, square, double);
+    composedAsync(3).then((result) => console.log(result)); // Output: 31
+  }
 }
 
 //* Currying Basics
