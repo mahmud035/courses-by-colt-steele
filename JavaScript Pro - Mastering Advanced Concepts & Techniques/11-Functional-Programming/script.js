@@ -516,6 +516,7 @@
 // ChatGPT 👇
 // Same as above 👆
 
+/* 
 {
   // TODO: ✅ Read ChatGPT's Article.
 
@@ -596,6 +597,7 @@
     // When we call `doubleAndTriple(4)`, it multiplies 2, 3, and 4 together to return `24`.
   }
 }
+ */
 
 //* Writing a Partial Function
 
