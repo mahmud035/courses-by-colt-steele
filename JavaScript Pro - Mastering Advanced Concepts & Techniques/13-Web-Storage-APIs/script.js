@@ -3,6 +3,7 @@
 //* LocalStorage Basics
 
 // ChatGPT 👇
+// https://chatgpt.com/share/66f82d1f-b95c-800f-91ef-a29465e4891c
 
 /* 
 {
@@ -44,7 +45,7 @@
 //* LocalStorage With Complex Objects
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f82d1f-b95c-800f-91ef-a29465e4891c
 
 /* 
 {
@@ -101,7 +102,7 @@
 //* What Should & Should Not Go In LocalStorage
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f82d1f-b95c-800f-91ef-a29465e4891c
 
 {
   // TODO: ✅ Read ChatGPT's Article.
@@ -110,36 +111,40 @@
 //* Creating a DarkMode Toggle With LocalStorage
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f82d1f-b95c-800f-91ef-a29465e4891c
 
 {
   // TODO: ✅ Read ChatGPT's Article.
   //
-  // NOTE: See Dark Mode Toggle Folder
+  // 👉 See Dark Mode Toggle Folder
 }
 
 //* LocalStorage Notes App Demo
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f82d1f-b95c-800f-91ef-a29465e4891c
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+  //
+  // 👉 See Notes App LocalStorage Folder
 }
 
 //* Syncing Tabs With The Storage Event
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f82d1f-b95c-800f-91ef-a29465e4891c
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+  //
+  // 👉 See Notes App LocalStorage Folder
 }
 
 //* SessionStorage Basics
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f82d1f-b95c-800f-91ef-a29465e4891c
 
 {
   // TODO: ✅ Read ChatGPT's Article.
@@ -173,10 +178,10 @@
 //* Session Storage Form Demo
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f82d1f-b95c-800f-91ef-a29465e4891c
 
 {
   // TODO: ✅ Read ChatGPT's Article.
   //
-  // NOTE: See Form SessionStorage Folder
+  // 👉 See Form SessionStorage Folder
 }
