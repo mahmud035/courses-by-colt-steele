@@ -113,6 +113,7 @@
 // ChatGPT 👇
 // Same as above 👆
 
+/* 
 {
   // TODO: ✅ Read ChatGPT's Article.
 
@@ -225,9 +226,11 @@
       .catch((error) => {
         if (error.message?.includes('CORS'))
           console.error('CORS error occurred:', error.message);
+        else console.error('Fetch failed', error.message);
       });
   }
 }
+ */
 
 //* Sending Request Headers With Fetch
 
