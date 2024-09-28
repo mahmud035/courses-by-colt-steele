@@ -144,8 +144,6 @@
 {
   // TODO: ✅ Read ChatGPT's Article.
 
-  // How to Use sessionStorage
-
   {
     // 1. Storing Data in sessionStorage
 
@@ -179,4 +177,6 @@
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+  //
+  // NOTE: See Form SessionStorage Folder
 }
