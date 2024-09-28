@@ -273,11 +273,47 @@
   // createPost();
 }
 
-//* Uploading Files With Fetch
+//* Uploading Files With Fetch (Upload image to "Imgbb")
 
 // ChatGPT 👇
 // Same as above 👆
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  const form = document.getElementById('uploadForm');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const fileInput = document.getElementById('fileInput');
+    const image = fileInput.files[0]; // Get the selected image
+
+    if (!image) return alert('🔴 No image selected!');
+    if (image.size > 1 * 1024 * 1024) return alert('🔴 Image is too large!'); // 1MB limit
+
+    const formData = new FormData(); // Create a FormData object
+    formData.append('image', image);
+
+    uploadImage(formData);
+  });
+
+  const uploadImage = async (formData) => {
+    const API_KEY = 'eadbdfb69d7a4e7d6bd0860c71ae874b';
+
+    try {
+      const res = await fetch(`https://api.imgbb.com/1/upload?key=${API_KEY}`, {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!res.ok) throw new Error(`Status: ${res.status}`);
+
+      const data = await res.json();
+
+      if (data.success) alert('✅ Image Uploaded Successfully!');
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
 }
