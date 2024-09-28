@@ -143,6 +143,33 @@
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  // How to Use sessionStorage
+
+  {
+    // 1. Storing Data in sessionStorage
+
+    // Storing a simple key-value pair
+    sessionStorage.setItem('userName', 'Mahmud');
+
+    // Retrieving the stored value using the key
+    const userName = sessionStorage.getItem('userName');
+
+    // Storing an object in sessionStorage
+    const user = {
+      name: 'Mahmud',
+      age: 25,
+      country: 'Bangladesh',
+    };
+
+    sessionStorage.setItem('user', JSON.stringify(user));
+
+    // Retrieving the object
+    const storedUser = JSON.parse(sessionStorage.getItem('user'));
+
+    // Clear all sessionStorage data
+    sessionStorage.clear();
+  }
 }
 
 //* Session Storage Form Demo
