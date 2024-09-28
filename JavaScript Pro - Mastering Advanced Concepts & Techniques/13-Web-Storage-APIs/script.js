@@ -46,6 +46,7 @@
 // ChatGPT 👇
 // Same as above 👆
 
+/* 
 {
   // TODO: ✅ Read ChatGPT's Article.
 
@@ -91,7 +92,11 @@
     // Clear all items
     localStorage.clear();
   }
+
+
+
 }
+ */
 
 //* What Should & Should Not Go In LocalStorage
 
