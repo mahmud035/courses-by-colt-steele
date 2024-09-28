@@ -3,6 +3,7 @@
 //* Introducing Functional Programming
 
 // ChatGPT 👇
+// https://chatgpt.com/share/66f76ae6-4e80-800f-83cd-360f4260cf1b
 
 /* 
 {
@@ -218,7 +219,7 @@
 //* First Class Functions
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f76ae6-4e80-800f-83cd-360f4260cf1b
 
 /* 
 {
@@ -310,7 +311,7 @@
 //* Writing Pure Functions
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f76ae6-4e80-800f-83cd-360f4260cf1b
 
 {
   // TODO: ✅ Read ChatGPT's Article.
@@ -337,7 +338,7 @@
 //* Returning Functions
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f76ae6-4e80-800f-83cd-360f4260cf1b
 
 /* 
 {
@@ -413,7 +414,7 @@
 //* Immutability
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f76ae6-4e80-800f-83cd-360f4260cf1b
 
 /* 
 {
@@ -467,7 +468,7 @@
 //* Recursion
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f76ae6-4e80-800f-83cd-360f4260cf1b
 
 /* 
 {
@@ -514,7 +515,7 @@
 //* Partial Application With Bind
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f76ae6-4e80-800f-83cd-360f4260cf1b
 
 /* 
 {
@@ -602,7 +603,7 @@
 //* Writing a Partial Function
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f76ae6-4e80-800f-83cd-360f4260cf1b
 
 {
   // TODO: ✅ Read ChatGPT's Article.
@@ -611,7 +612,7 @@
 //* Composition Basics
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f76ae6-4e80-800f-83cd-360f4260cf1b
 
 /* 
 {
@@ -643,7 +644,7 @@
 //* A Simple Compose Function
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f76ae6-4e80-800f-83cd-360f4260cf1b
 
 /* 
 {
@@ -671,7 +672,7 @@
 //* Writing a Fancier Compose Function
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f76ae6-4e80-800f-83cd-360f4260cf1b
 
 /* 
 {
@@ -720,8 +721,9 @@
 //* Currying Basics
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f76ae6-4e80-800f-83cd-360f4260cf1b
 
+/* 
 {
   // TODO: ✅ Read ChatGPT's Article.
 
@@ -764,20 +766,12 @@
     console.log(multiply(2)(3)(4)); // 24
   }
 }
+ */
 
 //* More Advanced Currying
 
 // ChatGPT 👇
-// Same as above 👆
-
-{
-  // TODO: ✅ Read ChatGPT's Article.
-}
-
-//* Dice Game Intro
-
-// ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f76ae6-4e80-800f-83cd-360f4260cf1b
 
 {
   // TODO: ✅ Read ChatGPT's Article.
