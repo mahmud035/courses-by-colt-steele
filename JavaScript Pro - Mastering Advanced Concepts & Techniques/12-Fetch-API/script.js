@@ -248,6 +248,29 @@
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  const createPost = async () => {
+    const newPost = { title: 'foo', body: 'bar', userId: 1 };
+
+    try {
+      const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newPost),
+      });
+
+      if (!res.ok) throw new Error(`Status: ${res.status}`);
+
+      const data = await res.json();
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // createPost();
 }
 
 //* Uploading Files With Fetch
