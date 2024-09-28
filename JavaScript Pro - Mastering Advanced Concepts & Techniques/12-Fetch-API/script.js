@@ -3,6 +3,7 @@
 //* The Basics of Fetch
 
 // ChatGPT 👇
+// https://chatgpt.com/share/66f79ed1-44c4-800f-bcbd-981bd0d61409
 
 /* 
 {
@@ -111,7 +112,7 @@
 //* Error Handling With Fetch
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f79ed1-44c4-800f-bcbd-981bd0d61409
 
 /* 
 {
@@ -235,7 +236,7 @@
 //* Sending Request Headers With Fetch
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f79ed1-44c4-800f-bcbd-981bd0d61409
 
 {
   // TODO: ✅ Read ChatGPT's Article.
@@ -244,7 +245,7 @@
 //* POST Requests With Fetch
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f79ed1-44c4-800f-bcbd-981bd0d61409
 
 {
   // TODO: ✅ Read ChatGPT's Article.
@@ -276,10 +277,12 @@
 //* Uploading Files With Fetch (Upload image to "Imgbb")
 
 // ChatGPT 👇
-// Same as above 👆
+// Same as above 👆 https://chatgpt.com/share/66f79ed1-44c4-800f-bcbd-981bd0d61409
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  // NOTE: Uploading image to "imgbb" works perfectly 👇
 
   const form = document.getElementById('uploadForm');
 
