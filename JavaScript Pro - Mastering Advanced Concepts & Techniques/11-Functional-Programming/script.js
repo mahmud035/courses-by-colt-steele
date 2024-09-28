@@ -613,9 +613,32 @@
 // ChatGPT 👇
 // Same as above 👆
 
+/* 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  // 👉 In JavaScript, "composition" refers to the process of combining functions such that the output of one function becomes the input of the next.
+
+  // 👉 The composition of functions reads from right to left.
+
+  {
+    // Example: Basic Function Composition
+
+    // Let's say you have two functions: one that doubles a number and another that adds 10 to it.
+
+    const double = (x) => x * 2;
+    const addTen = (x) => x + 10;
+
+    // You can combine these two functions using function composition:
+
+    const composedFunction = (x) => {
+      return addTen(double(x));
+    };
+
+    console.log(composedFunction(5));
+  }
 }
+ */
 
 //* A Simple Compose Function
 
