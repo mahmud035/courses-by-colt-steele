@@ -415,6 +415,7 @@
 // ChatGPT 👇
 // Same as above 👆
 
+/* 
 {
   // TODO: ✅ Read ChatGPT's Article.
 
@@ -461,15 +462,54 @@
     console.log(newNumbers); // New array: [1, 2, 3, 4]
   }
 }
+*/
 
 //* Recursion
 
 // ChatGPT 👇
 // Same as above 👆
 
+/* 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  {
+    // Example of Recursion: Factorial
+
+    const factorial = (n) => {
+      // Base case: when n is 1, the recursion stops
+      if (n === 1) return 1;
+
+      // Recursive case: multiply n by the factorial of (n - 1)
+      return n * factorial(n - 1);
+    };
+
+    console.log(factorial(5)); // 120 (5 * 4 * 3 * 2 * 1)
+  }
+
+  {
+    // Example of Recursion: Fibonacci Sequence
+
+    // NOTE: The Fibonacci sequence is a series of numbers where each number is the sum of the two preceding ones. It starts like this: 0, 1, 1, 2, 3, 5, 8, ...
+
+    // Mathematically, it can be defined as:
+
+    // 👉 fib(n) = fib(n - 1) + fib(n - 2) for n > 1
+    // 👉 fib(0) = 0, fib(1) = 1 (Base cases)
+
+    const fibonacci = (n) => {
+      // Base cases: return n for 0 or 1
+      if (n === 0) return 0;
+      if (n === 1) return 1;
+
+      // Recursive case: sum of the two preceding numbers
+      return fibonacci(n - 1) + fibonacci(n - 2);
+    };
+
+    console.log(fibonacci(6)); // 8 (0, 1, 1, 2, 3, 5, 8)
+  }
 }
+ */
 
 //* Partial Application With Bind
 
