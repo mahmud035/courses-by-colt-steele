@@ -647,6 +647,23 @@
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  // NOTE:
+
+  // The `compose()` function combines multiple functions and executes them from "right to left".
+
+  // You can use `reduceRight()` to apply the functions in reverse order.
+
+  // "Compose" helps to create clear, declarative transformations on data by chaining small, single-purpose functions.
+
+  {
+    // Simple compose() Function
+    const compose = (...fns) => {
+      return (x) => {
+        return fns.reduceRight((acc, fn) => fn(acc), x);
+      };
+    };
+  }
 }
 
 //* Writing a Fancier Compose Function
