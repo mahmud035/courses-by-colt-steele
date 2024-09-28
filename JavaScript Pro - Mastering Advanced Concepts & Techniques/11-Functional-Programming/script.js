@@ -673,6 +673,7 @@
 // ChatGPT 👇
 // Same as above 👆
 
+/* 
 {
   // TODO: ✅ Read ChatGPT's Article.
 
@@ -714,6 +715,7 @@
     composedAsync(3).then((result) => console.log(result)); // Output: 31
   }
 }
+ */
 
 //* Currying Basics
 
@@ -722,6 +724,45 @@
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  // NOTE: "Currying" is a functional programming technique where a function with multiple arguments is transformed into a sequence of functions, each taking one argument at a time. Instead of passing all arguments at once, the curried function takes one argument, returns a new function that takes the next argument, and so on until all arguments are provided.
+
+  {
+    // Basic Example of Currying
+
+    // Normal Function (Non-Curried):
+    {
+      const add = (x, y) => x + y;
+
+      console.log(add(2, 3)); // 5
+    }
+
+    // Curried Version of the Same Function:
+    {
+      const add = (x) => {
+        return (y) => {
+          return x + y;
+        };
+      };
+
+      const add2 = add(2); // Partial application
+      console.log(add2(3)); // 5
+    }
+  }
+
+  {
+    // Writing a Curried Function with Multiple Arguments
+
+    const multiply = (x) => {
+      return (y) => {
+        return (z) => {
+          return x * y * z;
+        };
+      };
+    };
+
+    console.log(multiply(2)(3)(4)); // 24
+  }
 }
 
 //* More Advanced Currying
