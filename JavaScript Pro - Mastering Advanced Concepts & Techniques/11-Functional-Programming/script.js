@@ -518,6 +518,83 @@
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+
+  // NOTE: "Partial application" is a functional programming concept where you create a new function by "pre-filling" some of the arguments of an existing function. In JavaScript, one way to achieve partial application is through the `bind()` method.
+
+  {
+    //* Example: Simple Partial Application
+
+    // Let's take a basic function that adds three numbers:
+
+    const add = (x, y, z) => x + y + z;
+
+    // NOTE: You can use `bind()` to create a new function where some of the arguments are fixed:
+
+    const addFive = add.bind(null, 5); // Partially applying `x = 5`
+
+    console.log(addFive(2, 3)); // Output: 10 (5 + 2 + 3)
+
+    // Explanation:
+
+    // The `bind()` method creates a new function (`addFive`) where the first argument (`x`) is fixed as `5`.
+
+    // The new function still expects the remaining two arguments (`y` and `z`), which can be supplied when `addFive()` is called.
+
+    //* Example: Fixing Multiple Arguments
+
+    // You can also partially apply more than one argument:
+
+    const addFiveAndTwo = add.bind(null, 5, 2); // Partially applying `x = 5` and `y = 2`
+
+    console.log(addFiveAndTwo(3)); // Output: 10 (5 + 2 + 3)
+
+    // Explanation:
+
+    // Here, both the first (`x = 5`) and second (`y = 2`) arguments are fixed.
+
+    // The resulting function `addFiveAndTwo` now only needs the last argument (`z`).
+  }
+
+  {
+    //* Partial Application with `this` Binding
+
+    // NOTE: The `bind()` method is typically used to control the `this` value inside a function. But we can still use `bind()` to pre-set arguments while binding the correct `this` context.
+
+    const user = {
+      name: 'Mahmud',
+      greet(greeting, punctuation) {
+        console.log(`${greeting}, ${this.name}${punctuation}`);
+      },
+    };
+
+    const greetHello = user.greet.bind(user, 'Hello'); // Binding `this` to `user` and `greeting` to "Hello"
+
+    greetHello('!'); // Output: "Hello, Mahmud!"
+
+    // Explanation:
+
+    // The method `greet()` uses `this.name` to refer to the user's name.
+
+    // `bind(user, "Hello")` binds the `this` context to the `user` object and partially applies the first argument (`greeting = "Hello"`).
+
+    // Now, `greetHello()` is a function that only requires the second argument (`punctuation`).
+  }
+
+  {
+    // Advanced Example: Multiplication
+
+    const multiply = (x, y, z) => x * y * z;
+
+    const doubleAndTriple = multiply.bind(null, 2, 3); // Partially applying `x = 2` and `y = 3`
+
+    console.log(doubleAndTriple(4)); // Output: 24 (2 * 3 * 4)
+
+    // Explanation:
+
+    // We created a new function `doubleAndTriple` that multiplies the first two arguments (2 and 3) by a third argument.
+
+    // When we call `doubleAndTriple(4)`, it multiplies 2, 3, and 4 together to return `24`.
+  }
 }
 
 //* Writing a Partial Function
