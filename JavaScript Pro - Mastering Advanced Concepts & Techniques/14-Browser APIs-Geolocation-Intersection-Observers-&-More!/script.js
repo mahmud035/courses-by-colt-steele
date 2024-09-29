@@ -40,6 +40,8 @@
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+  //
+  // 👉 See Intersection Observer - Thresholds Folder
 }
 
 //* Intersection Observers: Tracking Ad View Time
