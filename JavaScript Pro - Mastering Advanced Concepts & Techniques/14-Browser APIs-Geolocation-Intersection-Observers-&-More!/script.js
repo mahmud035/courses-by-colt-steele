@@ -29,9 +29,11 @@
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+  //
+  // 👉 See Intersection Observer - Basics Folder
 }
 
-//* Intersection Observers: Thresholds
+//* Intersection Observers: Thresholds (percentage of visibility)
 
 // ChatGPT 👇
 // Same as above 👆
