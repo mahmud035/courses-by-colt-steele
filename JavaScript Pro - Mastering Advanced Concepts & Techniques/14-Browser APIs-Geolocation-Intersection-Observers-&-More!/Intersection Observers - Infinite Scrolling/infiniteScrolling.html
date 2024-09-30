@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./infiniteScrolling.css" />
+    <title>Infinite Scrolling with Intersection Observer</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Infinite Scrolling Example</h1>
+
+      <div id="post-container">
+        <!-- Post will be dynamically loaded here -->
+      </div>
+
+      <!-- Sentinel / Target Element -->
+      <div id="target"></div>
+
+      <!-- Loading Indicator -->
+      <div id="loading">Loading more posts...</div>
+    </div>
+
+    <script src="./infiniteScrolling.js"></script>
+  </body>
+</html>

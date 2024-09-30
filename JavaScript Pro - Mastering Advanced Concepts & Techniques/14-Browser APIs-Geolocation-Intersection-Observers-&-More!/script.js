@@ -76,3 +76,14 @@
   //
   // 👉 See Intersection Observers - Lazy Loading Images Folder
 }
+
+//* Intersection Observers: Infinite Scrolling
+
+// ChatGPT 👇
+// Same as above 👆
+
+{
+  // TODO: ✅ Read ChatGPT's Article.
+  //
+  // 👉 See Intersection Observers - Infinite Scrolling Folder
+}
