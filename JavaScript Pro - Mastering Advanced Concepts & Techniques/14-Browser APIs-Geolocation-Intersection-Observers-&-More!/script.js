@@ -62,6 +62,8 @@
 
 {
   // TODO: ✅ Read ChatGPT's Article.
+  //
+  // 👉 See Intersection Observers - Multiple Entries Folder
 }
 
 //* Intersection Observers: Lazy Loading Images
