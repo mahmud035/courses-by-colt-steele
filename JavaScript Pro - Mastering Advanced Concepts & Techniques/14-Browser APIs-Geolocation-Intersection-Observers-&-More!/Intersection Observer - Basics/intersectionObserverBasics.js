@@ -6,8 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Callback function to execute when intersection occurs
   const callback = (entries, observer) => {
     entries.forEach((entry) => {
-      console.log(entry);
-
       if (entry.isIntersecting) {
         // Add a class when the element is visible in the viewport
         entry.target.classList.add('active');
