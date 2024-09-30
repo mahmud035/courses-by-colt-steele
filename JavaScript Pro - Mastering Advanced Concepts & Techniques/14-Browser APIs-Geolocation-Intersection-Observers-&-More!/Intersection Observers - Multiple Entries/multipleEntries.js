@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Select all elements with class 'box'
   const boxes = document.querySelectorAll('.box');
 
-  // 1. Callback function for IntersectionObserver
+  // 1. Intersection Observer callback
   const callback = (entries, observer) => {
     entries.forEach((entry) => {
       const element = entry.target;
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. Observer Options
   const options = {
     root: null, // Use the viewport as the root (Default)
-    threshold: 0.5, // Trigger when 50% of the element is visible
+    threshold: 0.5, // Trigger when at least 50% of the image is visible
   };
 
   // 3. Create Intersection Observer instance

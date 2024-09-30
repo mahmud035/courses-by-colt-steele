@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./lazyLoadingImages.css" />
+    <title>Lazy Loading Images</title>
+  </head>
+  <body>
+    <div class="spacer"></div>
+
+    <!--* Placeholder images with `data-src` attribute for lazy loading -->
+
+    <div class="image-container">
+      <img
+        src="img/digital-lazy.jpg"
+        data-src="img/digital.jpg"
+        alt="Computer"
+        class="lazy-img"
+        loading="lazy"
+      />
+    </div>
+    <div class="image-container">
+      <img
+        src="img/grow-lazy.jpg"
+        data-src="img/grow.jpg"
+        alt="Plant"
+        class="lazy-img"
+        loading="lazy"
+      />
+    </div>
+    <div class="image-container">
+      <img
+        src="img/card-lazy.jpg"
+        data-src="img/card.jpg"
+        alt="Credit card"
+        class="lazy-img"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="spacer"></div>
+
+    <script src="./lazyLoadingImages.js"></script>
+  </body>
+</html>
