@@ -42,7 +42,7 @@
   }
 
   {
-    // 3. The this Keyword
+    // 3. The `this` Keyword
     function Person(name, age) {
       this.name = name;
       this.age = age;
@@ -187,11 +187,6 @@
   }
 }
  */
-
-// Lecture Code
-
-{
-}
 
 //* The `new` Keyword
 
