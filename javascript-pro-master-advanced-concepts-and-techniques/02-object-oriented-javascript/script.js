@@ -462,6 +462,47 @@
 }
  */
 
+//* Practice Time Bank Account
+
+/* 
+{
+  // Create a `BankAccount` class
+  //  - Properties
+  //      - balance (defaults to 0 if not provided)
+  //      - accountHolder
+  //      - accountNumber
+  // - Methods
+  //   - deposit(amount) - increases balance by amount
+  //   - withdraw(amount) - decreases balance by amount
+
+  class BankAccount {
+    constructor(balance = 0, accountHolder, accountNumber) {
+      this.balance = balance;
+      this.accountHolder = accountHolder;
+      this.accountNumber = accountNumber;
+    }
+
+    deposit(amount) {
+      this.balance += amount;
+    }
+
+    withdraw(amount) {
+      this.balance -= amount;
+    }
+
+    getBalance() {
+      console.log(this.balance);
+    }
+  }
+
+  const jonasAccount = new BankAccount(10000, 'Jonas', '*****789');
+  jonasAccount.deposit(5000);
+  jonasAccount.getBalance(); // 15000
+  jonasAccount.withdraw(3000);
+  jonasAccount.getBalance(); // 12000
+}
+ */
+
 //* Inheritance Basics
 
 // Chat GPT 👇
@@ -549,7 +590,7 @@
 }
  */
 
-//* The Super Keyword
+//* The `super` Keyword
 
 // Chat GPT 👇
 // https://chatgpt.com/share/4919c193-ca3a-4710-9369-7e9cb59f69d4
