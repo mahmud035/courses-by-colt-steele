@@ -1,5 +1,24 @@
 'use strict';
 
+// ==============================================
+// IMPORTANT: Key Points To Remember: 👇
+
+// 1. In the global context, "this" refers to the global object (browser -> window, node -> global).
+
+// 2. Inside a function (in non-strict mode), "this" is the global object, while in strict mode, it is undefined.
+
+// 3. In methods, "this" refers to the object the method belongs to.
+
+// 4. Inside constructor functions and classes, "this" refers to the instance of the object.
+
+// 5. Arrow functions do not have their own "this"; they inherit it from the lexical context.
+
+// 6. Event listeners set "this" to the element that triggered the event.
+
+// 7. You can manually set "this" using bind(), call(), or apply().
+
+// ==============================================
+
 //* Introducing "this" (Understanding JavaScript "this")
 
 // Chat GPT 👇
@@ -7,25 +26,6 @@
 
 /* 
 {
-  // ==============================================
-  // IMPORTANT: Key Points To Remember: 👇
-
-  // 1. In the global context, "this" refers to the global object.
-
-  // 2. Inside a function (in non-strict mode), "this" is the global object, while in strict mode, it is undefined.
-
-  // 3. In methods, "this" refers to the object the method belongs to.
-
-  // 4. Inside constructor functions and classes, "this" refers to the instance of the object.
-
-  // 5. Arrow functions do not have their own "this"; they inherit it from the lexical context.
-
-  // 6. Event listeners set "this" to the element that triggered the event.
-
-  // 7. You can manually set "this" using bind(), call(), or apply().
-
-  // ==============================================
-
   // Examples:
 
   // 1. Global Context (Outside of Any Function)
@@ -134,11 +134,6 @@
   john.greet(); // 'John'
 }
  */
-
-// Lecture Code
-
-{
-}
 
 //* The Mystery of The Keyword "this"
 
