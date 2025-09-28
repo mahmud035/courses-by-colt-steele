@@ -55,11 +55,6 @@ fluffy.dance.apply(fluffy, ['salsa']);
 const betterDance = fluffy.dance.bind(fluffy);
 betterDance('salsa');
 
-//* The "Left Of The Dot" Rule
-
-{
-}
-
 //* Binding Arguments
 
 // You can also bind arguments to functions. That will bake them into the function.
