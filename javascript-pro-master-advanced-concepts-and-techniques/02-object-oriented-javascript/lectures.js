@@ -5,6 +5,7 @@
 
 //* Working with Plain Old JavaScript Objects (POJOs)
 
+/* 
 {
   // “Plain Old JavaScript Object” (“POJO”):
   const obj1 = {};
@@ -41,10 +42,49 @@
   // What is obj1[1]?
   console.log(obj1[1]); // goodbye
 }
+ */
 
 //* Mixing Data & Functions With Objects
 
 {
+  // Imagine some useful functions:
+  function getTriangleArea(a, b) {
+    return (a * b) / 2;
+  }
+
+  function getTriangleHypotenuse(a, b) {
+    return Math.sqrt(a ** 2 + b ** 2);
+  }
+
+  getTriangleArea(3, 4); // 6
+  getTriangleHypotenuse(3, 4); // 5
+
+  // This gets a bit messy, though — all those functions to keep track of!
+
+  // Using a POJO
+  const myTriangle = {
+    a: 3,
+    b: 4,
+    getTriangleArea() {
+      return (this.a * this.b) / 2;
+    },
+    getHypotenuse() {
+      return Math.sqrt(this.a ** 2 + this.b ** 2);
+    },
+  };
+
+  myTriangle.a; // 3
+  myTriangle.b; // 4
+  myTriangle.getHypotenuse(); // 5
+
+  // this references “this object”
+
+  // So, we can helpfully mix data & functionality 🎉
+
+  // This is tidy: related functionality lives together
+  // Annoying when we have more than one triangle
+  // - Difficult to maintain
+  // - If we have 1000 triangles, we’d have 1000 copies of these functions — that’s going to waste memory!
 }
 
 //* Class Basics
