@@ -36,11 +36,6 @@
 }
  */
 
-// Lecture Code
-
-{
-}
-
 //* Callback Hell & The Pyramid of Doom
 
 // Chat GPT 👇

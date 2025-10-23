@@ -5,25 +5,25 @@
 // ChatGPT 👇
 // https://chatgpt.com/share/66f76ae6-4e80-800f-83cd-360f4260cf1b
 
+// NOTE: Functional Programming (FP) is a programming paradigm, a style of writing code.
+
+// ==============================================
+// IMPORTANT: Core concepts of FP in JS:
+
+// 1. Pure Functions
+// 2. Immutability
+// 3. Higher-Order Functions
+// 4. First-Class Functions
+// 5. Function Composition
+// 6. Recursion
+// 7. Avoiding Side Effects
+// 8. Declarative Programming
+// ==============================================
+
 /* 
 {
   // TODO: ✅ Read ChatGPT's Article.
-
-  // NOTE: Functional Programming (FP) is a programming paradigm, a style of writing code.
-
-  // ==============================================
-  // IMPORTANT: Core concepts of FP in JS:
-
-  // 1. Pure Functions
-  // 2. Immutability
-  // 3. Higher-Order Functions
-  // 4. First-Class Functions
-  // 5. Function Composition
-  // 6. Recursion
-  // 7. Avoiding Side Effects
-  // 8. Declarative Programming
-  // ==============================================
-
+  
   {
     // 1. Pure Functions
 
