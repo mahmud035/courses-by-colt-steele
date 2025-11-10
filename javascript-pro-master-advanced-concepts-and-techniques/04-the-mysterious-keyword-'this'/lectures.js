@@ -41,7 +41,6 @@ class Cat {
 }
 
 const fluffy = new Cat('Fluffy');
-fluffy.firstName; // "Fluffy"
 fluffy.dance('tango'); // works
 
 // ⚠️ Problem
