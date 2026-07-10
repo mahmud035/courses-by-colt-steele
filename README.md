@@ -1,55 +1,59 @@
-# JavaScript Pro by Colt Steele
+# 📚 Courses by Colt Steele
 
-This repository provides a comprehensive guide to advanced JavaScript concepts and techniques.
+My work from Colt Steele's courses. The **JavaScript Pro** course is worked through in depth; the Git & GitHub Bootcamp and the DSA Masterclass folders are placeholders I have not yet populated (their status is noted honestly below).
 
-## Topics Covered
+> Personal learning archive — code follows the courses' sections and exercises.
 
-- **Advanced JavaScript Concepts**
-  - Closures
-  - Promises and Async/Await
-  - Prototypal Inheritance
-  - Event Delegation
+---
 
-- **DOM Manipulation**
-  - Selecting and modifying elements
-  - Creating and removing elements
-  - Event handling
+## 📂 Repository structure
 
-- **Intersection Observers**
-  - Using Intersection Observers
-  - Implementing lazy loading
+```
+courses-by-colt-steele/
+├── javascript-pro-master-advanced-concepts-and-techniques/   # 15 sections — primary content
+├── the-git-and-github-bootcamp/                              # started (minimal so far)
+└── javascript-algorithms-and-data-structures-masterclass/    # planned (empty placeholder)
+```
 
-- **Infinite Scrolling**
-  - Techniques for implementing infinite scrolling
-  - Performance considerations
+---
 
-- **Asynchronous Programming**
-  - Callbacks, Promises, and Async/Await
-  - Error handling in asynchronous code
+## 🟨 JavaScript Pro — Master Advanced Concepts & Techniques
 
-- **JavaScript Design Patterns**
-  - Module pattern
-  - Revealing module pattern
+The substantial part of this repository (15 sections, `02` → `17`). Each section has its own `lectures.js` / `exercise.js` / `script.js` and an `index.html`.
 
-- **APIs and Fetch**
-  - Making API calls using Fetch
-  - Handling responses and errors
+**Topics covered:**
 
-- **Testing and Debugging**
-  - Tools and techniques for testing JavaScript code
-  - Debugging strategies
+- **Object-Oriented JavaScript** — factory & constructor functions, ES6 classes, newer OOP features
+- **Prototypes & the prototype chain** — OOP under the hood, `new`, inheritance
+- **The `this` keyword** — call sites, binding rules, `call`/`apply`/`bind`
+- **Asynchronous JavaScript** — callbacks, promises, async/await, error handling
+- **Latest JavaScript features** — modern syntax and language additions
+- **The tricky parts** — coercion quirks, scope & closures
+- **Timers & scheduling** — debouncing, throttling, `requestAnimationFrame`
+- **Functional programming** — pure functions, composition, immutability
+- **Browser & Web APIs** — Fetch, Web Storage, Geolocation, Intersection Observer, Performance API, Web Audio, WebSockets
 
-## Getting Started
+## 🌿 The Git & GitHub Bootcamp
 
-To get started with the projects in this repository, clone the repo to your local machine:
+Started, but currently minimal — only early branch-workflow material is present. This section is a work in progress.
+
+## 🧮 JavaScript Algorithms & Data Structures Masterclass
+
+Planned. The folder is a placeholder and has no content committed yet.
+
+---
+
+## 💻 Technologies
+
+Vanilla **JavaScript (ES6+)** and browser **Web APIs**, run directly in the browser via each section's `index.html`. No build step or framework — the focus is core language mechanics and platform APIs. Plus **Git & GitHub** workflow (bootcamp folder).
+
+---
+
+## 🛠 Getting started
 
 ```bash
 git clone https://github.com/mahmud035/courses-by-colt-steele.git
-
-```
-
-Navigate to the project directory:
-
-```bash
 cd courses-by-colt-steele
 ```
+
+Each JavaScript Pro section is self-contained — open its `index.html` in the browser (a Live Server extension works well) and use the DevTools console to follow the `lectures.js` / `exercise.js` scripts.
